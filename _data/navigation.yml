@@ -1,0 +1,23 @@
+# main links
+main:
+   #- title: "Quick-Start Guide"
+   #  url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+   #- title: "Introduce"
+   #  url: /about/ # https://mmistakes.github.io/minimal-mistakes/about/
+   - title: "Category"
+     url: /categories/
+   - title: "Tags"
+     url: /tags/
+   #- title: "Sitemap"
+   #  url: /sitemap/
+
+author_profile: true
+sidebar:
+  nav: "docs"
+
+docs:
+  - title: Computer Engineering
+    use: true
+    children:
+     - title: "C Programming and Lab"
+       url: "/categories/C Programming and Lab"
