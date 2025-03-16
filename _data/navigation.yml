@@ -21,3 +21,7 @@ docs:
     children:
      - title: "C Programming and Lab"
        url: "/categories/C Programming and Lab"
+     - title: "Signals and Systems"
+       url: "/categories/Signals and Systems"
+     - title: "Operating System"
+       url: "/categories/Operating System"
