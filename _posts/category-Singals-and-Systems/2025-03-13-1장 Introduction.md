@@ -96,10 +96,10 @@ $x[n] = x[n+N]$ (n이 정수일 경우), $Ω = 2π/N$ (단위 : rad/smple)
 &ensp;1. 지수 신호(exponential signals) : $x(t) = B = e^{at}$ (B, a는 실수)
 
 &ensp;2. 정현파 신호(sinsoidal signals)
-&ensp;$x(t) = A\cos(\omegat + \phi)$ (A: 진폭, \omega: 단위가 rad/sec인 주파수, \phi: 단위가 라디안인 위상각)
+&ensp;$x(t) = A\cos(\omega t + \phi)$ (A: 진폭, $\omega$: 단위가 rad/sec인 주파수, $\phi$: 단위가 라디안인 위상각)
 &ensp;정현파 신호의 주기 : $T/2\pi/\omega$
 <p align="center"><img src="/assets/img/Singals and Systems/1장 Introduction/1-7.jpg" width="600"></p>
-&ensp;이산시간 정현파 신호 : $x[n] = A\cos(\Omegan + \phi)$ -> $x[n + N] = A\cos(\Omegan + \OmegaN + \phi)$ ($\OmegaN = 2\pim$  radians 또는 $\Omega = \frac{2\pim}{N}$ , integer m, N)
+&ensp;이산시간 정현파 신호 : $x[n] = A\cos(\Omega n + \phi)$ -> $x[n + N] = A\cos(\Omega n + \Omega N + \phi)$ ($\Omega N = 2\pi m$  radians 또는 $\Omega = \frac{2\pi m}{N}$ , integer m, N)
 
 
 
