@@ -18,6 +18,7 @@ last_modified_at: 2025-03-13
 ---
 
 &ensp;Classification of Signals
+-------
 
 &ensp;1. 연속시간 신호와 이산시간 신호(Continuous-time and discrete-time singals)</br>
 &ensp;continuous-time -> sampling -> discrete-time
