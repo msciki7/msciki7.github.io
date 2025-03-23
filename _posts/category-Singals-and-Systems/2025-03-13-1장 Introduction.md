@@ -134,7 +134,7 @@ $Asin(\omega n + \phi ) = Im{Be^{j\omega n}}$<br/>
 
 &ensp;이산시간 임펄스 신호는 다음과 같이 정의된다.<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/1장 Introduction/1-12.jpg" width="600"></p>
-&ensp;임펄스 신호는 두 개의 식으로 정의된다. 
+&ensp;임펄스 신호는 두 개의 식으로 정의된다. <br/>
 &ensp;$\delta (t) = 0, t \neq 0 $<br/>
 &ensp;$\int_{\infty }^{\infty }\delta (t)dt = 1$<br/>
 &ensp;$\delta (t)$가 원점을 제외한 모든 곳에서 0임을 나타낸다. 밑에 있는 식은 단위 임펄스 신호 아래의 전체 면적이 1임을 나타낸다. 임펄스 신호가 계단 함수 신호 $u(t)$의 시간에 대한 미분이라는 것이다. 단위 연속시간 임펄스 신호를 그림으로 나타내는 방법은 펄스 면적이 1을 유지하면서 펄스 폭을 감소시키고 진폭을 증가시킨다. 폭이 감소됨에 따라 구형파 펄스는 임펄스에 근사화된다. 이 결과의 일반화는 
