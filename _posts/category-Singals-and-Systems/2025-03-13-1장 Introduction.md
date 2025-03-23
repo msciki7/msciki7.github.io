@@ -133,7 +133,7 @@ $Asin(\omega n + \phi ) = Im{Be^{j\omega n}}$<br/>
 ======
 
 &ensp;이산시간 임펄스 신호는 다음과 같이 정의된다.<br/>
-&ensp;<p align="center"><img src="/assets/img/Singals and Systems/1장 Introduction/1-12.jpg" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/1장 Introduction/1-12.jpg" width="600"></p>
 &ensp;임펄스 신호는 두 개의 식으로 정의된다. 
 &ensp;$\delta (t) = 0, t \neq 0 $<br/>
 &ensp;$\int_{\infty }^{\infty }\delta (t)dt = 1$<br/>
