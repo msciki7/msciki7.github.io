@@ -42,4 +42,16 @@ last_modified_at: 2025-03-26
 &ensp;T.I :
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-5.jpg" width="600"></p>
 
+&ensp;이 관계는 시간 이동된 임펄스 입력에 관한 출력이 임펄스에 대한 응답을 시간 이동 시킨 것과 같음을 의미한다. <br/>
+$H\begin{Bmatrix}\delta [n-k]\end{Bmatrix} = h[n-k]$ <br/>
+
+&ensp;LTI 시스템의 출력은 시간 이동된 임펄스 응답의 가중합으로 계산된다. 이러한 식은 입력 신호를 시간 이동된 임펄스의 가중합으로 표현한 것으로부터 직접 이끌어낸 결과이다.<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-6.jpg" width="600"></p>
+&ensp;하나의 n에 대한 출력은 k만큼 시간 이동되어 가중된 임펄스 입력에 대응하는 응답을 k = -∞부터 k = ∞까지 합산한 것이다. <br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-7.jpg" width="600"></p>
+
+
+&ensp;3. 콘벌루션 합: 계산 과정<br/>
+======
+
 &ensp;
