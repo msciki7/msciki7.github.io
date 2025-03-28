@@ -176,12 +176,13 @@ $\delta (t) = \lim_{\Delta \to 0}x_\Delta (t)$
 &ensp; ex) 인과적 : $y[n] = \frac{1}{3}(x[n] + x[n-1] + x[n-2])$ <br/>
 &ensp; ex) 비인과적: $y[n] = \frac{1}{3}(x[n+1] + x[n] + x[n-1])$ <br/>
 <p align="center"><img src="/assets/img/Singals and Systems/1장 Introduction/1-17.jpg" width="600"></p>
+
 &ensp;4. 가역성(Invertibility)<br/>
 &ensp;입력을 구하기 위해서 주어진 시스템에 종속으로 연결되어 주어진 시스템의 입력과 동일한 신호를 출력하는 2치 시스템이 필요하다.<br/>
 &ensp;2차 시스템의 출력 신호 : <br/>
 <p align="center"><img src="/assets/img/Singals and Systems/1장 Introduction/1-18.jpg" width="600"></p>
-&ensp;출력 신호가 본래의 입력신호 x(t)와 같기 위해서는 
-$$H^{inv}H = I$를 만족해야 한다. 여기서 I는 항등연산자를 표시한다. 항등 연산자로 나타낸 시스템의 출력은 입력과 똑같다.<br/>
+&ensp;출력 신호가 본래의 입력신호 x(t)와 같기 위해서는 $H^{inv} H = I $
+를 만족해야 한다. 여기서 I는 항등연산자를 표시한다. 항등 연산자로 나타낸 시스템의 출력은 입력과 똑같다.<br/>
 
 &ensp; 4. 시불변(invariance)<br/>
 &ensp;입력 신호를 시간 이동시켜서 인가한 경우의 출력 신호가 원래 입력 신호에 대한 출력을 시간 이동시킨 것과 동일하면 시스템이 시불변이라고 한다. 이것은 시불변 시스템의 응답은 입력이 가해지는 순간에 관계 없이 동일하다는 것을 의미한다. 달리 설명하면 시불변 시스템의 특성은 시간에 따라 변하지 않는다는 것이다. 그렇지 않으면 시스템은 시변(time variant)이라고 한다. <br/>
