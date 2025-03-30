@@ -17,7 +17,7 @@ date: 2025-03-13
 last_modified_at: 2025-03-13
 ---
 
-&ensp;1. 연속시간 신호와 이산시간 신호(Continuous-time and discrete-time singals)</br>
+1\. 연속시간 신호와 이산시간 신호(Continuous-time and discrete-time singals)
 ==========
 
 &ensp;continuous-time -> sampling -> discrete-time
@@ -29,7 +29,7 @@ last_modified_at: 2025-03-13
 &ensp;-이산신호 : $x[n] = x[n + N]$ (N: 기본 주기기) , 주파수 : $ω = 2πf = 2π/N$<br/>
 이산시간 신호는 연속시간 신호를 일정한 비율로 샘플링하여 얻는다. (샘플링(sampling): 메시지 신호를 특정 순간에서 그 진폭을 나타내는 일련의 수로 변환)<br/>
 
-&ensp;2. 우함수 신호와 기함수 신호(Even and Odd signals)<br/>
+2\. 우함수 신호와 기함수 신호(Even and Odd signals)
 ======
 
 &ensp;우함수 신호 : $x(-t) = x(t)$<br/>
@@ -46,7 +46,7 @@ last_modified_at: 2025-03-13
 &ensp;its real part is even, its imaginary part is odd(실수부 - 우함수 신호, 허수부 - 기함수 신호)<br/>
 
 
-&ensp;3. 주기 신호와 비주기 신호(Periodic and aperiodic signals)<br/>
+3\. 주기 신호와 비주기 신호(Periodic and aperiodic signals)
 ======
 
 &ensp;$x(t) = x(t + T)$ (모든 t에 대하여)<br/> 
@@ -70,7 +70,7 @@ $f = 1/T$ (주파수 f의 단위: 헤르츠(Hz))<br/>
 ​&ensp;주기 이산 신호(Periodic discrete signal)<br/> 
 $x[n] = x[n+N]$ (n이 정수일 경우), $Ω = 2π/N$ (단위 : rad/smple)<br/>
  
-&ensp;4. 결정적 신호, 랜덤신호(deterministic signal, random signal)<br/>
+4\. 결정적 신호, 랜덤신호(deterministic signal, random signal)
 ======
 
 &ensp;결정적 신호 : 어느 시간에서의 값이 불확실성이 없는 신호<br/>
@@ -98,7 +98,7 @@ $x[n] = x[n+N]$ (n이 정수일 경우), $Ω = 2π/N$ (단위 : rad/smple)<br/>
 &ensp;시간 스케일링(time scaling) : $y(t) = x(at), y[n] = x[kn]$<br/>
 &ensp;시간 이동(time shifting) : $y(t) = x(t - t₀)$ (t₀는 시간 이동된 간격, t₀>0 -> 시간축에 대하여 오른쪽, t₀<0 -> 왼쪽으로 이동)<br/>
 
-&ensp;5. 기본 신호(Elementary Signals) <br/>
+5\. 기본 신호(Elementary Signals)
 ======
 
 &ensp; 지수함수, 삼각함수, 계단함수, 임펄스 함수, 램프 함수 등<br/>
@@ -123,13 +123,13 @@ $Asin(\omega n + \phi ) = Im{Be^{j\omega n}}$<br/>
 &ensp;A: real number
 <p align="center"><img src="/assets/img/Singals and Systems/1장 Introduction/1-9.jpg" width="600"></p>
 
-&ensp;5. 계단 함수 신호<br/>
+6\. 계단 함수 신호
 ======
 
 &ensp;이산시간 계단 함수 신호 -> <p align="center"><img src="/assets/img/Singals and Systems/1장 Introduction/1-10.jpg" width="600"></p>
 &ensp;연속시간 계단 함수 신호 -> <p align="center"><img src="/assets/img/Singals and Systems/1장 Introduction/1-11.jpg" width="600"></p>
 
-&ensp;6. 임펄스 신호(Impulse Function)<br/>
+7\. 임펄스 신호(Impulse Function)
 ======
 
 &ensp;이산시간 임펄스 신호는 다음과 같이 정의된다.<br/>
@@ -148,7 +148,7 @@ $\delta (t) = \lim_{\Delta \to 0}x_\Delta (t)$
 <p align="center"><img src="/assets/img/Singals and Systems/1장 Introduction/1-13.jpg" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/1장 Introduction/1-14.jpg" width="600"></p>
 
-&ensp;7. 램프함수(Ramp Function)<br/>
+8\. 램프함수(Ramp Function)
 ======
 
 &ensp;임펄스 함숭 신호 δ(t)는 계단 함수 신호 u(t)의 도함수이다. 계단 함수 신호의 적분은 기울기가 1인 램프 함수 신호이다.<br/>
@@ -158,7 +158,7 @@ $\delta (t) = \lim_{\Delta \to 0}x_\Delta (t)$
 &ensp;수학적으로 시스템은 입력 신호를 입력 신호와 다른 특성을 가진 출력 신호로 변환하는 어려 연산의 접속으로 볼 수 있다. 
 <p align="center"><img src="/assets/img/Singals and Systems/1장 Introduction/1-16.jpg" width="600"></p>
 
-&ensp;8. 시스템의 특성<br/>
+9\. 시스템의 특성
 =====
 
 &ensp;1. 안정성(Stability)<br/>
