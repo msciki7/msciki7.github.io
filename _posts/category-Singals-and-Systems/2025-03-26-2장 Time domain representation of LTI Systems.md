@@ -34,8 +34,15 @@ last_modified_at: 2025-03-26
 &ensp;x[n] = .....+ x[-2]δ[n + 2] + x[-1]δ[n + 1] + x[0]δ[n] + x[1]δ[n - 1]+ x[2]δ[n - 2] ...... =  $\sum_{k = -\infty }^{\infty }x[k]\delta [n-k]$
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-1.jpg" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-2.jpg" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-9.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-10.JPEG" width="600"></p>
+
+&ensp;$x[n] = \sum_{k=-\infty }^{\infty }x[k]\delta [n-k]$ (x[n] = a weighted sum of time-shifted impulses)<br/>
+&ensp;정의 : 임펄스 응답 h[n]은 입력이 $\delta [n]$ 일 때 시스템의 output이다.<br/>
+
 &ensp;신호 x[n]이 인가된 시스템을 연산자 H로 표현한다. 입력 x[n]이 인가된 시스템 H에 식을 적용하면 출력은 다음과 같다.<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-3.jpg" width="600"></p>
+
 &ensp;linear : 
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-4.jpg" width="600"></p>
 
@@ -47,14 +54,41 @@ $H\begin{Bmatrix}\delta [n-k]\end{Bmatrix} = h[n-k]$ <br/>
 
 &ensp;LTI 시스템의 출력은 시간 이동된 임펄스 응답의 가중합으로 계산된다. 이러한 식은 입력 신호를 시간 이동된 임펄스의 가중합으로 표현한 것으로부터 직접 이끌어낸 결과이다.<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-6.jpg" width="600"></p>
+
 &ensp;하나의 n에 대한 출력은 k만큼 시간 이동되어 가중된 임펄스 입력에 대응하는 응답을 k = -∞부터 k = ∞까지 합산한 것이다. <br/>
-<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-7.jpg" width="600"></p>
+
+&ensp;문제 1
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-7.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-11.JPEG" width="600"></p>
+
 
 
 3\. 콘벌루션 합: 계산 과정
 ======
 
+&ensp;입력신호의 지속기산이 아주 길어지면 위은 과정이 지루한 계산이 되므로 콘벌루션 합을 계산하는 다른 방법으로 출력을 찾는다. <br/>
 &ensp;콘벌루션 합의 표현은 
 $y[n] = \sum_{k=-\infty }^{\infty }x[k]h[n-k]$ <br/>
+&ensp;cf. $w_{n}[k]$ 는 중간 신호로서 다음과 같이 x[k]와 h[n-k]의 곱으로 정의한다. <br>
+$w_{n}[k] = x[k]h[n-k]$ <br/> 
+
+&ensp;문제 2<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-8.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-12.JPEG" width="600"></p>
+
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-13.JPEG" width="600"></p>
+
+&ensp;문제 3<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-14.JPEG" width="600"></p>
+
+&ensp;문제 4<br/>
+
+
+
+
+
+
+
+ 
 
 
