@@ -9,6 +9,7 @@ tags:
   - singal
   - system
 toc: true
+use_math: true 
 toc_sticky: true
 
 date: 2025-03-26
@@ -31,7 +32,9 @@ last_modified_at: 2025-03-26
 &ensp;x[n]δ[n] = x[0]δ[n]<br/>
 &ensp;x[n]δ[n-k] = x[k]δ[n-k]<br/>
 &ensp;n은 시간 지표이고 x[n]은 전체 신호를 나타내고 x[k]는 시간 n = k에서의 신호값을 나타낸다. 시간 이동된 임펄스와 신호를 곱한 결과는 시간 이동된 임펄스와 그 임펄스가 발생된 시간에서의 신호값의 크기의 곱으로 나타난다. 다음과 같이 시간 이동된 임펄스의 가중합으로 신호 x[n]을 표현할 수 있다. <br/>
-&ensp;x[n] = .....+ x[-2]δ[n + 2] + x[-1]δ[n + 1] + x[0]δ[n] + x[1]δ[n - 1]+ x[2]δ[n - 2] ...... =  $\sum_{k = -\infty }^{\infty }x[k]\delta [n-k]$
+
+$x[n] = .....+ x[-2]δ[n + 2] + x[-1]δ[n + 1] + x[0]δ[n] + x[1]δ[n - 1]+ x[2]δ[n - 2] ...... =  \sum_{k = -\infty }^{\infty }x[k]\delta [n-k]$
+
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-1.jpg" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-2.jpg" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-9.JPEG" width="600"></p>
@@ -80,12 +83,46 @@ $w_{n}[k] = x[k]h[n-k]$ <br/>
 
 &ensp;문제 3<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-14.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-15.JPEG" width="600"></p>
 
 &ensp;문제 4<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-16.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-17.JPEG" width="600"></p>
 
 
+4\. 콘벌루션 적분(The Convolution Integral)
+======
+
+&ensp;연속시간 LTI 시스템의 출력도 역시 입력과 시스템의 임펄스 응답에 관한 지식으로부터 완벽하게 결정될 수 있다. 이에 관한 접근방식과 결과는 이산시간의 경우와 아주 유사하다. <br/>
+$ x(t) = \int_{-\infty }^{\infty } x(\tau )\delta (t - \tau )d\tau$ <br/>
+&ensp;중첩 계산은 합산 대신 적분이 이용되고 시간 이동은 연속변수 $\tau$ 로 표시되어 있다. 가중값 x(t)dt는 각 임펄스가 발생되는 시간 $\tau$ 에서의 신호 x(t)의 값으로부터 얻는다. 입력 x(t)가 인가된 시스템을 연산자 H로 표기한다. 가중 중첩으로 표현되는 일반적인 입력에 대응하여 응답하는 시스템 출력은 다음과 같다.<br/>
+$y(t) = H{x(t)} = H\begin{Bmatrix}\int_{-\infty }^{\infty }x(\tau )\delta (t - \tau )d\tau \end{Bmatrix}$ <br/>
+
+&ensp;시스템의 선형성을 이용하고 연산자 H와 적분의 순서를 교환하면<br/>
+$y(t) = \int_{-\infty }^{\infty }x(\tau )H{\delta (t - \tau )}d\tau $<br/>
+&ensp;이산시간 시스템의 경우와 같이 시간 이동된 임펄스들에 대한 연속시간 선형 시스템의 응답은 시스템의 입출력 특성으로부터 완벽하게 얻어진다. 그 다음으로 단위 임펄스 입력에 대한 응답인 시스템 출력을 시스템의 임펄스 응답 $h(t) = H{\delta(t)}$ 이라고 정의한다. 시스템템이 시불변이면 $H{\delta(t-\tau )} = h(t-\tau )$. 시불변이란 시간 이동된 임펄스 입력은 시간 이동된 임펄스 응답을 출력으로 생성한다는 의미를 내포하고 있다. 입력에 대한 LTI 시스템의 출력은 다음과 같이 표현된다. <br/>
+$y(t) = x(t) \ast h(t) = \int_{-\infty }^{\infty }x(\tau )h(t - \tau )d\tau $<br/>
+
+&ensp;문제 5<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-18.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-19.JPEG" width="600"></p>
+
+&ensp;문제 6<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-20.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-21.JPEG" width="600"></p>
+
+&ensp;문제 7<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-22.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-23.JPEG" width="600"></p>
 
 
+5\. 콘벌루션 적분: 계산과정
+======
+
+&ensp;문제 8<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-24.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-25.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-26.JPEG" width="600"></p>
 
 
 
