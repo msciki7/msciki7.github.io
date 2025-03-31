@@ -124,8 +124,83 @@ $y(t) = x(t) \ast h(t) = \int_{-\infty }^{\infty }x(\tau )h(t - \tau )d\tau $<br
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-25.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-26.JPEG" width="600"></p>
 
+6\.LTI 시스템의 접속(Interconnections of LTI Systems)
+=======
 
+&ensp;상호 접속된 LTI 시스템의 전체 임펄스 응답과 각 시스템의 임펄스 응답 사이의 관계를 알아본다. <br/>
 
+&ensp;1_LTI 시스템의 병렬 접속(Parallel connection of LTI Systems)<br/>
+&ensp;임펄스 응답이 각각 h1(t)와 h2(t)인 두 시스템을 병렬로 접속한다. 전체 시스템의 출력 y(t)는, <br/>
+&ensp;$y(t) = y_{1}(t) + y_{2}(t) = x(t)\ast h_{1}(t) + (t) \ast h_{2}(t)$<br/>
+&ensp;$y(t) = \int_{-\infty }^{\infty }x(\tau )h_{1}(t - \tau ) +\int_{-\infty }^{\infty }x(\tau )h_{2}(t - \tau )d\tau$<br/>
+&ensp;$ y(t) = \int_{-\infty }^{\infty }x(\tau)\begin{Bmatrix}h_{1}(t - \tau ) + h_{2}(t - \tau ) \end{Bmatrix}d\tau = \int_{-\infty }^{\infty }x(\tau )h(t - \tau )d\tau  = x(t)\ast h(t)$<br/>
+
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-27.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-28.JPEG" width="600"></p>
+
+&ensp;2_시스템의 종속접속(Cascaded Connection of LTI Systems)<br/>
+
+&ensp;$y(t) = z(t)\ast h_{2}(t)$<br/>
+&ensp;$y(t) = \int_{-\infty }^{\infty }z(\tau )h_{2}(t - \tau )d\tau $<br/>
+&ensp;$y(t) = x(t)\ast h_{1}(t)$<br/>
+&ensp;$y(t) = \int_{-\infty }^{\infty }x(\nu )h_{2}(t - \nu )d\nu $<br/>
+&ensp;$y(t) = \int_{-\infty }^{\infty }\int_{-\infty}^{\infty}x(\nu )h_{1}(\tau -\nu )h_{2}(\tau -\nu )d\nu d\tau $<br/>
+&ensp;$\eta = \tau - \nu$ 로 변환하고 적분 순서를 재배열하면<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-29.JPEG" width="600"></p>
  
+ &ensp;$h(t - \nu ) = \int_{-\infty }^{\infty }h_{1}(\eta )h_{2}(t - \nu -\eta )d\eta $<br/>
+ &ensp;$y(t) = \int_{-\infty }^{\infty } x(\nu )h(t - \nu )d\nu  = x(t)\ast h(t)$<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-30.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-31.JPEG" width="600"></p>
 
+&ensp;$h(t) = h_{1}(t)\ast h_{2}(t)$ 를 적분으로 표현하면<br/>
+&ensp;$h(t) = \int_{-\infty }^{\infty }h_{1}(\tau )h_{2}(t - \tau )d\tau$<br/>
+&ensp;$\nu = t -\tau $ 에 따라 변환하면 <br/>
+&ensp;$h(t) = \int_{-\infty }^{\infty }h_{1}(t - \nu )h_{2}(\nu )d\nu = h_{2}(t)\ast h_{1}(t)$<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-32.JPEG" width="600"></p>
+
+&ensp;문제 9<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-33.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-34.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-35.JPEG" width="600"></p>
+
+7\. LTI 시스템의 특성과 임펄스 응답의 관계(LTI System properties and the Impulse Response)
+======
+
+&ensp;1_무기억 시스템(Memoryless LTI System)<br/>
+&ensp;무기억 LTI 시스템의 출력은 현재 입력에만 연관된다. convolution의 교환성을 적용하면 이산시간 시스템의 출력은 다음과 같다.<br/>
+
+$y[n] = h[n]\ast x[n] = \sum_{k = -\infty }^{\infty }h[k]x[n-k]$<br/>
+$y[n] = ...+ h[-2]x[n+2] + h[-1]x[n+1] + h[0]x[n] + h[1]x[n-1] + h[2]x[n-2] + ....$<br/>
+
+&ensp;이 시스템이 무기억성이라면 y[n]은 x[n]에만 의존해야 하고 k ≠ 0 인 x[n-k]에는 관계가 없어야 하며 h[0]x[n]인 항을 제외한 모든 항이 0이어야 한다. 이 사실로부터  k ≠ 0일 때 h[0] = 0임이 분명하다. 이산시간 시스템이 무기억성인 경우는 $h[k] = c\delta[k]$ 인 경우뿐이다. <br/>
+
+&ensp;연속시간 LTI 시스템의 출력은 <br/>
+
+$y(t) = \int_{-\infty }^{\infty }h(\tau )x(t - \tau )d\tau $<br/>
+
+&ensp;연속시간 시스템의 임펄스 응답이 다음 조건 $h(\rho) = c\delta(\tau)$ 를 만족하는 경우에만 그 연속시간 시스템의 무기성을 갖는다. <br/>
+
+&ensp;2_인과 LTI 시스템(Causal LTI Systems)<br/>
+&ensp;인과성 LTI 시스템은 그의 출력이 과거와 현재에만 의존하는 시스템이다. <br/>
+$y[n] = ...+ h[-2]x[n+2] + h[-1]x[n+1] + h[0]x[n] + h[1]x[n-1] + h[2]x[n-2] + ....$<br/>
+&ensp;과거와 현재 입력인 x[n], x[n-1], x[n-2].. 등은 k > 0인 임펄스 응답 h[k]에 관련되고 반면에 미래의 입력 x[n+1], x[n+2],..등은 k > 0인 임펄스 응답 h[k]에 관련된다. 그러므로 출력 y[n]이 과거 및 현재 입력에만 의존하려면 k < 0일 때 반드시 h[k] = 0이어야 한다. 이에 따라 이산시간 인과성 LTI시스템에 대해서 임펄스 응답은 **k < 0, h[k] = 0**이어야 하고 그의 콘벌루션 합은 다음과 같이 새로운 형태로 표현된다.<br/>
+
+$y[n] = \sum_{k = 0}^{\infty }h[k]x[n-k]$<br/>
+
+&ensp;일반적인 연속시간 시스템의 출력에 관한 콘벌루션 적분을 다시 쓰면 <br/>
+&ensp;$y(t) = \int_{-\infty }^{\infty }h(\tau )x(t - \tau )d\tau $<br/>
+&ensp;$\tau < 0$ 일 때 $h(\tau) = 0$ 이므로 일반적인 연속시간 시스템의 콘벌루션 적분에 인과성을 적용하면 인과성 시스템에 대한 다음과 같은 새로운 형태의 콘벌루션 적분을 얻는다.<br/>
+&ensp;$y(t) = \int_{0 }^{\infty }h(\tau )x(t - \tau )d\tau $<br/>
+
+&ensp;3\_안정 LTI 시스템(Stable LTI System)<br/>
+&ensp;어떤 시스템의 입력이 유한 크기일 때 그 시스템의 출력도 유한 크기이면 그 시스템은 BIBO 안정성을 갖는다고 정의하였다. 안정한 이산 시스템에서 
+$\begin{vmatrix}x[n]\end{vmatrix} \leq M_{x} \leq \infty$ 
+이면 그 시스템의 출력도 $\begin{vmatrix}y[n]\end{vmatrix} \leq M_{x} \leq \infty$ 을 만족해야 한다. 
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-36.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-37.JPEG" width="600"></p>
+
+&ensp;4\_가역성 시스템과 역콘벌루션<br/>
+&ensp;어떤 시스템의 입력 신호가 배율 상수를 제외하고 그 시스템의 출력 신호로부터 복원될 수 있으면 이 시스템을 가역성 시스템(invertible system)이라고 부른다. 시스템의 출력을 입력으로 받아들여서 원래 시스템의 입력을 출력 신호로 발생시키는 시스템이 존재한다는 뜻이다. 이러한 새로운 시스템을 원래 시스템의 역시스템(inverse system)이라고 부른다. $h(t)\ast x(t)$ 로부터 x(t)를 복원하는 과정은 콘벌루션을 수행하는 과정을 반대로 수행하는 것이므로 역콘벌루션(deconvolution)이라고 부른다.<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-38.JPEG" width="600"></p>
 
