@@ -63,6 +63,7 @@ $H\begin{Bmatrix}\delta [n-k]\end{Bmatrix} = h[n-k]$ <br/>
 &ensp;문제 1
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-7.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-11.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-39.JPEG" width="600"></p>
 
 
 
@@ -203,4 +204,11 @@ $\begin{vmatrix}x[n]\end{vmatrix} \leq M_{x} \leq \infty$
 &ensp;4\_가역성 시스템과 역콘벌루션<br/>
 &ensp;어떤 시스템의 입력 신호가 배율 상수를 제외하고 그 시스템의 출력 신호로부터 복원될 수 있으면 이 시스템을 가역성 시스템(invertible system)이라고 부른다. 시스템의 출력을 입력으로 받아들여서 원래 시스템의 입력을 출력 신호로 발생시키는 시스템이 존재한다는 뜻이다. 이러한 새로운 시스템을 원래 시스템의 역시스템(inverse system)이라고 부른다. $h(t)\ast x(t)$ 로부터 x(t)를 복원하는 과정은 콘벌루션을 수행하는 과정을 반대로 수행하는 것이므로 역콘벌루션(deconvolution)이라고 부른다.<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-38.JPEG" width="600"></p>
+
+
+
+
+
+
+
 
