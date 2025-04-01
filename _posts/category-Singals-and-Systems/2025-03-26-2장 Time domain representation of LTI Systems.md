@@ -205,7 +205,34 @@ $\begin{vmatrix}x[n]\end{vmatrix} \leq M_{x} \leq \infty$
 &ensp;어떤 시스템의 입력 신호가 배율 상수를 제외하고 그 시스템의 출력 신호로부터 복원될 수 있으면 이 시스템을 가역성 시스템(invertible system)이라고 부른다. 시스템의 출력을 입력으로 받아들여서 원래 시스템의 입력을 출력 신호로 발생시키는 시스템이 존재한다는 뜻이다. 이러한 새로운 시스템을 원래 시스템의 역시스템(inverse system)이라고 부른다. $h(t)\ast x(t)$ 로부터 x(t)를 복원하는 과정은 콘벌루션을 수행하는 과정을 반대로 수행하는 것이므로 역콘벌루션(deconvolution)이라고 부른다.<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-38.JPEG" width="600"></p>
 
+&ensp;문제 10<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-40.JPEG" width="600"></p>
 
+8\. 계단 응답<br/>
+&ensp;입력 신호의 갑작스런 변동에 대한 LTI 시스템의 응답을 관찰하기 위해서 계단 입력 신호가 자주 사용된다. 계단 응답(step response)은 단위 계단 입력 신호에 대한 시스템의 출력으로 정의된다. 이산시간 LTI시스템에서 임펄스 응답을 h[n]으로 표현하고 계단 응답을 s[n]으로 표현한다. <br/>
+
+$s[n] = h[n] \ast u[n] = \sum_{k=-\infty }^{\infty }h[k]u[n - k]$
+
+&ensp;k > n이면 u[n - k] = 0이고 k ≦ n이면 u[n-k] = 1이므로 위의 식은 다음과 같이 정리된다.<br/>
+$s[n] = \sum_{k = -\infty }^{\infty }h[k]$
+
+&ensp;이와 같이 LTI시스템의 계단 응답은 임펄스 응답을 누산하여 얻을 수 있다. 같은 방법으로 연속시간 시스템의 계단 응답은 임펄스 응답의 적분으로 다음과 같이 얻을 수 있다. <br/>
+
+$s(t) = \int_{-\infty }^{t}h(\tau )d\tau$
+
+&ensp;이 관계들을 거꾸로 적용하면 임펄스 응답을 계단 응답으로 표현하는 식을 다음과 같이 얻는다. 이산시간 시스템에 관한 결과는 
+$h[n] = s[n] - s[n-1]$ 이고 연속시간 시스템에 대한 결과는 $h(t) = \frac{d}{dt}s(t)$
+
+9\. LTI시스템에 대한 미분-차분 방정식 표현
+=======
+
+&ensp;선형 상수 계수 차분 또는 미분 방정식은 LTI 시스템의 입출력 특성에 관한 또 다른 표현이다. 차분 방정식은 이산시간 시스템을 표현하기 위해 이용되고 미분 방정식은 연속시간 시스템을 표현한다. 선형 상수 계수 미분 방정식의 일반적인 형태는<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-41.JPEG" width="600"></p>
+
+&ensp;차분 방정식을 재배열해서 입력 신호와 과거 출력으로부터 현재 출력을 계산할 수 있는 재귀 방정식을 얻을 수 있다. <br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-42.JPEG" width="600"></p>
+
+&ensp;
 
 
 
