@@ -232,9 +232,30 @@ $h[n] = s[n] - s[n-1]$ 이고 연속시간 시스템에 대한 결과는 $h(t) =
 &ensp;차분 방정식을 재배열해서 입력 신호와 과거 출력으로부터 현재 출력을 계산할 수 있는 재귀 방정식을 얻을 수 있다. <br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-42.JPEG" width="600"></p>
 
-&ensp;
+10\. 미분 및 차분 방정식의 해법
+======
 
+&ensp;미분 또는 차분 방정식으로 표현되는 시스템의 출력은 2가지 성분의 합으로 이루어진다. 제 1성분은 미분 또는 차분 방정식의 동차형의 해로서 일반적으로 동차해(homogeneous solution)라 부르고 $y^{(h)}$ 로 나타낸다. 제 2 성분은 입력 신호에 따른 본래의 미분 또는 차분 방정식의 해로서 특수해(particular solution)라고 부르고 $y^{(p)}$ 로 나타낸다. 그러므로 방정식의 완전 해(complete solution) y는 $ y = y^{(h)}  + y^{(p)}$ 이다. <br/>
 
+&ensp;1_동차해(homogeneous solution)<br/>
+&ensp;미분 또는 차분 방정식의 동차형은 방정식에서 모든 입력을 0으로 놓는 것이다.연속시간 시스템에 대해서 $y^{(h)}(t)$ 는 다음 동차 방정식의 해이다.<br/>
+$ \sum_{k = 0}^{N}a_{k}\frac{d^{k}}{dt^{k}}y^{(h)}(t) = 0$ <br/>
+&ensp;연속시간 시스템에 관한 동차해는 다음의 형태로 나타난다.<br/>
+$ y^{(h)}(t) = \sum_{i = 1}^{N}c_{i}e^{r_{i}t}$<br/>
+&ensp;$c_{i}$ 는 임의의 상수이고  $r_{i}$ 는 다음 식으로 정의되는 시스템의 특성 방정식(characteristic equation)이 갖는 N개의 해이다.<br/>
+$\sum_{k = 0}^{N} a_{k}r^{k} = 0$
+&ensp;이산시간 시스템에서 동차 방정식은 <br/>
+$\sum_{k = 0}^{N} a_{k}y^{(h)}[n - k] = 0$ 이고 동차해의 형태는 $y^{(h)}[n] = \sum_{i = 1}^{N}c_{i}r_{i}^{n}$ 이다. <br/>
+&ensp;$c_{i}$ 는 임의의 상수이고  $r_{i}$ 는 다음 식으로 정의되는 시스템의 특성 방정식(characteristic equation)이 갖는 N개의 해이다.<br/>
+$\sum_{k = 0}^{N}a_{k}r^{N-k} = 0$ <br/>
+
+&ensp;문제11<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-43.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-44.JPEG" width="600"></p>
+
+&ensp;문제12<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-45.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-46.JPEG" width="600"></p>
 
 
 
