@@ -249,13 +249,84 @@ $\sum_{k = 0}^{N} a_{k}y^{(h)}[n - k] = 0$ 이고 동차해의 형태는 $y^{(h)
 &ensp;$c_{i}$ 는 임의의 상수이고  $r_{i}$ 는 다음 식으로 정의되는 시스템의 특성 방정식(characteristic equation)이 갖는 N개의 해이다.<br/>
 $\sum_{k = 0}^{N}a_{k}r^{N-k} = 0$ <br/>
 
-&ensp;문제11<br/>
+&ensp;문제 11<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-43.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-44.JPEG" width="600"></p>
 
-&ensp;문제12<br/>
+&ensp;문제 12<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-45.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-46.JPEG" width="600"></p>
+
+&ensp;2_특수해(Particular solution)<br/>
+&ensp;특수해 $y^{(p)}$ 는 미분 또는 차분 방정식에서 주어진 입력에 대응하는 해로 정의하며 시스템에 관한 유일성을 갖지 않는다. 특수해는 입력과 같은 형태의 해를 가정하여 얻는 것이 보통이다. 특수해 관련 이런 해법은 입력 신호가 동차해의 성분과 동일한 경우이면 수정되어야 한다. 그러한 경우 특수해는 동차해의 모든 성분과 독립적이라고 가정한다. 이러한 과정은 특성 방정식의 근이 중복근인 경우에 독립적인 항을 찾는 과정과 동일하다. 특히 특수해의 형태에 t 또는 n의 제일 낮은 차의 거듭제곱 항을 곱해서 그 결과가 동차해와 독립적으로 만들어 새로운 특수해의 형태를 얻는다. 이 결과를 본래의 미분 또는 차분 방정식에 대입하여 상수를 결정함으로써 시스템에 맞는 특수해를 확정한다. 
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-47.JPEG" width="600"></p>
+
+&ensp;문제 13<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-48.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-49.JPEG" width="600"></p>
+
+&ensp;3_완전해<br/>
+&ensp;미분 또는 차분 방정식으로부터 얻은 특수해와 동차해를 합산하여 새로운 해를 구성하고 새로운 해가 주어진 초기조건을 만족하도록 동차해 성분에 포함되어 있는 상수들을 결정한다. 입력이 t = 0 또는 n = 0에서 인가되어서 특수해 각각 t > 0 또는 n >= 0 에 대해서 적용된다고 가정한다. 완전해는 이 시간 영역에 대해서만 성립한다. 그러므로 이산시간 시승템에서 초기조건 y[-N], y{-N + 1}, ...., y[-1]은 제 3 단계를 시작하기 이전에 y[0], y[1], y[N-1]의 조건ㅇ으로 변환되어야 한다.<br/>
+&ensp;연속시간 시스템의 경우 $t = 0^{-}$ 의 값으로 주어진 초기조건은 t = 0에서 입력을 인가하는 효과를 반영할 수 있도록 t = 0^{+}의 초기값으로 변화되어야 한다. 
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-50.JPEG" width="600"></p>
+
+&ensp;문제 14<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-51.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-52.JPEG" width="600"></p>
+
+&ensp;문제 15<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-53.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-54.JPEG" width="600"></p>
+
+&ensp;문제 16<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-55.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-56.JPEG" width="600"></p>
+
+
+11\. 블록 다이어그램 표현
+======
+
+&ensp;이제 미분 또는 차분 방정식으로 표현되는 LTI 시스템을 블록 다이러그램으로 표현하는 방법을 알아본다. 블록 다이어그램(block diagram)은 입력 신호에 가해지는 기본 연산들의 상호 접속으로 정의한다. 블록 다이어그램은 시스템의 내부 계산이나 연산이 어떤 순서로 이루어지는가를 나타내주기 때문에 시스템에 관해 임펄스 응답이나 미분 또는 차분 방정식들보다 블록 다이어그램이 더 상세한 표현이다. 임펄스 응답이나 미분 또는 차분 방정식들은 시스템의 입력과 출력에 관한 동작만을 나타내는 표현이다. 입출력의 관계가 주어진 한 개의 시스템이 서로 다른 블록 다이어그램으로 표현됨을 알게 될 것이다. 각각의 블록 다이어그램은 시스템의 출력을 계산하기 위해 사용하는 계산과정이 서로 다른 것을 나타낸다. <br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-57.JPEG" width="600"></p>
+
+&ensp;블록 다이어그램에서 사용되는 연산에 관한 각각의 기호이다. 적분으로 연속시간 LTI 시스템을 나타내려면 미분 방정식을 적분 방정식으로 변환해야 한다. 대부분의 연속시간 시스템의 블록 다이어그램 표현에서 미분 대신 적분 연산이 이용된다. 이와 더불어 적분기 시스템에서 잡음을 감소시키는 효과를 갖는 데 반해 미분기는 잡음을 강조하는 효과를 갖고 있기 때문이다.<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-58.JPEG" width="600"></p>
+
+
+&ensp;시스템 동작에 관한 적분 또는 미분 방정식은 블록 다이어그램에 의해 표현된 일련의 연산작용을 방정식의 형태로 나타냄으로써 얻을 수 있다. <br/>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-59.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-60.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-61.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-62.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-63.JPEG" width="600"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
