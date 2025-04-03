@@ -132,21 +132,22 @@ $y(t) = x(t) \ast h(t) = \int_{-\infty }^{\infty }x(\tau )h(t - \tau )d\tau $<br
 
 &ensp;1_LTI 시스템의 병렬 접속(Parallel connection of LTI Systems)<br/>
 &ensp;임펄스 응답이 각각 h1(t)와 h2(t)인 두 시스템을 병렬로 접속한다. 전체 시스템의 출력 y(t)는, <br/>
-&ensp;$y(t) = y_{1}(t) + y_{2}(t) = x(t)\ast h_{1}(t) + (t) \ast h_{2}(t)$<br/>
-&ensp;$y(t) = \int_{-\infty }^{\infty }x(\tau )h_{1}(t - \tau ) +\int_{-\infty }^{\infty }x(\tau )h_{2}(t - \tau )d\tau$<br/>
-&ensp;$ y(t) = \int_{-\infty }^{\infty }x(\tau)\begin{Bmatrix}h_{1}(t - \tau ) + h_{2}(t - \tau ) \end{Bmatrix}d\tau = \int_{-\infty }^{\infty }x(\tau )h(t - \tau )d\tau  = x(t)\ast h(t)$<br/>
+
+$y(t) = y_{1}(t) + y_{2}(t) = x(t)\ast h_{1}(t) + (t) \ast h_{2}(t)$<br/>
+$y(t) = \int_{-\infty }^{\infty }x(\tau )h_{1}(t - \tau ) +\int_{-\infty }^{\infty }x(\tau )h_{2}(t - \tau )d\tau$<br/>
+$ y(t) = \int_{-\infty }^{\infty }x(\tau)\begin{Bmatrix}h_{1}(t - \tau ) + h_{2}(t - \tau ) \end{Bmatrix}d\tau = \int_{-\infty }^{\infty }x(\tau )h(t - \tau )d\tau  = x(t)\ast h(t)$<br/>
 
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-27.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-28.JPEG" width="600"></p>
 
 &ensp;2_시스템의 종속접속(Cascaded Connection of LTI Systems)<br/>
 
-&ensp;$y(t) = z(t)\ast h_{2}(t)$<br/>
-&ensp;$y(t) = \int_{-\infty }^{\infty }z(\tau )h_{2}(t - \tau )d\tau $<br/>
-&ensp;$y(t) = x(t)\ast h_{1}(t)$<br/>
-&ensp;$y(t) = \int_{-\infty }^{\infty }x(\nu )h_{2}(t - \nu )d\nu $<br/>
-&ensp;$y(t) = \int_{-\infty }^{\infty }\int_{-\infty}^{\infty}x(\nu )h_{1}(\tau -\nu )h_{2}(\tau -\nu )d\nu d\tau $<br/>
-&ensp;$\eta = \tau - \nu$ 로 변환하고 적분 순서를 재배열하면<br/>
+$y(t) = z(t)\ast h_{2}(t)$<br/>
+$y(t) = \int_{-\infty }^{\infty }z(\tau )h_{2}(t - \tau )d\tau $<br/>
+$y(t) = x(t)\ast h_{1}(t)$<br/>
+$y(t) = \int_{-\infty }^{\infty }x(\nu )h_{2}(t - \nu )d\nu $<br/>
+$y(t) = \int_{-\infty }^{\infty }\int_{-\infty}^{\infty}x(\nu )h_{1}(\tau -\nu )h_{2}(\tau -\nu )d\nu d\tau $<br/>
+$\eta = \tau - \nu$ 로 변환하고 적분 순서를 재배열하면<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-29.JPEG" width="600"></p>
  
  &ensp;$h(t - \nu ) = \int_{-\infty }^{\infty }h_{1}(\eta )h_{2}(t - \nu -\eta )d\eta $<br/>
@@ -154,10 +155,10 @@ $y(t) = x(t) \ast h(t) = \int_{-\infty }^{\infty }x(\tau )h(t - \tau )d\tau $<br
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-30.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-31.JPEG" width="600"></p>
 
-&ensp;$h(t) = h_{1}(t)\ast h_{2}(t)$ 를 적분으로 표현하면<br/>
-&ensp;$h(t) = \int_{-\infty }^{\infty }h_{1}(\tau )h_{2}(t - \tau )d\tau$<br/>
-&ensp;$\nu = t -\tau $ 에 따라 변환하면 <br/>
-&ensp;$h(t) = \int_{-\infty }^{\infty }h_{1}(t - \nu )h_{2}(\nu )d\nu = h_{2}(t)\ast h_{1}(t)$<br/>
+$h(t) = h_{1}(t)\ast h_{2}(t)$ 를 적분으로 표현하면<br/>
+$h(t) = \int_{-\infty }^{\infty }h_{1}(\tau )h_{2}(t - \tau )d\tau$<br/>
+$\nu = t -\tau $ 에 따라 변환하면 <br/>
+$h(t) = \int_{-\infty }^{\infty }h_{1}(t - \nu )h_{2}(\nu )d\nu = h_{2}(t)\ast h_{1}(t)$<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-32.JPEG" width="600"></p>
 
 &ensp;문제 9<br/>
@@ -237,11 +238,13 @@ $h[n] = s[n] - s[n-1]$ 이고 연속시간 시스템에 대한 결과는 $h(t) =
 
 &ensp;미분 또는 차분 방정식으로 표현되는 시스템의 출력은 2가지 성분의 합으로 이루어진다. 제 1성분은 미분 또는 차분 방정식의 동차형의 해로서 일반적으로 동차해(homogeneous solution)라 부르고 $y^{(h)}$ 로 나타낸다. 제 2 성분은 입력 신호에 따른 본래의 미분 또는 차분 방정식의 해로서 특수해(particular solution)라고 부르고 $y^{(p)}$ 로 나타낸다. 그러므로 방정식의 완전 해(complete solution) y는 $ y = y^{(h)}  + y^{(p)}$ 이다. <br/>
 
-&ensp;1_동차해(homogeneous solution)<br/>
+&ensp;1\_동차해(homogeneous solution)<br/>
 &ensp;미분 또는 차분 방정식의 동차형은 방정식에서 모든 입력을 0으로 놓는 것이다.연속시간 시스템에 대해서 $y^{(h)}(t)$ 는 다음 동차 방정식의 해이다.<br/>
-$ \sum_{k = 0}^{N}a_{k}\frac{d^{k}}{dt^{k}}y^{(h)}(t) = 0$ <br/>
+
+$sum_{k = 0}^{N}a_{k}\frac{d^{k}}{dt^{k}}y^{(h)}(t) = 0$ <br/>
 &ensp;연속시간 시스템에 관한 동차해는 다음의 형태로 나타난다.<br/>
-$ y^{(h)}(t) = \sum_{i = 1}^{N}c_{i}e^{r_{i}t}$<br/>
+
+$y^{(h)}(t) = \sum_{i = 1}^{N}c_{i}e^{r_{i}t}$<br/>
 &ensp;$c_{i}$ 는 임의의 상수이고  $r_{i}$ 는 다음 식으로 정의되는 시스템의 특성 방정식(characteristic equation)이 갖는 N개의 해이다.<br/>
 $\sum_{k = 0}^{N} a_{k}r^{k} = 0$
 &ensp;이산시간 시스템에서 동차 방정식은 <br/>
