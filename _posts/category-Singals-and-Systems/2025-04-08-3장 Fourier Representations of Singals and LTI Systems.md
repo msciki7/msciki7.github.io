@@ -48,3 +48,4 @@ Fourier's idea
 * 마찬가지로 연속 시간 복소지수 함수 𝜙ₖ(t) = 𝑒^{𝑗kω₀t}도 직교
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-1.JPEG" width="600"></p>
 
+
