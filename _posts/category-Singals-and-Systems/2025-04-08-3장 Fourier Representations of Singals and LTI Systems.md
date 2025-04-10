@@ -42,10 +42,36 @@ Fourier's idea
 * 이산시간 시스템에서도 동일한 성질이 성립(DTFT)<br/>
 
 &ensp;직교성(Orthogonality)<br/>
+* 직교(orthogonal) : 서로 내적(inner product)이 0이다. -> 영향을 안 줌, 독립적인 방향<br/> 
 * 비주기 함수: 두 함수의 내적이 0이면 직교<br/>
 * 주기 함수: 주기 T 또는 N인 함수들 간의 내적 조건<br/>
 * 복소지수 함수 𝜙ₖ[n] = 𝑒^{𝑗kΩ₀n} 들이 서로 직교함을 증명<br/>
 * 마찬가지로 연속 시간 복소지수 함수 𝜙ₖ(t) = 𝑒^{𝑗kω₀t}도 직교
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-1.JPEG" width="600"></p>
 
+&ensp;1_비주기 함수의 직교 조건<br/>
+* 이산 시간 함수<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-2.PNG" width="600"></p>
+
+* 연속 시간 함수<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-3.PNG" width="600"></p>
+
+&ensp;-> 두 함수가 무한한 시간 축에서 내적이 0이면 직교<br/>
+
+&ensp;2_주기 함수의 직교 조건<br/>
+* 연속 시간(주기 T)<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-4.PNG" width="600"></p>
+
+* 이산 시간(주기 N)<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-5.PNG" width="600"></p>
+
+&ensp;-> 주기 N, T 구간만 계산해도 직교 여부 판단 가능<br/>
+
+&ensp;예) 이산 지수 함수의 직교성 증명<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-6.PNG" width="600"></p>
+
+&ensp;예) 연속 복소 지수 함수의 직교성 증명<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-7.PNG" width="600"></p>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-8.PNG" width="600"></p>
 
