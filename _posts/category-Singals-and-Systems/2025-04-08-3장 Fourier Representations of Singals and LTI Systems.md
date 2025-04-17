@@ -84,7 +84,6 @@ Fourier's idea
 
 &ensp;1_푸리에 급수 정의<br/>
 
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-14.png" width="600"></p>
 
 &ensp;주기 신호는 복소 지수 함수의 가중합으로 표현될 수 있다. 이러한 가중합을 통해 입력 신호와 출력 신호가 같은 주기를 갖고 동일한 주파수 성분으로 구성된다. 이 특성은 시스템이 주파수 성분을 그대로 유지하며 각 성분에 대해 스칼라 계수만 곱해주는 형태로 작동한다는 것을 의미한다.<br/>
 
@@ -93,22 +92,35 @@ Fourier's idea
 * 이때 $v_k{t}$ 는 보통 $e^{jkw_{0} t}$ 또는 $cos(kw_{0}t)$ , $sin(kw_{0}t)$ <br/>
 * 계수 $F_{k}$ 는 f(t)와 기지 함수 $v_{k}(t)$ 사이의 내적<br/>
 
-2\. 복소 지수 함수와 LTI 시스템(Complex Sinusoids and LTI Systems)
+2\. 복소 정현파 함수와 LTI 시스템의 주파수 응답(Complex Sinusoids and Frequency of LTI Systems)
 ======
 
-&ensp;이산 시간 시스템에서 임퍽스 응답이 h[n]인 LTI 시스템의 출력 y[n]은 다음과 같이 정의된다.<br/>
+&ensp;임펄스 응답 h[n]과 단위 진폭 복소 정현파 함수 입력 $ x[n] = e^{j\Omega n}$ 을 갖는 이산시간 LTI 시스템을 고려한다. 출력은 다음과 같다.<br/>
 
-&ensp; $y[n] = \sum_{k= -\infty }^{\infty }h[k]x[n-k]$ <br/>
+&ensp; $ y[n] = \sum_{k= -\infty }^{\infty }h[k]x[n-k] = \sum_{k= -\infty }^{\infty }h[k]e^{j\Omega (n-k)}$ <br/>
 
-&ensp;여기서 입력 x[n]이 복소 지수 함수 x[n] = $e^{jkwt}$ 인 경우 출력은 다음과 같다.<br/>
+&ensp;합으로부터 $e^{j\Omega n}$ 을 분리하여 다음을 구한다.<br/>
 
-&ensp; $y[n] = H(e^{jkw})e^{jkwn}$<br/>
+&ensp; $y[n] = e^{j\Omega n}\sum_{k= -\infty }^{\infty }h[k]e^{-j\Omega k}=H(e^{j\Omega })e^{j\Omega n}$<br/>
 
-&ensp;이때 주파수 응답 $H(e^{jkw})$ 는 시스템의 임펄스 응답 h[n]을 통해 다음과 같이 정의된다.<br/>
+&ensp;여기서 $H(e^{j\Omega})$ 는 다음과 같이 정의된다.<br/>
 
-&ensp; $H(e^{jkw}) = \sum_{k = -\infty }^{\infty }h[k]e^{-jwk}$ <br/>
+$H(e^{j\Omega }) = \sum_{k =-\infty }^{\infty }h[k]e^{-j\Omega k}$ <br/>
 
-&ensp;복소 지수 입력 $e^{jkwn}$ 은 LTI 시스템에 대해 고유 함수(eigenfunction)이다. 출력은 입력과 같은 형태를 가지고 스칼라 값 $H(e^{jw})$ 에 의해 크기 및 위상만 변한다. <br/>
+&ensp;연속시간 LTI 시스템에 대해서도 유사한 결과가 얻어진다. 연속시간 LTI 시스템의 임펄스 응답 h(t) 그리고 입력을 $x(t) = e^{jwt}$ 라고 하자. 그때 콘벌루션 적분에 의한 출력은 다음과 같다. <br/> 
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-14.png" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-22.JPEG" width="600"></p>
+
+&ensp;여기서 H(jw)는 다음과 같이 정의한다.<br/>
+
+$H(jw) = \int_{-\infty }^{\infty } h(\tau )e^{-jw\tau }d\tau $ <br/>
+
+&ensp;정현파 정상 상태 응답의 직관적인 해석은 복소값 주파수 응답 연속시간를 복소 형태로 표기함으로써 구해진다. 만약 c = a+jb가 복소수하면 그때 복소 형태로 C를 다음과 같이 쓸 수 있다. $c = |c|e^{j arg(H(jw))}$ 여기서 $|c| = \sqrt{a^{2}+b^{2}}$ , $arg\left\{c \right\} = arctan(\frac{b}{a})$ 이다. 그러므로 출력은 다음과 같이 표현된다. <br/>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-23.png" width="600"></p>
+
+&ensp;그러므로 시스템은 입력의 잔폭을 |H(jw)|배로 증가시키고 입력의 위상을 arg{H(jw)}만큼 변형시킨다. 
 
 &ensp;이산시간 시스템 예: 
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-11.png" width="600"></p>
@@ -138,6 +150,8 @@ $y[n] = \sum_{k =0}^{N-1}H(e^{jw_{k}})A[k]e^{jw_{k}n}$ <br/>
 
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-13.png" width="600"></p>
 
+&ensp;서로 다른 종류의 적용이 가능한 4종류의 푸리에 표현이 존재한다. 이들 4종류는 신호의 주기성과 시간의 연속성 또는 불연속성에 의해서 정의된다. 푸리에 급수(FS)는 연속시간 주기 신호에 적용되며 이산시간 푸리에 급수(DTFS)는 이산시간 주기 신호에 적용된다. 비주기 신호는 푸리에 변환 표현을 갖는다. 푸리에 변환(FT)은 연속시간 비주기 신호에 적용된다. 이산시간 푸리에 변환(DTFT)은 이산시간 비주기 신호에 적용된다. <br/>
+
 * 주기적 신호는 Fourier 급수를 사용한다.<br/>
 * 비주기적 신호는 Fourier 변환을 사용한다.<br/>
 
@@ -151,30 +165,32 @@ $y[n] = \sum_{k =0}^{N-1}H(e^{jw_{k}})A[k]e^{jw_{k}n}$ <br/>
 &ensp;1_Periodic Singals<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-17.png" width="600"></p>
 
-&ensp;DTFS의 주파수 인덱스도 주기적이다.<br/>
-
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-18.png" width="600"></p>
-
-
-&ensp;Fourier transform<br/>
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-19.png" width="600"></p>
-
+&ensp;중첩에서 k번째 정현파 함수의 주파수는 $kw_{o}$ 이다. 이러한 정현파 함수의 각각의 공통 주기 N를 갖는다. <br/>
 
 &ensp;2_Non-periodic Singals<br/>
-&ensp;주기 없는 신호들이 포함되며 이들을 표현하기 위해서는 푸리에 급수 대신 푸리에 변환을 사용한다. <br/>
-* 푸리에 변환은 복소 지수 함수를 연속적인 주파수 스펙트럼으로 구성된 신호로 표현한다. 
-* 주파수 축은 더 이상 이산적인 정수 배가 아니라 연속적인 값을 가진다. 
+&ensp;주기 신호와는 달리 비주기 신호를 표현하는 정현파 함수들의 주기에 대한 제한은 없다. 그러므로 푸리에 변환 표현은 연속적인 주파수값을 갖는 복소 정현파 함수를 사용한다. 연속시간 비주기 신호는 복소 정현파 함수들의 가중된 적분으로 표현되며 여기서 적분 변수는 신호의 주파수이다. FT에서 연속시간 정현파 함수가ㅏ 연속시간 비주기 신호를 표현하기 위하여 사용하는 데 반하여 DTFT에서는 이산시간 정현파 함수가 이산시간 비주기 신호를 표현하기 위하여 사용된다. 구별되는 주파수를 갖는 연속시간 정현파 함수는 서로 구별되며 따라서 FT는 범위 $-\infty$ 에서 $\infty$ 의 정현파 주파수와 연관된다. <br/>
 
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-20.png" width="600"></p>
 
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-21.png" width="600"></p>
 
+&ensp;정리<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-19.png" width="600"></p>
 
+4\. 이산시간 주기 신호: 이산시간 푸리에 급수
+======
 
+&ensp;기본 주기 N과 기본 주파수 $\Omega _{o} = 2\Pi /N$ 를 갖는 주기 신호 x[n]에 대한 DTFS 표현은 다음과 같이 주어진다.<br/>
+$x[n] = \sum_{k = 0}^{N-1}X[k]e^{jk\Omega _{o}n}$ <br/>
+&ensp;여기서 X[k]의 정의는 <br/>
+$x[k] = \frac{1}{N}\sum_{n=0}^{N-1}x[n]e^{-jk\Omega _{o}n}$ <br/>
 
+&ensp;이며, 신호 x[n]의 DTFS 계수이다. x[n]과 X[k]를 DTFS쌍이라고 하고 이 관계를 <br/>
 
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-18.png" width="600"></p>
 
+&ensp;X[k] 또는 x[n]은 신호에 대한 완전한 표현을 제공한다. DTFS 계수 X[k]는 x[n]에 대한 주파수 영역 표현이라고도 불린다. 왜냐하면 각 계수는 서로 다른 주파수의 복소 정현파 함수와 관계되기 때문이다. 변수 k는 X[k]를 갖는 정현파 함수의 주파수를 결정한다. 그래서 X[k]는 주파수의 함수이다. <br/>
 
-
-
-
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-24.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-25.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-26.JPEG" width="600"></p>
