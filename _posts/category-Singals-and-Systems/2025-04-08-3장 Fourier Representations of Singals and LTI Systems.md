@@ -191,6 +191,23 @@ $x[k] = \frac{1}{N}\sum_{n=0}^{N-1}x[n]e^{-jk\Omega _{o}n}$ <br/>
 
 &ensp;X[k] 또는 x[n]은 신호에 대한 완전한 표현을 제공한다. DTFS 계수 X[k]는 x[n]에 대한 주파수 영역 표현이라고도 불린다. 왜냐하면 각 계수는 서로 다른 주파수의 복소 정현파 함수와 관계되기 때문이다. 변수 k는 X[k]를 갖는 정현파 함수의 주파수를 결정한다. 그래서 X[k]는 주파수의 함수이다. <br/>
 
+* 문제 1
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-24.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-25.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-26.JPEG" width="600"></p>
+
+* 문제 2
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-27.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-28.JPEG" width="600"></p>
+
+* 문제3
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-29.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-30.JPEG" width="600"></p>
+
+* 문제 4
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-31.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-32.JPEG" width="600"></p>
+
+* 문제 5
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-33.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-34.JPEG" width="600"></p>
