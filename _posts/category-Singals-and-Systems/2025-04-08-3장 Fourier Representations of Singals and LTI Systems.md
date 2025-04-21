@@ -116,7 +116,9 @@ $H(e^{j\Omega }) = \sum_{k =-\infty }^{\infty }h[k]e^{-j\Omega k}$ <br/>
 
 $H(jw) = \int_{-\infty }^{\infty } h(\tau )e^{-jw\tau }d\tau $ <br/>
 
-&ensp;정현파 정상 상태 응답의 직관적인 해석은 복소값 주파수 응답 연속시간를 복소 형태로 표기함으로써 구해진다. 만약 c = a+jb가 복소수하면 그때 복소 형태로 C를 다음과 같이 쓸 수 있다. $c = |c|e^{j arg(H(jw))}$ 여기서 $|c| = \sqrt{a^{2}+b^{2}}$ , $arg\left\{c \right\} = arctan(\frac{b}{a})$ 이다. 그러므로 출력은 다음과 같이 표현된다. <br/>
+&ensp;정현파 정상 상태 응답의 직관적인 해석은 복소값 주파수 응답 연속시간를 복소 형태로 표기함으로써 구해진다. 만약 c = a+jb가 복소수하면 그때 복소 형태로 C를 다음과 같이 쓸 수 있다.
+$c = |c| e^{j arg(H(jw))}$ 
+여기서 $|c| = \sqrt{a^{2}+b^{2}}$ , $arg\left\{c \right\} = arctan(\frac{b}{a})$ 이다. 그러므로 출력은 다음과 같이 표현된다. <br/>
 
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-23.png" width="600"></p>
 
