@@ -121,7 +121,7 @@ $H(jw) = \int_{-\infty }^{\infty } h(\tau )e^{-jw\tau }d\tau $ <br/>
 
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-23.png" width="600"></p>
 
-&ensp;그러므로 시스템은 입력의 잔폭을 |H(jw)|배로 증가시키고 입력의 위상을 arg{H(jw)}만큼 변형시킨다. 
+&ensp;그러므로 시스템은 입력의 잔폭을 |H(jw)|배로 증가시키고 입력의 위상을 arg\{H(jw)\}만큼 변형시킨다. 
 
 &ensp;이산시간 시스템 예: 
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-11.png" width="600"></p>
@@ -169,7 +169,7 @@ $y[n] = \sum_{k =0}^{N-1}H(e^{jw_{k}})A[k]e^{jw_{k}n}$ <br/>
 &ensp;중첩에서 k번째 정현파 함수의 주파수는 $kw_{o}$ 이다. 이러한 정현파 함수의 각각의 공통 주기 N를 갖는다. <br/>
 
 &ensp;2_Non-periodic Singals<br/>
-&ensp;주기 신호와는 달리 비주기 신호를 표현하는 정현파 함수들의 주기에 대한 제한은 없다. 그러므로 푸리에 변환 표현은 연속적인 주파수값을 갖는 복소 정현파 함수를 사용한다. 연속시간 비주기 신호는 복소 정현파 함수들의 가중된 적분으로 표현되며 여기서 적분 변수는 신호의 주파수이다. FT에서 연속시간 정현파 함수가ㅏ 연속시간 비주기 신호를 표현하기 위하여 사용하는 데 반하여 DTFT에서는 이산시간 정현파 함수가 이산시간 비주기 신호를 표현하기 위하여 사용된다. 구별되는 주파수를 갖는 연속시간 정현파 함수는 서로 구별되며 따라서 FT는 범위 $-\infty$ 에서 $\infty$ 의 정현파 주파수와 연관된다. <br/>
+&ensp;주기 신호와는 달리 비주기 신호를 표현하는 정현파 함수들의 주기에 대한 제한은 없다. 그러므로 푸리에 변환 표현은 연속적인 주파수값을 갖는 복소 정현파 함수를 사용한다. 연속시간 비주기 신호는 복소 정현파 함수들의 가중된 적분으로 표현되며 여기서 적분 변수는 신호의 주파수이다. FT에서 연속시간 정현파 함수가 연속시간 비주기 신호를 표현하기 위하여 사용하는 데 반하여 DTFT에서는 이산시간 정현파 함수가 이산시간 비주기 신호를 표현하기 위하여 사용된다. 구별되는 주파수를 갖는 연속시간 정현파 함수는 서로 구별되며 따라서 FT는 범위 $-\infty$ 에서 $\infty$ 의 정현파 주파수와 연관된다. <br/>
 
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-20.png" width="600"></p>
 
