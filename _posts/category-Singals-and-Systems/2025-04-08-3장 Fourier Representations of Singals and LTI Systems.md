@@ -296,3 +296,44 @@ $x[k] = \frac{1}{N}\sum_{n=0}^{N-1}x[n]e^{-jk\Omega _{o}n}$ <br/>
 * 문제 12
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-52.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-53.JPEG" width="600"></p>
+
+6\. 이산시간 비주기 신호: 이산시간 푸리에 변환
+======
+
+&ensp;DTFT는 이산시간 비주기 신호를 복소 정현파 함수의 중첩으로 표현하기 위해 사용된다. DTFT는 범위 $ -\Pi \leq \Omega \leq \Pi $ 의 주파수의 연속을 포함한다. <br/>
+
+1. DTFT 정의
+&ensp;$X(e^{j\Omega }) = \sum_{n = -\infty }^{\infty }x[n]e^{-j\Omega n}$ <br/>
+
+* 이것은 시간영역의 이산신호 x[n]를 주파수 영역의 연속 주기 함수 $X(e^{j\Omega })$ 로 변환하는 공식
+
+* 이산 신호 -> 주파수축에서 2π 주기적인 연속 함수
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-54.png" width="600"></p>
+
+
+2. 역확산 공식(IDTFT)
+&ensp;$x[n] = \frac{1}{2\pi} \int_{-\pi}^{\pi} X(e^{j\Omega}) e^{j\Omega n} \, d\Omega$  <br/>
+* 주파수 영역의 함수로부터 원래의 x[n]을 복원하는 공식
+* 푸리에 급수와 유사하지만 여긴 적분이 포함되어 있음 -> 비주기성
+
+3. 왜 $X(e^{j\Omega })$ 는 2π 주기 함수인가?
+&ensp;푸리에 변환 결과인 $X(e^{j\Omega })$ 는 다음과 같은 성질을 가짐 : <br/>
+&ensp;$X(e^{j\Omega}) = X(e^{j(\Omega + 2\pi)}$ <br/>
+* 이건 지수함수 $e^{j\Omega n}$ 이 2π 주기이기 때문에 자동으로 생긴다.
+* 따라서 DTFT는 주파수축이 무한대가 아니라 [-π,π] 구간이면 충분
+
+4. DTFT가 존재하려면? (조건)
+&ensp;$\sum_{n=-\infty}^{\infty} |x[n]| < \infty$ <br/>
+* 절대수렴해야 한다.
+* 이는 푸리에 변환이 수학적으로 유효하려면 반드시 만족해야 할 조건이다.
+
+&ensp;또는 에너지 기준:<br/>
+&ensp;$\sum_{n=-\infty}^{\infty} |x[n]|^2 < \infty$ <br/>
+* 이건 유한 에너지 신호에 대한 기준
+* 이 경우에도 DTFT는 존재
+
+&ensp;Parseval’s Theorem <br/>
+&ensp;$\sum_{n=-\infty}^{\infty} |x[n]|^2 = \frac{1}{2\pi} \int_{-\pi}^{\pi} |X(e^{j\Omega})|^2 \, d\Omega$ <br/>
+* 시간 영역에서의 에너지 = 주파수 영역에서의 에너지
+* 신호의 총 에너지는 DTFT의 제곱 적분값과 동일
+* 에너지 보존 법칙이라고 보면 된다. 
