@@ -260,3 +260,39 @@ $x[k] = \frac{1}{N}\sum_{n=0}^{N-1}x[n]e^{-jk\Omega _{o}n}$ <br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-48.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-49.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-50.JPEG" width="600"></p>
+
+
+&ensp;푸리에 급수의 또 다른 표현 방식은 삼각형 푸리에 급수(Trigonometric Fourier Series)이다. 특히 사각파처럼 짝대칭이 없는 실수 신호에서 유용하게 사용된다.<br/>
+
+&ensp;지수형 푸리에 급수 (기존 표현)<br/>
+&ensp;$ x(t) = \sum_{k=-\infty }^{\infty }X[k]e^{jkw_{o}t}$
+
+&ensp;삼각형(삼각함수) 표현: Trigonometric FS<br/>
+&ensp;$ x(t) = B[0] + \sum_{k = 1}^{\infty }(B[k]cos(kw_{O}t) + A[k]sin(kw_{o}t))$
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-51.png" width="600"></p>
+
+
+* cos, sin 항의 진폭만 계산
+* 복소수 표현이 필요 없음
+* 특히 x(t)가 실수함수일 때 유용
+
+&ensp;계수 계산 방법<br/>
+* $B[0] = X[0] = \frac{1}{T}\int_{0}^{T}x(t)dt$
+* $B[k] = \frac{2}{T}\int_{0}^{T}x(t)cos(kw_{o}t)dt$
+* $A[k] = \frac{2}{T}\int_{0}^{T}sin(kw_{o}t)dt$
+
+&ensp;복소수 FS와 삼각형 FS의 관계<br/>
+* B[k] = X[k] + X[-k] (k != 0)
+* A[k] = j(X[k] - X[-k]) (k != 0)
+
+&ensp;사각파의 특별한 경우<br/>
+&ensp;문제 3.13 
+&ensp;$X[k] = \frac{sin(k2\Pi T_{o}/T)}{k\Pi }$ -> 우함수
+* A[k] = 0
+* B[k] = X[k] + X[-k] = 2X[k], k != 0
+* $B[0] = X[0] = 2T_{o}/T$ , k = 0
+* $x(t) = \sum_{k = 0}^{\infty }B[k]cos(kw_{o}t)$
+
+* 문제 12
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-52.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-53.JPEG" width="600"></p>
