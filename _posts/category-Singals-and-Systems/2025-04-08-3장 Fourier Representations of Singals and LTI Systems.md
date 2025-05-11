@@ -223,14 +223,17 @@ $x[k] = \frac{1}{N}\sum_{n=0}^{N-1}x[n]e^{-jk\Omega _{o}n}$ <br/>
 5\. 연속시간 주기 신호: 푸리에 급수
 ======
 
-&ensp;모든 연속시간 주기 함수 x(t)는 기저 주기 함수들(복소 지수 $e^{-jk\omega _{o}t}$ )의 가중합으로 표현 가능하다. 
+&ensp;모든 연속시간 주기 함수 x(t)는 기저 주기 함수들(복소 지수 $e^{-jk\omega _{o}t}$ ) 의 가중합으로 표현 가능하다. 
 
 * 주기적인 아날로그 신호 x(t)는 복소지수 $e^{-jk\omega _{o}t}$ 들의 조합으로 표현할 수 있고 각각의 주파수 성분 $k\omega _{o}$ 에 대응하는 계수 X[k]가 존재한다.
 
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-39.png" width="600"></p>
 
-&ensp;연속시간 주기 신호는 FS로 표현된다. 기본 주기 T와 기본 주파수 $ \omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
-&ensp;$ x(t) = \sum_{k = -\infty }^{\infty }X[k]e^{jk\omega _{o}t}$ <br/>
+&ensp;연속시간 주기 신호는 FS로 표현된다. 기본 주기 T와 기본 주파수 
+$\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
+
+&ensp;$x(t) = \sum_{k = -\infty }^{\infty }X[k]e^{jk\omega _{o}t}$ <br/>
+
 * 주기적 연속시간 신호 x(t)를 기본 주파수 $\omega _{o} = 2\Pi /T$ 의 정수배 복소지수로 구성
 * X[k] : 각 주파수 성분에 해당하는 푸리에 계수
 * x(t) : 실수이거나 복소수일 수 있음
