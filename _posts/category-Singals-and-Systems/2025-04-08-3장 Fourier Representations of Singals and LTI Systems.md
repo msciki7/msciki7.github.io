@@ -178,13 +178,19 @@ $y[n] = \sum_{k =0}^{N-1}H(e^{jw_{k}})A[k]e^{jw_{k}n}$ <br/>
 &ensp;정리<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-19.png" width="600"></p>
 
-4\. 이산시간 주기 신호: 이산시간 푸리에 급수
+4\. 이산시간 주기 신호: 이산시간 푸리에 급수(DTFS)
 ======
 
-&ensp;기본 주기 N과 기본 주파수 $\Omega _{o} = 2\Pi /N$ 를 갖는 주기 신호 x[n]에 대한 DTFS 표현은 다음과 같이 주어진다.<br/>
-$x[n] = \sum_{k = 0}^{N-1}X[k]e^{jk\Omega _{o}n}$ <br/>
+&ensp;기본 주기 N과 기본 주파수 
+$\Omega _{o} = 2\Pi /N$ 
+
+를 갖는 주기 신호 x[n]에 대한 DTFS 표현은 다음과 같이 주어진다.<br/>
+
+&ensp;$x[n] = \sum_{k = 0}^{N-1}X[k]e^{jk\Omega _{o}n}$ <br/>
+
 &ensp;여기서 X[k]의 정의는 <br/>
-$x[k] = \frac{1}{N}\sum_{n=0}^{N-1}x[n]e^{-jk\Omega _{o}n}$ <br/>
+
+&ensp;$x[k] = \frac{1}{N}\sum_{n=0}^{N-1}x[n]e^{-jk\Omega _{o}n}$ <br/>
 
 &ensp;이며, 신호 x[n]의 DTFS 계수이다. x[n]과 X[k]를 DTFS쌍이라고 하고 이 관계를 <br/>
 
@@ -220,7 +226,7 @@ $x[k] = \frac{1}{N}\sum_{n=0}^{N-1}x[n]e^{-jk\Omega _{o}n}$ <br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-38.JPEG" width="600"></p>
 
 
-5\. 연속시간 주기 신호: 푸리에 급수
+5\. 연속시간 주기 신호: 푸리에 급수(FS)
 ======
 
 &ensp;모든 연속시간 주기 함수 x(t)는 기저 주기 함수들(복소 지수 $e^{-jk\omega _{o}t}$ ) 의 가중합으로 표현 가능하다. 
@@ -300,7 +306,7 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-52.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-53.JPEG" width="600"></p>
 
-6\. 이산시간 비주기 신호: 이산시간 푸리에 변환
+6\. 이산시간 비주기 신호: 이산시간 푸리에 변환(DTFTS)
 ======
 
 &ensp;DTFT는 이산시간 비주기 신호를 복소 정현파 함수의 중첩으로 표현하기 위해 사용된다. DTFT는 범위 $ -\Pi \leq \Omega \leq \Pi $ 의 주파수의 연속을 포함한다. <br/>
