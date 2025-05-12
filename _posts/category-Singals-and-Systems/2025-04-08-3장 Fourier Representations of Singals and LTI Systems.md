@@ -190,7 +190,7 @@ $\Omega _{o} = 2\Pi /N$
 
 &ensp;여기서 X[k]의 정의는 <br/>
 
-&ensp;$x[k] = \frac{1}{N}\sum_{n=0}^{N-1}x[n]e^{-jk\Omega _{o}n}$ <br/>
+&ensp;$X[k] = \frac{1}{N}\sum_{n=0}^{N-1}x[n]e^{-jk\Omega _{o}n}$ <br/>
 
 &ensp;이며, 신호 x[n]의 DTFS 계수이다. x[n]과 X[k]를 DTFS쌍이라고 하고 이 관계를 <br/>
 
