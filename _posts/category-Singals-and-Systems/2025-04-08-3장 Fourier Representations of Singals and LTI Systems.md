@@ -346,3 +346,14 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 * 시간 영역에서의 에너지 = 주파수 영역에서의 에너지
 * 신호의 총 에너지는 DTFT의 제곱 적분값과 동일
 * 에너지 보존 법칙이라고 보면 된다. 
+
+* 문제 13
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-55.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-56.JPEG" width="600"></p>
+
+* 문제 14
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-57.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-58.JPEG" width="600"></p>
+
+* 문제 15
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-59.JPEG" width="600"></p>
