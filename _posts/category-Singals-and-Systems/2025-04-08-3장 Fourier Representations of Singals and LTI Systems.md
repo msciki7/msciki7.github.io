@@ -366,3 +366,47 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 * 문제 17
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-63.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-64.JPEG" width="600"></p>
+
+* 문제 18
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-65.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-66.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-67.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-68.JPEG" width="600"></p>
+
+7\. 연속시간 비주기 신호: 푸리에 변환
+======
+
+&ensp;전체 구조<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-69.png" width="600"></p>
+
+* 시간 영역 x(t): 연속시간, 비주기 신호
+* 주차수 영역 X(jw): 연속 주파수 성분의 스펙트럼
+* 변환 방향: 푸리에 변환(CTFT)
+* 역변환: inverse CTFT
+
+&ensp;CTFT 정의<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-70.png" width="600"></p>
+
+* X(jw): 주파수 영역에서의 복소수 함수
+* $w = 2\Pi f$ : 각 주파수 (rad/s)
+* 이 수식은 시간 영역의 함수 x(t)를 주파수 영역으로 변환하는 공식
+
+&ensp;Iverse CTFT (역변환)<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-71.png" width="600"></p>
+
+* 주파수 도메인의 X(jw)로부터 원래의 시간 신호 x(t)를 복원하는 식
+* 앞의 CTFT와 복소지수의 부호가 반대이며 보정 계수 $1/2\Pi$ 가 있음
+
+&ensp;푸리에 쌍 요약<br/>
+* x(t) <-> X(jw)
+* CTFT: 시간 -> 주파수
+* Inverse CTFT: 주파수 -> 시간
+
+&ensp;존재 조건 (Fourier Transform 이 존재하기 위한 조건)<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-71.png" width="600"></p>
+
+&ensp;즉 시간 영역 함수 x(t)가 절대적 적분 가능해야 푸리에 변환이 정의된다. <br/>
+* 신호가 무한 에너지는 가질 수 있지만 전체 면적은 유한해야 한다. 
+
+&ensp;요약<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-73.png" width="600"></p>
