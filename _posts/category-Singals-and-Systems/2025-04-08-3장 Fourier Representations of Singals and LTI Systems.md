@@ -428,3 +428,19 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-80.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-81.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-82.JPEG" width="600"></p>
+
+9\. 선형성과 대칭성(Linearity and Symmetry Properies of FT)
+======
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-83.JPEG" width="600"></p>
+
+&ensp;선형성(Linearity)<br/>
+&ensp;푸리에 변환(FT, CTFT, DTFT, DTFS, etc)은 선형 연산이다. 시간 영역에서 선형 결합한 함수는 주파수 영역에서도 선형 결합이 된다.<br/>
+&ensp;$z(t)=ax(t)+by(t) -> Z(jω)=aX(jω)+bY(jω)$ <br/>
+
+&ensp;위 식은 CTFT 기준이며, 다른 모든 푸리에 계열에서도 동일하게 적용된다. 선형성은 이미 알고 있는 신호 표현의 합으로 구성된 신호의 푸리에 표현을 구하기 위해 사용된다.<br/>
+
+* 문제 24
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-84.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-85.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-86.JPEG" width="600"></p>
