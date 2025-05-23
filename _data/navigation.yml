@@ -27,3 +27,5 @@ docs:
        url: "/categories/Operating System"
      - title: "Wireless Communication Systems"
        url: "/categories/Wireless Communication Systems"
+     - title: "Machine Learning"
+       url: "/categories/Machine Learning"
