@@ -444,3 +444,101 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-84.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-85.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-86.JPEG" width="600"></p>
+
+1_Symmetry Properties: Real and Imaginary Signals
+------
+
+1. 핵심 개념: 실수 신호 x(t)의 대칭성
+&ensp;푸리에 변환 정의는 다음과 같다<br/>
+&ensp;$X(jw) = \int_{-\infty }^{\infty }x(t)e^{-jwt}dt$ <br/>
+&ensp;이를 복소컬레 취하면:<br/>
+&ensp;$ X^{*}(jw) = (\int_{-\infty }^{\infty }x(t)e^{-jwt}dt)^{*} = \int_{-\infty }^{\infty }x^{*}(t)e^{jwt}dt$ <br/>
+
+2. 실수(real) 신호의 대칭성
+&ensp;실수 함수하면:<br/>
+&ensp;$ X^{*}(jw) = x(t) -> X^{*}(jw) = \int x(t)e^{jwt}dt = X(-jw)$ <br/>
+&ensp;즉<br/>
+&ensp;$X^{*}(jw) = X(-jw)$ (복소컬레 대칭, conjugate symmetry)<br/>
+
+&ensp;크기: $|X(jw)| = |X(-jw)| -> even(짝함수)<br/>
+&ensp;위상: $arg X(jw) = - arg X(-jw)$ -> odd(홀함수)<br/>
+
+&ensp;💡 예시<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-87.png" width="600"></p>
+
+3. DTFS(이산 푸리에 급수)에서도 동일
+&ensp;DTFS정의:<br/>
+&ensp;$X[k] = \frac{1}{N}\sum_{n =0}^{N-1}x[n]e^{-jk\Omega _{0}n}$ <br/>
+&ensp;만약 x[n]이 실수면: <br/>
+&ensp;$X^{*}[k] = X[-k] = X[N-k]$ (복소컬레 대칭)<br/>
+
+4. 만약 x(t)가 허수 신호라면?
+&ensp;$x(t)^{*} = -x(t) -> X^{*}(jw) = -X(-jw)$ <br/>
+&ensp;이건 반대칭 성질(odd symmetry)이라고 부른다.<br/>
+
+&ensp;크기: $|X(jw)| = |X(-jw)|$ -> even<br/>
+&ensp;위상: $arg X(jw) = arg X(-jw)$ -> even<br/>
+
+&ensp;💡 예시<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-88.png" width="600"></p>
+
+2_Symmetry Propeties: Even/Odd signals
+------
+
+&ensp;💡 먼저, 복습! 푸리에 변환이란?<br/>
+&ensp;푸리에 변환은 시간 영역의 신호 x(t)를 주파수 영역으로 바꾸는 도구이다. <br/>
+&ensp;$X(jw) = \int_{-\infty }^{\infty }x(t)e^{-jwt}dt$ <br/>
+
+* x(t): 시간에 따라 바뀌는 신호
+* X(jw): 이 신호가 주파수 영역에서 얼마나 각 주파수 성분을 포함하는지 보여주는 표현
+
+&ensp;대칭성(Symmetry) 성질: 짝수(even)/홀수(odd) 신호의 경우<br/>
+
+1. x(t)가 **실수(real)**이고 **짝수 함수(even)**일 때
+&ensp;짝수 함수란? -> x(-t) = x(t) <br/>
+
+&ensp;푸리에 변환 결과: X(jw)는 실수(real)함수가 된다.<br/>
+&ensp;왜냐하면 계산하면 <br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-89.png" width="600"></p>
+&ensp;-> 실수 값이면 컬레가 같다. 그래서 실수 + 짝수 신호는 푸리에 변환 결과도 실수 함수가 된다. <br/>
+
+2. x(t)가 **실수이고 홀수 함수(odd)**일 때
+&ensp;홀수 함수란? -> x(-t) = -x(t) <br/>
+
+&ensp;푸리에 변환 결과: X(jw)는 순허수(imaginary)함수가 된다.<br/>
+&ensp;왜냐하면 푸리에 변환을 수행하면 다음과 같은 대칭성을 갖기 때문이다.<br/>
+&ensp;$X^{*}(jw) = -X(jw)$<br/>
+&ensp;-> 실수 부분이 0이고 허수만 남는 구조이다.<br/>
+
+&ensp;🎯 요약<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-90.png" width="600"></p>
+
+
+10\. Convolution Property(컨볼루션 성질)
+======
+
+&ensp;🔶 요약: 컨볼루션 <-> 곱셈<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-91.png" width="600"></p>
+
+&ensp;즉 시간 영역에서의 컨볼루션 연산은 주파수 영역에서의 곱셈으로 바뀌고 반대로 주파수 영역에서의 곱셈은 시간 영역의 컨볼루션으로 바뀐다.<br/>
+
+&ensp;🔍 자세한 수식 풀이<br/>
+
+1. 시간 영역: 컨볼루션 정의
+&ensp;$y(t) = h(t) * x(t) = \int_{-\infty}^{\infty} h(\tau)\, x(t - \tau)\, d\tau$ <br/>
+
+&ensp;이는 h(t)필터가 x(t) 신호에 영향을 주는 방식(예: 시스템 응답)을 설명하는 기본 연산이다.<br/>
+
+2. 주파수 영역으로 푸리에 변환
+&ensp;푸리에 변환의 기본 성질:<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-92.png" width="600"></p>
+
+3. 시간 영역의 컨볼루션을 푸리에 변환하면?
+&ensp;$y(t) = h(t)*x(t) = \int_{-\infty }^{\infty }h(\tau )x(t-\tau )d\tau $ <br/>
+&ensp;이걸 주파수 영역으로 변환하면: <br/>
+&ensp;$Y(jw) = H(jw)X(jw)$ <br/>
+
+&ensp;📌 결론: 컨볼루션 정리<br/>
+&ensp;$y(t) = h(t)\ast x(t) \overset{FT}{\rightarrow} Y(jw) = H(jw)X(jw)$ <br/>
+
+&ensp;시간 영역의 곱셈이 어려우면 -> 주파수 영역에서 곱셈으로 계산하자!<br/>
