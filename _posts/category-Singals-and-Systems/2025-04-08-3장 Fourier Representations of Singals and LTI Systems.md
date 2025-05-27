@@ -542,3 +542,50 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 &ensp;$y(t) = h(t)\ast x(t) \overset{FT}{\rightarrow} Y(jw) = H(jw)X(jw)$ <br/>
 
 &ensp;시간 영역의 곱셈이 어려우면 -> 주파수 영역에서 곱셈으로 계산하자!<br/>
+
+* 문제 25
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-93.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-94.JPEG" width="600"></p>
+
+* 문제 26
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-95.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-96.JPEG" width="600"></p>
+
+
+Filtering
+------
+
+1. 필터가 뭐야?
+&ensp;필터는 마치 소리 골라내는 체 같은 거다. 우리가 듣는 음악에는 높은 소리(고음), 낮은 소리(저음), 중간 소리(중음)가 섞여 있다. 필터는 이 소리들 중에서 특정한 소리만 통과시키고 나머지는 막아주는 역할을 한다. 
+
+&ensp;🎵 예시<br/>
+* 엄가가 “TV 소리 너무 크다~!” 하면, 소리 중에서 시끄러운 고음만 줄이고 싶을 때, <br/>
+  - 👉 Low Pass Filter (LPF): 낮은 소리만 통과!
+* 친구가 "베이스만 더 듣고 싶어!" 하면,
+  - 👉 High Pass Filter (HPF): 높은 소리만 통과!
+* 특정한 중간 소리만 듣고 싶으면
+  - 👉 Band Pass Filter (BPF): 중간 대역 소리만 통과!
+
+2. 그림 설명
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-97.png" width="600"></p>
+
+* LPF(Low Pass): 낮은 주파수(소리)는 통과, 높은 주파수는 잘라냄
+* HPF(High Pass): 낮은 주파수는 자르고, 높은 주파수는 통과
+* BPF(Band Pass): 중간 주파수만 통과하고 양끝은 자름
+
+3. dB 단위란?
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-98.png" width="600"></p>
+
+* 왼쪽 그래프는 실제 크기, 오른쪽은 dB로 표현한 그래프이다.
+* 예를 들어 크기 1의 소리는 $20log_{10}(1) = 0 dB$
+* 크기가 1/√2 일 때는 $20log_{10}(1/ √2) = -3 dB$ -> 여기서부터 소리를 지르기 시작한다.
+&ensp;그래서 이걸 컷오프 주파수(cutoff frequency)라고 부른다. <br/>
+
+* 문제 27
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-99.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-100.JPEG" width="600"></p>
+
+* 문제 28
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-101.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-102.JPEG" width="600"></p>
+
