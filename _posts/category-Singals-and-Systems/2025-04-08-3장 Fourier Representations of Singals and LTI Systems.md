@@ -432,7 +432,7 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 9\. 선형성과 대칭성(Linearity and Symmetry Properies of FT)
 ======
 
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-83.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-83.png" width="600"></p>
 
 &ensp;선형성(Linearity)<br/>
 &ensp;푸리에 변환(FT, CTFT, DTFT, DTFS, etc)은 선형 연산이다. 시간 영역에서 선형 결합한 함수는 주파수 영역에서도 선형 결합이 된다.<br/>
@@ -517,9 +517,13 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 10\. Convolution Property(컨볼루션 성질)
 ======
 
+Convolution of non-periodic signals(비주기 신호의 컨볼루션)
+------
+
 &ensp;🔶 요약: 컨볼루션 <-> 곱셈<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-91.png" width="600"></p>
 
+&ensp;두 개의 비주기 연속시간 신호들 x(t)와 h(t)의 콘볼루션이다.<br/>
 &ensp;즉 시간 영역에서의 컨볼루션 연산은 주파수 영역에서의 곱셈으로 바뀌고 반대로 주파수 영역에서의 곱셈은 시간 영역의 컨볼루션으로 바뀐다.<br/>
 
 &ensp;🔍 자세한 수식 풀이<br/>
@@ -589,3 +593,64 @@ Filtering
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-101.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-102.JPEG" width="600"></p>
 
+Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션)
+------
+
+&ensp;convolution<br/>
+* 두 신호가 있을 때
+* 하나의 입력신호 x(t), 하나는 시스템의 반응 z(t)
+* 이 둘은 합성(convolution)하면 출력신호 y(t)가 된다.
+
+&ensp;주기적이란?<br/>
+&ensp;예를 들어 x(t)가 1초마다 반복되고 z(t)도 똑같이 반복된다면 이걸 그냥 쭉 합성하면 계산이 너무 커진다. <br/>
+
+&ensp;그래서 "한 주기만" 합성하면 된다.<br/> -> 이걸 **Cyclic Convolution(순환 합성)** 이라고 한다. <br/>
+
+&ensp;공식<br/>
+&ensp;$y(t) = x(t) \otimes z(t) = \int_{0}^{T} x(\tau)\, z(t - \tau)\, d\tau$ <br/>
+* 이 수식은 한 주기만 가지고 합성한다는 걸 의미한다.
+* 범위가 0부터 T까지인 게 포인터이다. (한 주기만 계산)
+
+&ensp;푸리에 급수로 바꾸면 훨씬 쉬워짐<br/>
+&ensp;주기적인 신호 -> 푸리에 급수(FS)로 바꿔준다. 그러면 합성도 그냥 곱하기로 끝남<br/>
+&ensp;결과 공식: <br/>
+&ensp;$Y[k] = TX[k]Z[k]$ <br/>
+* X[k],Z[k]는 각각 x(t), z(t)의 푸리에 계수
+* Y[k]: 합성 결과의 푸리에 계수
+* 그냥 계수끼리 곱하고 T만 곱해주면 끝
+
+&ensp;컨볼루션 성질<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-103.JPEG" width="600"></p>
+
+* 문제 29
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-104.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-105.JPEG" width="600"></p>
+
+
+11\. 미분과 적분의 성질
+======
+
+&ensp;1_시간 영역에서 미분 -> 주파수에서의 곱셈<br/>
+&ensp;목표: 시간 영역에서 미분하는 건 주파수 영역에서 jw를 곱하는 것과 같다.<br/>
+
+1. 기본 푸리에 변환 정의 
+&ensp;푸리에 변환: <br/>
+&ensp;$x(t) \overset{Ft}{\leftarrow}\to X(jw)$ <br/>
+&ensp;즉 x(t)가 주어지면 X(jw)로 바꿀 수 있고 그 반대도 가능하다. <br/>
+
+2. 시간에서 미분하면?
+&ensp;시간에서 x(t)를 미분하면 이렇게 된다.: <br/>
+&ensp;$\frac{d}{dt}x(t)\overset{Ft}{\leftarrow}\rightarrow jwX(jw)$ <br/>
+&ensp;즉 미분하는 것은 주파수 스펙트럼에 jw를 곱하는 것과 같다. <br/>
+&ensp;미분하면 고주파가 강조된다. <br/>
+
+&ensp;시간 영역에서 비주기 신호 x(t)를 미분하였을 대 효과에 대해 생각해보면: <br/>
+ 
+&ensp;$x(t) = \frac{1}{2\Pi }\int_{-\infty }^{\infty }X(jw)e^{jwt}dw$ <br/>
+&ensp;이 식의 양변을 t에 대하여 미분하면 <br/>
+&ensp;$\frac{d}{dt}x(t) = \frac{1}{2\Pi }\int_{-\infty }^{\infty }X(jw)e^{jwt}dw$ <br/>
+
+&ensp;즉 시간 영역에서의 미분은 주파수 영역에서 jw를 곱하는 것에 해당한다. <br/>
+
+* 문제 30
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-106.JPEG" width="600"></p>
