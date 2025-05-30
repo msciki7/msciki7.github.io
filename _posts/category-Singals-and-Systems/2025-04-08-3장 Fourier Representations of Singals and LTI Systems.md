@@ -620,7 +620,7 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 * 그냥 계수끼리 곱하고 T만 곱해주면 끝
 
 &ensp;컨볼루션 성질<br/>
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-103.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-103.png" width="600"></p>
 
 * 문제 29
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-104.JPEG" width="600"></p>
