@@ -669,11 +669,13 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 
 &ensp;정리: 시간 미분 -> 주파수 곱셈<br/>
 * g(t)를 시간 t로 미분하면 -> 푸리에 변환에서는 주파수에 곱하기 (jw)
-&ensp;$\frac{d}{dt} g(t) \xleftrightarrow{\mathcal{F}} j\omega G(j\omega)$  <br/>
+
+&ensp;$\frac{d}{dt}g(t) \leftarrow \overset{FT}{\rightarrow}jwG(jw)$ <br/>
 
 3. 주파수 미분 -> 시간 곱셈
 * G(jw)를 주파수 w로 미분하면 -> 시간 신호에 -jt를 곱한 것과 같다.
-&ensp;$jt\, g(t) \xleftrightarrow{\mathcal{F}} \frac{d}{d\omega} G(j\omega)$ <br/>
+
+&ensp;$jt\, g(t) \xleftrightarrow{\mathcal{FT}} \frac{d}{d\omega} G(j\omega)$ <br/>
 
 * 문제 33
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-113.JPEG" width="600"></p>
