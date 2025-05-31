@@ -121,9 +121,9 @@ $H(jw) = \int_{-\infty }^{\infty } h(\tau )e^{-jw\tau }d\tau $ <br/>
 
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-23.png" width="600"></p>
 
-&ensp;그러므로 시스템은 입력의 잔폭을 |H(jw)|배로 증가시키고 입력의 위상을 arg\{H(jw)\}만큼 변형시킨다. 
+&ensp;그러므로 시스템은 입력의 잔폭을 |H(jw)|배로 증가시키고 입력의 위상을 $arg\{H(jw)\}$만큼 변형시킨다. <br/>
 
-&ensp;이산시간 시스템 예: 
+&ensp;이산시간 시스템 예: <br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-11.png" width="600"></p>
 
 &ensp;이산 LTI 시스템에 $e^{j\Omega n}$ 넣으면 출력은 같은 형태 X $H(e^{j\Omega })e^{j\Omega n}$ <br/>
