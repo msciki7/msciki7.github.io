@@ -673,6 +673,7 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 &ensp;$\frac{d}{dt}g(t) \leftarrow \overset{FT}{\rightarrow}jwG(jw)$ <br/>
 
 3. 주파수 미분 -> 시간 곱셈
+
 * G(jw)를 주파수 w로 미분하면 -> 시간 신호에 -jt를 곱한 것과 같다.
 
 &ensp;$-jtg(t)\leftarrow \overset{FT}{\rightarrow}\frac{d}{dw}G(jw)$ <br/>
