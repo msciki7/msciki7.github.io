@@ -327,7 +327,7 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 
 3. 왜 $X(e^{j\Omega })$ 는 2π 주기 함수인가?
 &ensp;푸리에 변환 결과인 $X(e^{j\Omega })$ 는 다음과 같은 성질을 가짐 : <br/>
-&ensp;$X(e^{j\Omega}) = X(e^{j(\Omega + 2\pi)}$ <br/>
+&ensp;$X(e^{j\Omega}) = X(e^{j(\Omega + 2\pi)})$ <br/>
 * 이건 지수함수 $e^{j\Omega n}$ 이 2π 주기이기 때문에 자동으로 생긴다.
 * 따라서 DTFT는 주파수축이 무한대가 아니라 [-π,π] 구간이면 충분
 
