@@ -450,27 +450,28 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 
 1. 핵심 개념: 실수 신호 x(t)의 대칭성
 &ensp;푸리에 변환 정의는 다음과 같다<br/>
-&ensp;$X(jw) = \int_{-\infty }^{\infty }x(t)e^{-jwt}dt$ <br/>
+<p align="center">$X(jw) = \int_{-\infty }^{\infty }x(t)e^{-jwt}dt$</p>
+
 &ensp;이를 복소컬레 취하면:<br/>
-&ensp;$ X^{*}(jw) = (\int_{-\infty }^{\infty }x(t)e^{-jwt}dt)^{*} = \int_{-\infty }^{\infty }x^{*}(t)e^{jwt}dt$ <br/>
+<p align="center">$X^{*}(jw) = (\int_{-\infty }^{\infty }x(t)e^{-jwt}dt)^{*} = \int_{-\infty }^{\infty }x^{*}(t)e^{jwt}dt$</p>
 
 2. 실수(real) 신호의 대칭성
 &ensp;실수 함수하면:<br/>
-&ensp;$ X^{*}(jw) = x(t) -> X^{*}(jw) = \int x(t)e^{jwt}dt = X(-jw)$ <br/>
+<p align="center">$ X^{*}(jw) = x(t) -> X^{*}(jw) = \int x(t)e^{jwt}dt = X(-jw)$</p>
 &ensp;즉<br/>
 &ensp;$X^{*}(jw) = X(-jw)$ (복소컬레 대칭, conjugate symmetry)<br/>
 
 &ensp;크기: $|X(jw)| = |X(-jw)| -> even(짝함수)<br/>
-&ensp;위상: $arg X(jw) = - arg X(-jw)$ -> odd(홀함수)<br/>
+&ensp;위상: arg X(jw) = - arg X(-jw) -> odd(홀함수)<br/>
 
 &ensp;💡 예시<br/>
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-87.png" width="600"></p>
+  <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-87.png" width="600"></p>
 
 3. DTFS(이산 푸리에 급수)에서도 동일
 &ensp;DTFS정의:<br/>
 &ensp;$X[k] = \frac{1}{N}\sum_{n =0}^{N-1}x[n]e^{-jk\Omega _{0}n}$ <br/>
 &ensp;만약 x[n]이 실수면: <br/>
-&ensp;$X^{*}[k] = X[-k] = X[N-k]$ (복소컬레 대칭)<br/>
+<p align="center">$X^{*}[k] = X[-k] = X[N-k]$ (복소컬레 대칭)</p>
 
 4. 만약 x(t)가 허수 신호라면?
 &ensp;$x(t)^{*} = -x(t) -> X^{*}(jw) = -X(-jw)$ <br/>
@@ -481,6 +482,9 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 
 &ensp;💡 예시<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-88.png" width="600"></p>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-115.png" width="600"></p>
+
 
 2_Symmetry Propeties: Even/Odd signals
 ------
