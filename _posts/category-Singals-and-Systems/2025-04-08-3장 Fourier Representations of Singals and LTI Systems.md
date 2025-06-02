@@ -483,10 +483,10 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 &ensp;💡 예시<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-88.png" width="600"></p>
 
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-115.png" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-115.JPEG" width="600"></p>
 
 
-2_Symmetry Propeties: Even/Odd signals
+2\_Symmetry Propeties: Even/Odd signals
 ------
 
 &ensp;💡 먼저, 복습! 푸리에 변환이란?<br/>
