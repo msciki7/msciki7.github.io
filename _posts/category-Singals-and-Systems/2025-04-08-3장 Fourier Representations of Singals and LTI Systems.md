@@ -461,7 +461,7 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 &ensp;즉<br/>
 &ensp;$X^{*}(jw) = X(-jw)$ (복소컬레 대칭, conjugate symmetry)<br/>
 
-&ensp;크기: $|X(jw)| = |X(-jw)| -> even(짝함수)<br/>
+&ensp;크기: |X(jw)| = |X(-jw)| -> even(짝함수)<br/>
 &ensp;위상: arg X(jw) = - arg X(-jw) -> odd(홀함수)<br/>
 
 &ensp;💡 예시<br/>
@@ -474,7 +474,8 @@ $\omega _{o} = 2\Pi /T$ 를 갖는 신호 x(t)의 FS는 다음과 같다. <br/>
 <p align="center">$X^{*}[k] = X[-k] = X[N-k]$ (복소컬레 대칭)</p>
 
 4. 만약 x(t)가 허수 신호라면?
-&ensp;$x(t)^{*} = -x(t) -> X^{*}(jw) = -X(-jw)$ <br/>
+
+<p align="center">$x(t)^{*} = -x(t) -> X^{*}(jw) = -X(-jw)$ </p>
 &ensp;이건 반대칭 성질(odd symmetry)이라고 부른다.<br/>
 
 &ensp;크기: $|X(jw)| = |X(-jw)|$ -> even<br/>
