@@ -117,11 +117,11 @@ $H(e^{j\Omega }) = \sum_{k =-\infty }^{\infty }h[k]e^{-j\Omega k}$ <br/>
 $H(jw) = \int_{-\infty }^{\infty } h(\tau )e^{-jw\tau }d\tau $ <br/>
 
 &ensp;정현파 정상 상태 응답의 직관적인 해석은 복소값 주파수 응답 연속시간를 복소 형태로 표기함으로써 구해진다. 만약 c = a+jb가 복소수하면 그때 복소 형태로 C를 다음과 같이 쓸 수 있다.
-&ensp;|H(jw)|는 시스템의 크기 응답이고 arg{ {H(jw)} }는 시스템의 위상 응답이다.<br/>
+&ensp;\|H(jw)\|는 시스템의 크기 응답이고 arg{ {H(jw)} }는 시스템의 위상 응답이다.<br/>
 
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-23.png" width="600"></p>
 
-&ensp;그러므로 시스템은 입력의 잔폭을 |H(jw)|배로 증가시키고 입력의 위상을 $arg\{H(jw)\}$만큼 변형시킨다. <br/>
+&ensp;그러므로 시스템은 입력의 진폭을 \|H(jw)\|배로 증가시키고 입력의 위상을 $arg\{H(jw)\}$만큼 변형시킨다. <br/>
 
 &ensp;이산시간 시스템 예: <br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-11.png" width="600"></p>
