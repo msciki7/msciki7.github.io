@@ -13,7 +13,7 @@ use_math: true
 toc_sticky: true
 
 date: 2025-04-08
-last_modified_at: 2025-04-08
+last_modified_at: 2025-06-05
 ---
 
 Fourier's idea
@@ -635,7 +635,7 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 11\. 미분과 적분의 성질
 ======
 
-1_시간 영역에서 미분 -> 주파수에서의 곱셈
+1_시간 영역에서 미분 <-> 주파수에서의 곱셈
 ------
 
 &ensp;목표: 시간 영역에서 미분하는 건 주파수 영역에서 jw를 곱하는 것과 같다.<br/>
@@ -687,3 +687,211 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-113.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-114.JPEG" width="600"></p>
 
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-116.png" width="600"></p>
+
+2_시간에서 적분 <-> 푸리에 변환에서의 나눗셈
+-------
+
+* 시간 영역
+
+&ensp;$y(t) = \int_{-\infty }^{t}x(\tau )d\tau$ <br/>
+
+* 주파수 영역
+
+&ensp;$Y(j\omega) = \frac{1}{j\omega} X(j\omega) + \pi \delta(\omega) X(0)$ <br/>
+&ensp;여기서 δ(ω)는 델타 함수라고 해서 DC(ω = 0)성분만 따로 챙겨주는 친구<br/>
+
+&ensp;$y(t) = \int_{-\infty }^{t}x(\tau )d\tau \leftarrow \overset{FT}{\rightarrow} \frac{1}{j\omega} X(j\omega) + \pi \delta(\omega) X(0)$
+
+&ensp;조심해야 할 점 (DC 성분, ω=0)<br/>
+* $frac{1}{j\omega}$ 은 ω=0 일 때 나눗셈 불가(무한대 됨)
+* 그래서 ω=0 성분(DC, 평균값)은 따로 처리해줘야 함
+* 그게 바로 πδ(ω)X(0) 이 부분(델타 함수가 0주파수에만 값이 있다는 뜻)
+
+&ensp;예제: 단위 계단 함수 u(t)의 푸리에 변환<br/>
+
+1. u(t) 적분 표현
+
+&ensp;$u(t) = \int_{-\infty }^{t} \delta(\tau )d\tau$ <br/>
+
+* 즉 u(t)는 델타 함수를 적분한 것
+
+2. 푸리에 변환
+* 델타 함수의 푸리에 변환은 1임
+* 그래서 공식에 넣으면 
+
+&ensp;$U(jw) = \frac{1}{j\omega} X(jw) + \pi \delta(\omega) X(0)$ <br/>
+* 여기서 X(jw)는 δ(t)의 푸리에 변환 즉 1이다.
+* X(0)도 1
+
+&ensp;$U(jw) = \frac{1}{j\omega} + \pi \dalta(\omega)$ <br/>
+
+
+&ensp;Signum 함수<br/>
+* sgn(t): 
+  - t < 0 -> -1
+  - t = 0 -> 0
+  - t > 0 -> 1
+  - 즉 부호만 표시해주는 함수
+* 단위 계단함수 u(t) = 1/2 + 1/2 sgn(t)
+  - t < 0: 0
+  - t = 0: 0.5
+  - t > 0: 1
+
+&ensp;푸리에 변환 공식 적용<br/>
+* $\mathcal{F}\left[\operatorname{sgn}(t)\right] = \frac{2}{j\omega}$
+
+* u(t) = 1/2 + 1/2 sgn(t) (계단 신호는 상수(0.5)와 부호 함수(0.5 sgn(t))의 합으로 볼 수 있다. -> 푸리에 변환을 더해주면 됨)
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-117.png" width="600"></p>
+
+&ensp;결론<br/>
+&ensp;$U(jw) = frac{1}_{j\omega} + \pi \delta(\omega)$ <br/>
+&ensp;이게 단위계단함수의 푸리에 변환 결과<br/>
+
+&ensp;요약<br/>
+* 적분하면 푸리에 변화에서는 나누기(jw)
+* 평균값(DC, w = 0)은 δ(ω)로 따로 표현
+* 특히 u(t)는 
+
+&ensp;$U(jw) = frac{1}_{j\omega} + \pi \delta(\omega)$ <br/>
+
+* 단위 계단 함수 = 상수 + 부호 함수
+* 푸리에 변환도 두 신호의 변환 결과를 합치면 된다. 
+
+&ensp;일반적인 미분, 적분의 푸리에 변환 공식<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-118.png" width="600"></p>
+
+1. 시간 미분 -> 주파수 곱셈
+
+&ensp;$\frac{d}{dt} x(t) \xleftrightarrow{\mathcal{F}} j\omega X(j\omega)$ <br/>
+
+* x(t)를 시간에 따라 미분하면
+* 푸리에 변환에서는 주파수(w)를 곱하는 효과가 있다. 
+* 즉 변화가 빠를수록(미분이 클수록) 고주파수 성분이 많아짐
+
+2. 푸리에 급수(주기 신호) 미분
+
+&ensp;$\frac{d}{dt} x(t) \xleftrightarrow{\text{FS};\, \omega_0} jk\omega_0 X[k]$ <br/>
+
+* x(t)가 주기 신호면 k(몇 번째 고주파), ω₀(기본 주파수)
+* 미분하면 역시 kω₀를 곱하게 됨
+
+3. 시간에 t 곱하기 -> 주파수 미분
+
+&ensp;$-jt\, x(t) \xleftrightarrow{\mathcal{F}} \frac{d}{d\omega} X(j\omega)$ <br/>
+
+* x(t)가 t를 곱하면
+* 푸리에 변환에서는 미분(d/dw)이 됨
+* 즉 시간에 t 곱하면 주파수 스펙트럼이 넓어진다는 뜻
+
+4. 이산 신호의 미분(차분)
+
+&ensp;$-jn\, x[n] \xleftrightarrow{\text{DTFT}} \frac{d}{d\Omega} X(e^{j\Omega})$ <br/>
+
+* 이산 신호(n이 정수, 디지털 신호)에서
+* 시간에 n 곱하면
+* 주파수에서는 역시 미분(d/dΩ)이 됨
+
+5. 적분의 푸리에 변환
+
+&ensp;$\int_{-\infty}^{t} x(\tau)\, d\tau \xleftrightarrow{\mathcal{F}} \frac{1}{j\omega} X(j\omega) + \pi X(0)\, \delta(\omega)$ <br/>
+
+* 시간 신호를 적분하면
+* 푸리에 변환에서는 나누기(jw) 효과가 있고
+* DC성분(평균값)은 δ(ω)항(델타함수)로 따로 표현됨
+ 
+12\. Time-Shift Property(시간 이동 특성)
+=====
+
+&ensp;타임 시프트(time-shift)<br/>
+* 신호를 오른쪽으로 밀거나 당기는 것
+* 예: x(t)를 t₀만큼 오른쪽(과거로) 이동 → x(t - t₀)
+
+&ensp;타임 시프트의 푸리에 변환 효과<br/>
+* 시간에서 밀면 주파수에서는 위상(phase)가 변한다.
+* 구체적으로: x(t - t₀)를 푸리에 변환하면 X(jω)에 $e^{-jωt₀}$ 를 곱한 것이 됨!
+
+&ensp;공식 요약<br/>
+&ensp;$x(t - t_0) \xleftrightarrow{\mathcal{F}} e^{-j\omega t_0} X(j\omega)$ <br/>
+
+* t₀만큼 밀면 주파수 변환에서는 $e^{-jωt₀}$ 만 곱해주면 끝!
+
+&ensp;푸리에 급수(FS) (주기 신호)<br/>
+&ensp;$x(t - t_0) \xleftrightarrow{\text{FS}} e^{-jk\omega_0 t_0} X[k]$ <br/>
+
+* k번째 고조파마다 phase shift만 생김
+  
+&ensp;이산 푸리에 변환(DTFT) (샘플링 신호)<br/>
+&ensp;$x[n - n_0] \xleftrightarrow{\text{DTFT}} e^{-j\Omega n_0} X(e^{j\Omega})$ <br/>
+
+&ensp;푸리에 급수(이산)<br/>
+&ensp;$x[n - n_0] \xleftrightarrow{\text{DFS}} e^{-jk\Omega_0 n_0} X[k]$ <br/>
+
+&ensp;공식 유도<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-119.png" width="600"></p>
+
+&ensp;Method2<br/>
+1. 역푸리에 변환 기본 공식
+
+&ensp;$x(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(j\omega)\, e^{j\omega t} \, d\omega$ <br/>
+
+&ensp;이 식이 주파수 영역 정보로 시간 신호를 만드는 공식이다.<br/>
+
+2. 시간 이동(shift)된 신호를 만들고 싶으면?
+
+&ensp;$x(t - t_0) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(j\omega)\, e^{j\omega (t - t_0)} \, d\omega$
+
+3. 지수함수 전개하기
+
+&ensp;$e^{j\omega(t - t_0)} = e^{j\omega t} \cdot e^{-j\omega t_0}$ <br/>
+&ensp;$x(t - t_0) = \frac{1}{2\pi} \int_{-\infty}^{\infty} X(j\omega) \cdot e^{-j\omega t_0} \cdot e^{j\omega t} \, d\omega$ <br/>
+
+4. 곱하기 순서 바꿔 보기
+
+&ensp;$e^{-jωt₀}$ 는 t와 무관하니까, X(jw)에 미리 곱해줘도 된다. <br/>
+
+&ensp;$x(t - t_0) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \left[ X(j\omega) e^{-j\omega t_0} \right] e^{j\omega t} \, d\omega$ <br/>
+
+&ensp;해석<br/>
+&ensp;즉 주파수 영역에서 X(jw)에 $e^{-jωt₀}$ 만 곱하면 그대로 시간 이동 효과가 생긴다. <br/>
+
+&ensp;$x(t - t_0) \xleftrightarrow{\mathcal{FT}} e^{-j\omega t_0} X(j\omega)$ <br/>
+
+&ensp;요약<br/>
+&ensp;시간 이동은 주파수 영역에서 곱셈으로 나타난다. 신호를 t₀만큼 오른쪽으로 밀면, 푸리에 변환에서 X(jw)에 $e^{-jωt₀}$ 를 곱하는 것과 같다. <br/>
+
+&ensp;푸리에 변환 역변환 공식 & 시간 시프트 표<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-120.png" width="600"></p>
+
+* 문제 34
+
+
+Frequency-Shift Property
+------
+
+&ensp;시간에서 진동(회전)을 곱하면 주파수에서 이동이 생긴다. <br/>
+
+&ensp;$e^{j\gamma t} \, x(t) \xleftrightarrow{\mathcal{F}} X(j(\omega - \gamma))$ <br/>
+
+* 시간에 주파수  γ인 복소 사인파를 곱해주면 주파수 영역에서 X(jw)를 오른쪽으로 γ만큼 밀게 된다.
+
+&ensp;요약<br/>
+* 시간에서는: **x(t)**는 원래 신호
+* $e^{jγt}$ 는 주파수 γ의 진동하는 파동이다. -> 이걸 곱하면 x(t)는 γ로 진동하게 된다. 
+* 주파수에서는: 원래 주파수 w 성분들이 모두 w -> w - γ로 이동됨
+
+&ensp;공식 유도<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-121.png" width="600"></p>
+
+&ensp;Frequency-Shift 공식 표<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-122.png" width="600"></p>
+
+* 문제 35
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-123.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-124.JPEG" width="600"></p>
+
+
+* 문제 36
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-125.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-126.JPEG" width="600"></p>
