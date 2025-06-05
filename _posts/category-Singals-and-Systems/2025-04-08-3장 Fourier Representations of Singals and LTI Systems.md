@@ -701,7 +701,7 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 &ensp;$Y(j\omega) = \frac{1}{j\omega} X(j\omega) + \pi \delta(\omega) X(0)$ <br/>
 &ensp;여기서 δ(ω)는 델타 함수라고 해서 DC(ω = 0)성분만 따로 챙겨주는 친구<br/>
 
-&ensp;$y(t) = \int_{-\infty }^{t}x(\tau )d\tau \leftarrow \overset{FT}{\rightarrow} \frac{1}{j\omega} X(j\omega) + \pi \delta(\omega) X(0)$
+<p align="center">$y(t) = \int_{-\infty }^{t}x(\tau )d\tau \leftarrow \overset{FT}{\rightarrow} \frac{1}{j\omega} X(j\omega) + \pi \delta(\omega) X(0)$</p>
 
 &ensp;조심해야 할 점 (DC 성분, ω=0)<br/>
 * $frac{1}{j\omega}$ 은 ω=0 일 때 나눗셈 불가(무한대 됨)
@@ -724,7 +724,7 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 * 여기서 X(jw)는 δ(t)의 푸리에 변환 즉 1이다.
 * X(0)도 1
 
-&ensp;$U(jw) = \frac{1}{j\omega} + \pi \dalta(\omega)$ <br/>
+&ensp;$U(jw) = \frac{1}{j\omega} + \pi \delta(\omega )$ <br/>
 
 
 &ensp;Signum 함수<br/>
@@ -764,7 +764,7 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 
 1. 시간 미분 -> 주파수 곱셈
 
-&ensp;$\frac{d}{dt} x(t) \xleftrightarrow{\mathcal{F}} j\omega X(j\omega)$ <br/>
+<p align="center">$ \frac{d}{dt} x(t) \leftarrow \overset{FT}{\rightarrow} j\omega X(j\omega)$</p>
 
 * x(t)를 시간에 따라 미분하면
 * 푸리에 변환에서는 주파수(w)를 곱하는 효과가 있다. 
@@ -772,14 +772,14 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 
 2. 푸리에 급수(주기 신호) 미분
 
-&ensp;$\frac{d}{dt} x(t) \xleftrightarrow{\text{FS};\, \omega_0} jk\omega_0 X[k]$ <br/>
+<p align="center">$\frac{d}{dt} x(t) \leftarrow \overset{FS;w_0}{\rightarrow} jk\omega_0 X[k]$</p>
 
 * x(t)가 주기 신호면 k(몇 번째 고주파), ω₀(기본 주파수)
 * 미분하면 역시 kω₀를 곱하게 됨
 
 3. 시간에 t 곱하기 -> 주파수 미분
 
-&ensp;$-jt\, x(t) \xleftrightarrow{\mathcal{F}} \frac{d}{d\omega} X(j\omega)$ <br/>
+<p align="center">$-jt\, x(t) \leftarrow \overset{FT}{\rightarrow} \frac{d}{d\omega} X(j\omega)$</p>
 
 * x(t)가 t를 곱하면
 * 푸리에 변환에서는 미분(d/dw)이 됨
@@ -787,7 +787,7 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 
 4. 이산 신호의 미분(차분)
 
-&ensp;$-jn\, x[n] \xleftrightarrow{\text{DTFT}} \frac{d}{d\Omega} X(e^{j\Omega})$ <br/>
+<p align="center">$-jn\, x[n] \leftarrow \overset{DTFT}{\rightarrow} \frac{d}{d\Omega} X(e^{j\Omega})$</p>
 
 * 이산 신호(n이 정수, 디지털 신호)에서
 * 시간에 n 곱하면
@@ -795,7 +795,7 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 
 5. 적분의 푸리에 변환
 
-&ensp;$\int_{-\infty}^{t} x(\tau)\, d\tau \xleftrightarrow{\mathcal{F}} \frac{1}{j\omega} X(j\omega) + \pi X(0)\, \delta(\omega)$ <br/>
+<p align="center">$\int_{-\infty}^{t} x(\tau)\, d\tau \leftarrow \overset{FT}{\rightarrow} \frac{1}{j\omega} X(j\omega) + \pi X(0)\, \delta(\omega)$</p>
 
 * 시간 신호를 적분하면
 * 푸리에 변환에서는 나누기(jw) 효과가 있고
@@ -813,20 +813,20 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 * 구체적으로: x(t - t₀)를 푸리에 변환하면 X(jω)에 $e^{-jωt₀}$ 를 곱한 것이 됨!
 
 &ensp;공식 요약<br/>
-&ensp;$x(t - t_0) \xleftrightarrow{\mathcal{F}} e^{-j\omega t_0} X(j\omega)$ <br/>
+<p align="center">$x(t - t_0) \leftarrow \overset{FT}{\rightarrow} e^{-j\omega t_0} X(j\omega)$</p>
 
 * t₀만큼 밀면 주파수 변환에서는 $e^{-jωt₀}$ 만 곱해주면 끝!
 
 &ensp;푸리에 급수(FS) (주기 신호)<br/>
-&ensp;$x(t - t_0) \xleftrightarrow{\text{FS}} e^{-jk\omega_0 t_0} X[k]$ <br/>
+<p align="center">$x(t - t_0) \leftarrow \overset{FS}{\rightarrow} e^{-jk\omega_0 t_0} X[k]$</p>
 
 * k번째 고조파마다 phase shift만 생김
   
 &ensp;이산 푸리에 변환(DTFT) (샘플링 신호)<br/>
-&ensp;$x[n - n_0] \xleftrightarrow{\text{DTFT}} e^{-j\Omega n_0} X(e^{j\Omega})$ <br/>
+<p align="center">$x[n - n_0] \leftarrow \overset{DTFT}{\rightarrow} e^{-j\Omega n_0} X(e^{j\Omega})$</p>
 
 &ensp;푸리에 급수(이산)<br/>
-&ensp;$x[n - n_0] \xleftrightarrow{\text{DFS}} e^{-jk\Omega_0 n_0} X[k]$ <br/>
+<p align="center">$x[n - n_0] \leftarrow \overset{DTFS}{\rightarrow} e^{-jk\Omega_0 n_0} X[k]$</p>
 
 &ensp;공식 유도<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-119.png" width="600"></p>
@@ -856,7 +856,7 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 &ensp;해석<br/>
 &ensp;즉 주파수 영역에서 X(jw)에 $e^{-jωt₀}$ 만 곱하면 그대로 시간 이동 효과가 생긴다. <br/>
 
-&ensp;$x(t - t_0) \xleftrightarrow{\mathcal{FT}} e^{-j\omega t_0} X(j\omega)$ <br/>
+<p align="center">$x(t - t_0) \leftarrow \overset{FT}{\rightarrow} e^{-j\omega t_0} X(j\omega)$</p>
 
 &ensp;요약<br/>
 &ensp;시간 이동은 주파수 영역에서 곱셈으로 나타난다. 신호를 t₀만큼 오른쪽으로 밀면, 푸리에 변환에서 X(jw)에 $e^{-jωt₀}$ 를 곱하는 것과 같다. <br/>
@@ -872,7 +872,7 @@ Frequency-Shift Property
 
 &ensp;시간에서 진동(회전)을 곱하면 주파수에서 이동이 생긴다. <br/>
 
-&ensp;$e^{j\gamma t} \, x(t) \xleftrightarrow{\mathcal{F}} X(j(\omega - \gamma))$ <br/>
+<p align="center">$e^{j\gamma t} \, x(t) \leftarrow \overset{FT}{\rightarrow} X(j(\omega - \gamma))$</p>
 
 * 시간에 주파수  γ인 복소 사인파를 곱해주면 주파수 영역에서 X(jw)를 오른쪽으로 γ만큼 밀게 된다.
 
