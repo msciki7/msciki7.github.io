@@ -865,6 +865,8 @@ Convolution of periodic signals:Cyclic convolution(주기 신호의 컨볼루션
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-120.png" width="600"></p>
 
 * 문제 34
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-123.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-124.JPEG" width="600"></p>
 
 
 Frequency-Shift Property
@@ -888,10 +890,9 @@ Frequency-Shift Property
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-122.png" width="600"></p>
 
 * 문제 35
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-123.JPEG" width="600"></p>
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-124.JPEG" width="600"></p>
-
-
-* 문제 36
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-125.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-126.JPEG" width="600"></p>
+
+* 문제 36
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-127.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-128.JPEG" width="600"></p>
