@@ -896,3 +896,167 @@ Frequency-Shift Property
 * 문제 36
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-127.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-128.JPEG" width="600"></p>
+
+13\. Inverse FT by Using Partial-Fraction Expansion
+======
+
+Inverse Fourier Transform(연속시간)
+-------
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-135.png" width="600"></p>
+
+&ensp;푸리에 변환 결과 X(jw)를 보고 원래 시간 신호 x(t)를 찾아내고 싶다. <br/>
+
+&ensp;그런데 문제는..<br/>
+&ensp;푸리에 변환 결과가 이렇게 생김: <br/>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-129.png" width="600"></p>
+
+&ensp;즉 복잡한 분수 형태이다. 이대로 x(t)를 알 수 없다. 그래서<br/>
+
+&ensp;해결책: 분수 나누기(부분 분수 분해)<br/>
+
+&ensp;복잡한 분수를 -> 간단한 조각들로 나눠서 푸는 것<br/>
+
+&ensp;예시 :<br/>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-130.png" width="600"></p>
+
+&ensp;이렇게 나누는 이유<br/>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-131.png" width="600"></p>
+
+&ensp;우리가 나눈 각 항을 하나씩 바꾸면 → 다 더해서 x(t)<br/>
+
+&ensp;최종 정리<br/>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-132.png" width="600"></p>
+
+* $d_k$ : 분모에서 나온 근(root)
+* $C_k$ : 각 항의 계수
+* u(n) : 0부터 시작하는 신호(단위 계단 신호)
+
+&ensp;쉽게 말하면<br/>
+* 복잡한 문제는 작은 덩어리로 나눠서
+* 나눠진 덩어리 각각을 외운 공식으로 바꾸고
+* 그 결과를 다시 더하면 원래 신호가 나옴
+
+Inverse DTFT(이산 시간)
+------
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-136.png" width="600"></p>
+
+&ensp;문제 형태<br/>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-133.png" width="600"></p>
+
+&ensp;너무 복잡하니까 -> 똑같이 부분 분수로 쪼개기<br/>
+
+&ensp;그 다음은?<br/>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-134.png" width="600"></p>
+
+&ensp;-> 그러면 각 조각이 $(d_k)^{n}u[n]$ 로 바뀜
+
+&ensp;최종 정리<br/>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-137.png" width="600"></p>
+
+* $d_k$ : 분모에서 나온 근(root)
+* $C_k$ : 각 항의 계수
+* u[n] : 계단 신호
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-138.png" width="600"></p>
+
+* 문제 37
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-139.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-140.JPEG" width="600"></p>
+
+
+14\. Multiplication(Modulation) Property
+======
+
+&ensp;신호 두 개를 곱할 때 푸리에 변환에서는 어떻게 되는지 보여주는 것이다. <br/>
+
+&ensp;쉽게 생각해보면: <br/>
+* 시간에서 두 신호 x(t), z(t)를 곱하면 
+* 주파수에서는 -> 합쳐서 섞이는(convolution) 효과가 생긴다. 
+
+&ensp;공식 유도과정<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-142.png" width="600"></p>
+
+&ensp;공식 요약<br/>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-141.png" width="600"></p>
+
+* 문제 38
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-143.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-144.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-145.JPEG" width="600"></p>
+
+&ensp;Multiplication property 공식 표<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-144.png" width="600"></p>
+
+
+15\. Scaling Properties(크기 조절 성질)
+=======
+
+&ensp;시간에서 크기를 늘리면 주파수는 반대로 좁아진다.<br/>
+
+&ensp;예:<br/>
+
+&ensp;$z(t) = x(at)$<br/>
+
+* a가 2라면: x가 2배 빠르게 진행됨
+* a가 0.5라면: x가 2배 느려짐
+
+&ensp;푸리에 변환은 어떻게 될까?<br/>
+
+&ensp;$x(at) \leftarrow \overset{FT}{\rightarrow} \frac{1}{\left | a\right |}X(\frac{jw}{a})$<br/>
+
+* 주파수축을 1/a 배로 늘림
+* 진폭 1/ \| a \| 배로 줄여줌(면적 보존존) 
+
+&ensp;이해 포인트 
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-147.png" width="600"></p>
+
+* 문제 39
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-148.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-149.JPEG" width="600"></p>
+
+
+16\. Parseval's Relationships
+=======
+
+&ensp;신호의 에너지는 시간 영역(time domain)에서 계산하나 주파수 영역(frequency domain)에서 계산하나 결과가 똑같다.<br/>
+
+&ensp;수학적으로 살펴보면<br/>
+1. 시간 영역에서의 에너지
+
+&ensp;$W_x = {\int_{-\infty }^{\infty }}\left | x(t)\right |^2 dt$ <br/>
+
+* 신호 x(t)를 제곱해서 다 더한 값
+* -> 이게 바로 신호의 에너지
+
+2. 주파수 영역에서의 에너지
+
+&ensp;푸리에 변환으로 X(jw)를 구한 다음: <br/>
+
+&ensp;$W_x = \frac{1}{2\pi }{\int_{-\infty }^{\infty }}\left | x(jw)\right |^2 dw$ <br/>
+
+* x(t)를 푸리에 변환에서 얻은 주파수 함수 X(jw)
+* 이것도 제곱해서 다 더한다. 
+
+&ensp;결론<br/>
+
+&ensp;$\int_{-\infty }^{\infty } \left | x(t)\right |^2 dt = \frac{1}{2\pi }{\int_{-\infty }^{\infty }}\left | x(t)\right |^2 dt$ <br/>
+
+&ensp;Parseval's Relationship 표<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-150.JPEG" width="600"></p>
+
+&ensp;요약<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-151.JPEG" width="600"></p>
+
+* 문제 40
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-152.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-153.JPEG" width="600"></p>
