@@ -995,7 +995,7 @@ Inverse DTFT(이산 시간)
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-145.JPEG" width="600"></p>
 
 &ensp;Multiplication property 공식 표<br/>
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-144.png" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-146.png" width="600"></p>
 
 
 15\. Scaling Properties(크기 조절 성질)
@@ -1012,7 +1012,7 @@ Inverse DTFT(이산 시간)
 
 &ensp;푸리에 변환은 어떻게 될까?<br/>
 
-&ensp;$x(at) \leftarrow \overset{FT}{\rightarrow} \frac{1}{\left | a\right |}X(\frac{jw}{a})$<br/>
+<p align="center">$x(at) \leftarrow \overset{FT}{\rightarrow} \frac{1}{\left | a\right |}X(\frac{jw}{a})$</p>
 
 * 주파수축을 1/a 배로 늘림
 * 진폭 1/ \| a \| 배로 줄여줌(면적 보존존) 
@@ -1033,7 +1033,7 @@ Inverse DTFT(이산 시간)
 &ensp;수학적으로 살펴보면<br/>
 1. 시간 영역에서의 에너지
 
-&ensp;$W_x = {\int_{-\infty }^{\infty }}\left | x(t)\right |^2 dt$ <br/>
+<p align="center">$W_x = {\int_{-\infty }^{\infty }}\left | x(t)\right |^2 dt$ </p>
 
 * 신호 x(t)를 제곱해서 다 더한 값
 * -> 이게 바로 신호의 에너지
@@ -1042,20 +1042,20 @@ Inverse DTFT(이산 시간)
 
 &ensp;푸리에 변환으로 X(jw)를 구한 다음: <br/>
 
-&ensp;$W_x = \frac{1}{2\pi }{\int_{-\infty }^{\infty }}\left | x(jw)\right |^2 dw$ <br/>
+<p align="center">$W_x = \frac{1}{2\pi }{\int_{-\infty }^{\infty }}\left | x(jw)\right |^2 dw$ </p>
 
 * x(t)를 푸리에 변환에서 얻은 주파수 함수 X(jw)
 * 이것도 제곱해서 다 더한다. 
 
 &ensp;결론<br/>
 
-&ensp;$\int_{-\infty }^{\infty } \left | x(t)\right |^2 dt = \frac{1}{2\pi }{\int_{-\infty }^{\infty }}\left | x(t)\right |^2 dt$ <br/>
+<p align="center">$\int_{-\infty }^{\infty } \left | x(t)\right |^2 dt = \frac{1}{2\pi }{\int_{-\infty }^{\infty }}\left | x(t)\right |^2 dt$ </p>
 
 &ensp;Parseval's Relationship 표<br/>
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-150.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-150.png" width="600"></p>
 
 &ensp;요약<br/>
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-151.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-151.png" width="600"></p>
 
 * 문제 40
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-152.JPEG" width="600"></p>
