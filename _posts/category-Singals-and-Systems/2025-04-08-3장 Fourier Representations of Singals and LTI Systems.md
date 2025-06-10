@@ -1049,7 +1049,7 @@ Inverse DTFT(이산 시간)
 
 &ensp;결론<br/>
 
-<p align="center">$\int_{-\infty }^{\infty } \left | x(t)\right |^2 dt = \frac{1}{2\pi }{\int_{-\infty }^{\infty }}\left | x(t)\right |^2 dt$ </p>
+<p align="center">$\int_{-\infty }^{\infty } \left | x(t)\right |^2 dt = \frac{1}{2\pi }{\int_{-\infty }^{\infty }}\left | x(jw)\right |^2 dw$ </p>
 
 &ensp;Parseval's Relationship 표<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-150.png" width="600"></p>
