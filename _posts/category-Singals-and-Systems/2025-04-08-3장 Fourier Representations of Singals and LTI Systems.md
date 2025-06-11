@@ -13,7 +13,7 @@ use_math: true
 toc_sticky: true
 
 date: 2025-04-08
-last_modified_at: 2025-06-05
+last_modified_at: 2025-06-11
 ---
 
 Fourier's idea
@@ -1060,3 +1060,77 @@ Inverse DTFT(이산 시간)
 * 문제 40
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-152.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-153.JPEG" width="600"></p>
+
+
+17\. Time-Bandwidth Product
+======
+
+&ensp;어떤 신호가 시간에서 짧게 생기면 주파수에서는 넓게 퍼지고 시간에서 길면 주파수에서는 좁게 모인다. <br/>
+
+&ensp;시간 길이 x 주파수 폭 = 거의 일정(또는 최소값 존재)<br/>
+
+&ensp;쉬운 예시: 음악 소리 예시<br/>
+* “짧게 탁” 소리 내면? → 여러 음이 섞인 넓은 주파수!
+* “길게 쭉~” 소리 내면? → 고정된 음 (주파수 좁음)
+
+&ensp;이게 바로 시간-주파수 역관계이다.<br/>
+
+&ensp;1. 시간 신호: 사각형 펄스<br/> 
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-155.JPEG" width="600"></p>
+
+&ensp;푸리에 변환 결과: <br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-154.png" width="600"></p>
+
+<p align="center">$X(jw) = \frac{2}{w}sin(sT_0)$</p>
+
+&ensp;중요한 관계<br/>
+&ensp;시간 길이 $T_0$ 가 커질수록 -> 주파수에서 파형이 좁아지고 뾰족해진다.<br/>
+&ensp;$T_0$ 가 작아지면 -> 주파수에서 파형은 퍼지고 넓어진다.<br/>
+
+&ensp;시간 길이 (지속 시간)<br/>
+
+<p align="center">$T_d = \sqrt{\frac{\int t^2\left | x(t)\right |^2dt}{\int \left | x(t)\right |^2dt}}$</p>
+
+* 시간에서 얼마나 넓게 퍼졌는지 계산
+
+<p align="center">$B_w = \sqrt{\frac{\int w^2\left | x(jw)\right |^2dw}{\int \left | x(jw)\right |^2dw}}$</p>
+
+* 주파수에서 얼마나 퍼졌는지 계산
+
+&ensp;결론! (중요 ⭐)<br/>
+
+<p align="center">$T_d\cdot B_w \geq \frac{1}{2}$</p>
+
+&ensp;어떤 신호든지 시간 길이 x 주파수 폭은 절대 너무 작아질 수 없다. 이걸  **uncertainty principle (불확정성 원리)**이라고 부르기도 한다. <br/>
+
+* 문제 40
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-156.JPEG" width="600"></p>
+
+18\. The Duality Property of the FT
+======
+
+&ensp;**푸리에 변환의 쌍대성(쌍대성질)**: 시간 도메인과 주파수 도메인의 역할을 바꾸면 결과도 바뀐다.<br/>
+
+&ensp;쌍대성(Duality): 어떤 신호의 푸리에 변환을 취하면 다른 신호가 나오는데 그걸 다시 푸리에 변환하면 원래 신호가 (거의) 뒤집힌 형태로 다시 나온다.<br/>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-157.png" width="600"></p>
+
+&ensp;왼쪽 위:<br/>
+* 시간 도메인: 사각형 pulse x(t)
+* 푸리에 변환 결과: sinc 함수 X(jw)
+
+&ensp;오른쪽 아래:<br/>
+* 이제 반대로 sinc함수 x(t)를 푸리에 변환하면?<br/>
+* -> 사각형 X(jw)가 나온다. 
+
+&ensp;쌍대성 공식<br/>
+
+<p align="center">$x(t) \overset{FT}{\rightarrow}X(jw) \Rightarrow X(t) \overset{FT}{\rightarrow}2\pi x(-w)$</p>
+
+* 즉 시간이 주파수가 되고 주파수가 시간이 되는 것처럼 바뀐다.
+* 근데 뒤집히고 x(-w), 2π가 곱해진다.
+
+&ensp;언제 활용할까?<br/>
+* 푸리에 변환 결과를 외울 필요 없이 어떤 신호가 사각형 ↔ sinc처럼 대응된다는 걸 이용해서 유도할 수 있다.
+* 또, 문제를 빠르게 풀 때 뒤집기만 하면 결과가 된다.
