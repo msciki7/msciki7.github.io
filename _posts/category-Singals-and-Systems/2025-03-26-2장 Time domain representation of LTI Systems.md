@@ -208,6 +208,7 @@ $\begin{vmatrix}x[n]\end{vmatrix} \leq M_{x} \leq \infty$
 
 &ensp;문제 10<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-40.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-64.JPEG" width="600"></p>
 
 8\. 계단 응답<br/>
 &ensp;입력 신호의 갑작스런 변동에 대한 LTI 시스템의 응답을 관찰하기 위해서 계단 입력 신호가 자주 사용된다. 계단 응답(step response)은 단위 계단 입력 신호에 대한 시스템의 출력으로 정의된다. 이산시간 LTI시스템에서 임펄스 응답을 h[n]으로 표현하고 계단 응답을 s[n]으로 표현한다. <br/>
