@@ -60,7 +60,7 @@ $H\begin{Bmatrix}\delta [n-k]\end{Bmatrix} = h[n-k]$ <br/>
 
 &ensp;하나의 n에 대한 출력은 k만큼 시간 이동되어 가중된 임펄스 입력에 대응하는 응답을 k = -∞부터 k = ∞까지 합산한 것이다. <br/>
 
-&ensp;문제 1
+* 문제 1
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-7.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-11.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-39.JPEG" width="600"></p>
@@ -76,17 +76,17 @@ $y[n] = \sum_{k=-\infty }^{\infty }x[k]h[n-k]$ <br/>
 &ensp;cf. $w_{n}[k]$ 는 중간 신호로서 다음과 같이 x[k]와 h[n-k]의 곱으로 정의한다. <br>
 $w_{n}[k] = x[k]h[n-k]$ <br/> 
 
-&ensp;문제 2<br/>
+* 문제 2
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-8.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-12.JPEG" width="600"></p>
 
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-13.JPEG" width="600"></p>
 
-&ensp;문제 3<br/>
+* 문제 3
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-14.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-15.JPEG" width="600"></p>
 
-&ensp;문제 4<br/>
+* 문제 4
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-16.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-17.JPEG" width="600"></p>
 
@@ -104,15 +104,15 @@ $y(t) = \int_{-\infty }^{\infty }x(\tau )H{\delta (t - \tau )}d\tau $<br/>
 &ensp;이산시간 시스템의 경우와 같이 시간 이동된 임펄스들에 대한 연속시간 선형 시스템의 응답은 시스템의 입출력 특성으로부터 완벽하게 얻어진다. 그 다음으로 단위 임펄스 입력에 대한 응답인 시스템 출력을 시스템의 임펄스 응답 $h(t) = H{\delta(t)}$ 이라고 정의한다. 시스템템이 시불변이면 $H{\delta(t-\tau )} = h(t-\tau )$. 시불변이란 시간 이동된 임펄스 입력은 시간 이동된 임펄스 응답을 출력으로 생성한다는 의미를 내포하고 있다. 입력에 대한 LTI 시스템의 출력은 다음과 같이 표현된다. <br/>
 $y(t) = x(t) \ast h(t) = \int_{-\infty }^{\infty }x(\tau )h(t - \tau )d\tau $<br/>
 
-&ensp;문제 5<br/>
+* 문제 5
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-18.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-19.JPEG" width="600"></p>
 
-&ensp;문제 6<br/>
+* 문제 6
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-20.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-21.JPEG" width="600"></p>
 
-&ensp;문제 7<br/>
+* 문제 7
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-22.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-23.JPEG" width="600"></p>
 
@@ -120,7 +120,7 @@ $y(t) = x(t) \ast h(t) = \int_{-\infty }^{\infty }x(\tau )h(t - \tau )d\tau $<br
 5\. 콘벌루션 적분: 계산과정
 ======
 
-&ensp;문제 8<br/>
+* 문제 8
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-24.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-25.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-26.JPEG" width="600"></p>
@@ -161,7 +161,7 @@ $\nu = t -\tau $ 에 따라 변환하면 <br/>
 $h(t) = \int_{-\infty }^{\infty }h_{1}(t - \nu )h_{2}(\nu )d\nu = h_{2}(t)\ast h_{1}(t)$<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-32.JPEG" width="600"></p>
 
-&ensp;문제 9<br/>
+* 문제 9
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-33.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-34.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-35.JPEG" width="600"></p>
@@ -206,7 +206,7 @@ $\begin{vmatrix}x[n]\end{vmatrix} \leq M_{x} \leq \infty$
 &ensp;어떤 시스템의 입력 신호가 배율 상수를 제외하고 그 시스템의 출력 신호로부터 복원될 수 있으면 이 시스템을 가역성 시스템(invertible system)이라고 부른다. 시스템의 출력을 입력으로 받아들여서 원래 시스템의 입력을 출력 신호로 발생시키는 시스템이 존재한다는 뜻이다. 이러한 새로운 시스템을 원래 시스템의 역시스템(inverse system)이라고 부른다. $h(t)\ast x(t)$ 로부터 x(t)를 복원하는 과정은 콘벌루션을 수행하는 과정을 반대로 수행하는 것이므로 역콘벌루션(deconvolution)이라고 부른다.<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-38.JPEG" width="600"></p>
 
-&ensp;문제 10<br/>
+* 문제 10
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-40.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-64.JPEG" width="600"></p>
 
@@ -253,11 +253,11 @@ $\sum_{k = 0}^{N} a_{k}y^{(h)}[n - k] = 0$ 이고 동차해의 형태는 $y^{(h)
 &ensp;$c_{i}$ 는 임의의 상수이고  $r_{i}$ 는 다음 식으로 정의되는 시스템의 특성 방정식(characteristic equation)이 갖는 N개의 해이다.<br/>
 $\sum_{k = 0}^{N}a_{k}r^{N-k} = 0$ <br/>
 
-&ensp;문제 11<br/>
+* 문제 11
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-43.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-44.JPEG" width="600"></p>
 
-&ensp;문제 12<br/>
+* 문제 12
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-45.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-46.JPEG" width="600"></p>
 
@@ -265,7 +265,7 @@ $\sum_{k = 0}^{N}a_{k}r^{N-k} = 0$ <br/>
 &ensp;특수해 $y^{(p)}$ 는 미분 또는 차분 방정식에서 주어진 입력에 대응하는 해로 정의하며 시스템에 관한 유일성을 갖지 않는다. 특수해는 입력과 같은 형태의 해를 가정하여 얻는 것이 보통이다. 특수해 관련 이런 해법은 입력 신호가 동차해의 성분과 동일한 경우이면 수정되어야 한다. 그러한 경우 특수해는 동차해의 모든 성분과 독립적이라고 가정한다. 이러한 과정은 특성 방정식의 근이 중복근인 경우에 독립적인 항을 찾는 과정과 동일하다. 특히 특수해의 형태에 t 또는 n의 제일 낮은 차의 거듭제곱 항을 곱해서 그 결과가 동차해와 독립적으로 만들어 새로운 특수해의 형태를 얻는다. 이 결과를 본래의 미분 또는 차분 방정식에 대입하여 상수를 결정함으로써 시스템에 맞는 특수해를 확정한다. 
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-47.JPEG" width="600"></p>
 
-&ensp;문제 13<br/>
+* 문제 13
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-48.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-49.JPEG" width="600"></p>
 
@@ -274,15 +274,15 @@ $\sum_{k = 0}^{N}a_{k}r^{N-k} = 0$ <br/>
 &ensp;연속시간 시스템의 경우 $t = 0^{-}$ 의 값으로 주어진 초기조건은 t = 0에서 입력을 인가하는 효과를 반영할 수 있도록 t = 0^{+}의 초기값으로 변화되어야 한다. 
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-50.JPEG" width="600"></p>
 
-&ensp;문제 14<br/>
+* 문제 14
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-51.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-52.JPEG" width="600"></p>
 
-&ensp;문제 15<br/>
+* 문제 15
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-53.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-54.JPEG" width="600"></p>
 
-&ensp;문제 16<br/>
+* 문제 16
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-55.JPEG" width="600"></p>
 <p align="center"><img src="/assets/img/Singals and Systems/2장 LTI System/2-56.JPEG" width="600"></p>
 
