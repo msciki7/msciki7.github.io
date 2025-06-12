@@ -1081,7 +1081,7 @@ Inverse DTFT(이산 시간)
 
 &ensp;푸리에 변환 결과: <br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-154.png" width="600"></p>
-
+6
 <p align="center">$X(jw) = \frac{2}{w}sin(sT_0)$</p>
 
 &ensp;중요한 관계<br/>
