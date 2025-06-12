@@ -1077,7 +1077,7 @@ Inverse DTFT(이산 시간)
 
 &ensp;1. 시간 신호: 사각형 펄스<br/> 
 
-<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-155.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-155.png" width="600"></p>
 
 &ensp;푸리에 변환 결과: <br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-154.png" width="600"></p>
@@ -1104,8 +1104,10 @@ Inverse DTFT(이산 시간)
 
 &ensp;어떤 신호든지 시간 길이 x 주파수 폭은 절대 너무 작아질 수 없다. 이걸  **uncertainty principle (불확정성 원리)**이라고 부르기도 한다. <br/>
 
-* 문제 40
+* 문제 41
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-156.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-159.JPEG" width="600"></p>
+
 
 18\. The Duality Property of the FT
 ======
@@ -1126,7 +1128,7 @@ Inverse DTFT(이산 시간)
 
 &ensp;쌍대성 공식<br/>
 
-<p align="center">$x(t) \overset{FT}{\rightarrow}X(jw) \Rightarrow X(t) \overset{FT}{\rightarrow}2\pi x(-w)$</p>
+<p align="center">$x(t) \overset{FT}{\rightarrow}X(jw) \Rightarrow X(jt) \overset{FT}{\rightarrow}2\pi x(-w)$</p>
 
 * 즉 시간이 주파수가 되고 주파수가 시간이 되는 것처럼 바뀐다.
 * 근데 뒤집히고 x(-w), 2π가 곱해진다.
@@ -1134,3 +1136,57 @@ Inverse DTFT(이산 시간)
 &ensp;언제 활용할까?<br/>
 * 푸리에 변환 결과를 외울 필요 없이 어떤 신호가 사각형 ↔ sinc처럼 대응된다는 걸 이용해서 유도할 수 있다.
 * 또, 문제를 빠르게 풀 때 뒤집기만 하면 결과가 된다.
+
+&ensp;비유<br/>
+* 시간 -> 주파수 바꾸면 그림이 바뀜(예: 사각형 -> sinc)
+* 주파수 -> 시간 바꾸면 또 바뀌는데...이번엔
+* 원래 신호처럼 보이지만 뒤집혀 있고 숫자(2π)가 곱해짐
+
+&ensp;서로가 서로를 거울처럼 바꾸는 관계 그래서 쌍대(dual)<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-158.png" width="600"></p>
+
+* 문제 42
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-160.JPEG" width="600"></p>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-161.JPEG" width="600"></p>
+
+The Duality Property of the DTFS
+------
+
+&ensp;일반적인 DTFS 정의<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-162.png" width="600"></p>
+
+&ensp;쌍대성 적용<br/>
+
+<p align="center">$x[n] ↔ X[k] ⇒ X[n] ↔ Nx[-k]$</p>
+
+* 시간과 주파수의 역할을 바꾸면
+* 신호가 뒤집혀지고(-k)
+* N이 곱해진다.
+
+The Duality of DTFT and FS
+-------
+
+&ensp;Fourier Series (FS)<br/>
+
+<p align="center">$z(t) = \sum_{k = -\infty }^{\infty }Z[k]e^{jkw_0t} (w_0 = 1, T = 2\pi )$</p>
+
+&ensp;주기적인 연속 시간 신호를 주파수로 나타냄<br/>
+
+&ensp;DTFT<br/>
+
+<p align="center">$X(e^{j\Omega }) = \sum_{n = -\infty }^{\infty }x[n]e^{-j\Omega n}$</p>
+
+&ensp;이산 시간 신호를 연속적인 주파수로 나타냄<br/>
+
+&ensp;쌍대성을 적용하면<br/>
+
+<p align="center">$x[n]\leftarrow \overset{DTFT}{\rightarrow} X(j\Omega ) \Rightarrow X[e^(jt)] \leftarrow \overset{FS}{\rightarrow} x[-k]$</p>
+
+&ensp;시간과 주파수의 역할을 바꾸면<br/>
+* 입력이 뒤집히고
+* 결과는 그대로지만 위치가 바뀜
+
+&ensp;정리 요약<br/>
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-163.png" width="600"></p>
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-164.png" width="600"></p>
