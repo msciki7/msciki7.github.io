@@ -1157,7 +1157,7 @@ The Duality Property of the DTFS
 
 &ensp;쌍대성 적용<br/>
 
-<p align="center">$x[n] ↔ X[k] ⇒ X[n] ↔ Nx[-k]$</p>
+<p align="center">$x[n] ↔ X[k] ⇒ X[n] ↔ \frac{1}{N}x[-k]$</p>
 
 * 시간과 주파수의 역할을 바꾸면
 * 신호가 뒤집혀지고(-k)
@@ -1177,14 +1177,22 @@ The Duality of DTFT and FS
 <p align="center">$X(e^{j\Omega }) = \sum_{n = -\infty }^{\infty }x[n]e^{-j\Omega n}$</p>
 
 &ensp;이산 시간 신호를 연속적인 주파수로 나타냄<br/>
+* x[n]: 시간 영역 신호
+* $X(e^{j\Omega })$ : 주파수 영역 표현(DTFT)
 
 &ensp;쌍대성을 적용하면<br/>
+&ensp;시간과 주파수의 역할을 바꿔서 생각하는 것이다. 즉 원래 시간 입력이 n, 주파수 변수는 Ω 였는데 쌍대성에서는 시간과 주파수를 바꾼다. <br/>
+
+&ensp;즉 쌍대성에서는 <br/>
+&ensp;주파수에서 쓰이던 함수 $X(e^P={j\omega })$ 를 시간처럼 쓰는 거라 변수 기호를 t로 바꾸는 거다.<br/>
 
 <p align="center">$x[n]\leftarrow \overset{DTFT}{\rightarrow} X(j\Omega ) \Rightarrow X[e^(jt)] \leftarrow \overset{FS}{\rightarrow} x[-k]$</p>
 
 &ensp;시간과 주파수의 역할을 바꾸면<br/>
 * 입력이 뒤집히고
 * 결과는 그대로지만 위치가 바뀜
+
+<p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-165.png" width="600"></p>
 
 &ensp;정리 요약<br/>
 <p align="center"><img src="/assets/img/Singals and Systems/3장 Fourier Representation of Singals and LTI Systems/3-163.png" width="600"></p>
