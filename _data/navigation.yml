@@ -29,3 +29,10 @@ docs:
        url: "/categories/Wireless Communication Systems"
      - title: "Machine Learning"
        url: "/categories/Machine Learning"
+
+  - title: Backend
+    use: true
+    children:
+     - title: "김영한의 자바"
+       url: "/categories/김영한의 자바"
+     
