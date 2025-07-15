@@ -9,7 +9,7 @@ sidebar:
 # taxononmy: Javascript
 ---
 
-{% assign posts = site.categories['C Programming and Lab']%}
+{% assign posts = site.categories['김영한의 자바']%}
 {% for post in posts %}
   {% include archive-single.html type=page.entries_layout %}
 {% endfor %}
