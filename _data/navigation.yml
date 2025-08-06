@@ -29,6 +29,8 @@ docs:
        url: "/categories/Wireless Communication Systems"
      - title: "Machine Learning"
        url: "/categories/Machine Learning"
+     - title: "SQLD"
+       url: "/categories/SQLD"
 
   - title: Backend
     use: true
