@@ -32,7 +32,9 @@ docs:
      - title: "SQLD"
        url: "/categories/SQLD"
      - title: "Linux Programming"
-       url: "/categories/Linux Programming"   
+       url: "/categories/Linux Programming" 
+     - title: "Computer Network"
+       url: "/categories/Computer Network"   
 
   - title: Backend
     use: true
