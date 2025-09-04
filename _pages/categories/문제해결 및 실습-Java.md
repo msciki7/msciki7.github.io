@@ -1,6 +1,6 @@
 ---
-title: "문제해결 및 자바-Java"
-permalink: categories/문제해결 및 자바-Java
+title: "문제해결 및 실습-Java"
+permalink: categories/문제해결 및 실습-Java
 layout: archive # category
 author_profile: true
 sidebar:
@@ -9,7 +9,7 @@ sidebar:
 # taxononmy: Javascript
 ---
 
-{% assign posts = site.categories['문제해결 및 자바-Java']%}
+{% assign posts = site.categories['문제해결 및 실습-Java']%}
 {% for post in posts %}
   {% include archive-single.html type=page.entries_layout %}
 {% endfor %}
