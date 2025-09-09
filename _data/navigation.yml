@@ -37,8 +37,7 @@ docs:
        url: "/categories/Computer Network"   
      - title: "문제해결 및 실습-Java"
        url: "/categories/문제해결 및 실습-Java"
-     - title: "문제해결 및 실습-Java"
-       url: "/categories/문제해결 및 실습-Java"
+ 
 
 
   - title: Backend
