@@ -196,4 +196,3 @@ Logic Design Conventions
 * 그 레지스터의 D FF에 쓰기 데이터가 들어가고, Write(RegWrite)가 1일 때 클록 에지에서 저장
 
 &ensp;핵심: 읽기=멀티플렉싱, 쓰기=디코딩<br/>
-
