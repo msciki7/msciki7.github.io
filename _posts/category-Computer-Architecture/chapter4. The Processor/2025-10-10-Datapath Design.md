@@ -307,3 +307,256 @@ RegDst, ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, ALUOp(2비트)
 * Main Control은 이 명령이 어떤 종류인지만 결정
 * ALU Control은 그 종류 안에서 정확히 어떤 연상르 할지 결정
 * 이 두 개가 함께 MIPS 데이터패스의 핵심 제어 구조를 완성한다.
+
+&ensp;<b>Designing the Main Control Unit</b><br/>
+&ensp;핵심 아이디어: Instruction의 비트(opcode, rs, rt, rd, funct 등)를 해석해서 제어 신호를 만든다.<br/>
+
+&ensp;MIPS 명령어는 32비트 구성된다.<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-28.png" width="600"></p>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-29.png" width="600"></p>
+
+&ensp;이로부터 제어 신호를 만든다.<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-31.png" width="600"></p>
+
+&ensp;Datapath with Control Lines<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-30.png" width="600"></p>
+
+&ensp;각 제어신호의 역할<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-31.png" width="600"></p>
+
+&ensp;The Effect of the 7 Control Signals<br/>
+&ensp;각 신호가 꺼졌을 때(0)와 켜졌을 때(1) 어떻게 작동하는지를 정리한 표이다.<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-32.png" width="600"></p>
+
+&ensp;<b>Control Unit 내부 로직</b><br/>
+&ensp;이 그림은 전체 제어 유닛이 데이터패스와 연결된 최종 구조이다.<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-33.png" width="600"></p>
+
+&ensp;핵심 수식<br/>
+&ensp;PCSrc = Branch · Zero<br/>
+* Branch: beq 명령일 때 1
+* Zero: ALU 비교 결과 (R[rs] - R[rt] == 0 이면 1)
+* 두 신호 모두 1 → PC ← branch target 주소
+
+&ensp;제어신호들의 생성<br/>
+* opcode (31~26) → Main Control이 해석
+* Main Control → ALUOp, MemRead, RegWrite 등 생성
+* funct (5~0) → ALU Control이 해석
+* ALU Control → ALU의 실제 연산 지정 (add, sub, etc.)
+
+&ensp;데이터 흐름 정리<br/>
+1. PC → Instruction Memory (명령어 읽기)
+2. opcode → Main Control
+3. Main Control → 각 MUX, ALU, Memory 제어
+4. ALU → 연산 수행 (또는 Zero 신호 출력)
+5. Zero + Branch → PCSrc 계산
+6. PC ← 다음 명령어 주소 또는 분기 주소
+
+&ensp;명령어별 제어신호 패턴 요약<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-34.png" width="600"></p>
+
+&ensp;한 줄 요약<br/>
+&ensp;Main Control Unit은 opcode를 해석해 데이터패스의 각 구성요소가 어떤 동작을 해야 하는가를 정해주는 두뇌 역할을 한다.<br/>
+* ALU가 무엇을 할지(ALLOp)
+* 어느 레지스터에 쓸지(RegDst)
+* 메모리 접근을 할지(MemRead/MemWrite)
+* PC를 바꿀지(Branch/PCSrc)
+* 레지스터에 쓸 데이터가 어디서 오는지(MemtoReg)
+
+&ensp;모든 명령어가 바로 이 신호들의 조합으로 제어된다.<br/>
+
+&ensp;<b>R-type 명령어 실행</b><br/> 
+&ensp;예: `add $t1, $t2, $t3` <br/>
+&ensp;개요<br/>
+* 명령어 형식: 
+
+```scss
+op(6) | rs(5) | rt(5) | rd(5) | shamt(5) | funct(6)
+```
+
+&ensp;→ op = 000000 (R-type), funct = 100000 (add)<br/>
+
+&ensp;동작 단계별 설명<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-35.png" width="600"></p>
+
+&ensp;제어 신호 상태<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-36.png" width="600"></p>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-37.png" width="600"></p>
+
+&ensp;데이터 흐름 요약<br/>
+```scss
+PC → Instruction Memory → Control Unit  
+          ↓
+   Register File(rs=$t2, rt=$t3)
+          ↓
+          ALU (add)
+          ↓
+       Write Result → rd($t1)
+```
+
+&ensp;<b>Load 명령어 실행</b><br/>
+&ensp;예: `lw $t1, offset($t2)`  <br/>
+```scss
+op(6) | rs(5) | rt(5) | address(16)
+```
+
+&ensp;→ op = 100011 (lw)<br/>
+
+&ensp;동작 단계 설명<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-38.png" width="600"></p>
+
+&ensp;제어 신호 상태<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-39.png" width="600"></p>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-40.png" width="600"></p>
+
+&ensp;데이터 흐름 요약<br/>
+```scss
+PC → Instruction Memory → Control Unit  
+          ↓
+   Register File(rs=$t2)
+          ↓
+     Sign Extend(offset)
+          ↓
+          ALU (+)
+          ↓
+     Data Memory read
+          ↓
+     Write Result → rt($t1)
+```
+
+&ensp;R-type vs lw 비교 요약<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-41.png" width="600"></p>
+
+&ensp;핵심 포인트<br/>
+* R-type → 레지스터 간 계산 → ALU 결과를 rd에 저장
+* lw → 메모리 읽기 → ALU는 주소 계산만 수행 → 메모리에서 읽은 값을 rt에 저장
+
+&ensp;<b>sw (store word) 명령어</b><br/>
+&ensp;`sw $t1, offset($t2)` <br/>
+&ensp;개요<br/>
+&ensp;이 명령은 $t1 레지스터의 값을 메모리 주소 `$t2 + offset` 에 저장<br/>
+&ensp;즉 메모리에 값을 쓰는(write) 명령이다.<br/>
+
+&ensp;실행 단계별<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-42.png" width="600"></p>
+
+&ensp;제어 신호<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-43.png" width="600"></p>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-44.png" width="600"></p>
+
+&ensp;데이터 흐름<br/>
+```scss
+PC → Instruction Memory
+    ↓
+Register File (rs=$t2, rt=$t1)
+    ↓          ↓
+Sign-extend(offset)  (ALUSrc=1)
+    ↓
+ALU: t2 + offset → 주소 계산
+    ↓
+Data Memory[address] ← rt($t1)
+```
+
+&ensp;즉 $t2는 "기준 주소(base)", $t1은 "저장할 값(source)" 역할이다.<br/>
+
+&ensp;<b>beq (branch if equal) 명령어</b><br/>
+&ensp;예: `beq $t1, $t2, offset` <br/>
+
+&ensp;개요<br/>
+&ensp;이 명령은 $t1 과 $t2 의 값이 같으면 PC ← PC + 4 + (offset × 4) 로 분기(branch)<br/>
+&ensp;조건이 참일 때 다른 명령으로 점프하는 역할이다.<br/>
+
+&ensp;실행 단계별<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-45.png" width="600"></p>
+
+&ensp;제어 신호<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-46.png" width="600"></p>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-47.png" width="600"></p>
+
+
+&ensp;데이터 흐름<br/>
+```scss
+PC → Instruction Memory
+    ↓
+Registers ($t1, $t2)
+    ↓
+ALU: t1 - t2 → Zero?
+    ↓
+PCSrc = Branch · Zero
+    ↓
+MUX 선택 → (PC + 4) or (PC + 4 + offset×4)
+```
+
+&ensp;Zero = 0이면 분기 성공 → PC가 새 주소로 변경됨<br/>
+
+&ensp;<b>Jump 명령어</b><br/>
+&ensp;예: `j target` <br/>
+
+&ensp;개요<br/>
+&ensp;무조건 명령어 주소를 바꾸는 (unconditional branch) 명령어<br/>
+&ensp;PC ← (PC + 4)[31–28] + (target << 2)<br/>
+&ensp;즉 jump 주소는 현재 PC 상위 4비트 + (명령어에 포함된 주소 × 4) 로 구성된다.<br/>
+
+&ensp;실행 단계별<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-48.png" width="600"></p>
+
+&ensp;제어 신호<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-49.png" width="600"></p>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-50.png" width="600"></p>
+
+&ensp;Jump 주소 구성<br/>
+```scss
+Jump address [31–0] =
+   { (PC+4)[31–28], Instruction[25–0], 00 }
+```
+
+* 상위 4비트는 현재 PC+4의 상위 비트
+* 하위 28비트는 명령어 내 target 필드(26비트)를 왼쪽으로 2비트 shift한 값
+
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-51.png" width="600"></p>
+
+
+&ensp;<b>addi 명령어</b><br/>
+```scss
+addi $t1, $t2, 100
+```
+
+&ensp;`$t1 ← $t2 + 100` <br/>
+&ensp;레지스터 $t2의 값에 즉시값(100) 을 더해서 $t1에 저장하는 명령이다.<br/>
+
+&ensp;addi의 형식<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-52.png" width="600"></p>
+
+&ensp;addi의 실행 과정<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-53.png" width="600"></p>
+
+&ensp;제어 신호<br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-54.png" width="600"></p>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-55.png" width="600"></p>
+
+&ensp;addi 데이터 흐름<br/>
+```bash
+$t1 ← $t2 + (sign-extended immediate)
+```
+
+&ensp;데이터 경로:<br/>
+```scss
+PC → Instruction Memory
+     ↓
+Register File(rs=$t2)
+     ↓
+Sign-extend(immediate)
+     ↓
+ALU: $t2 + immediate
+     ↓
+Register File(rt=$t1) ← 결과 저장
+```
+
+&ensp;<b>Control Unit Outputs for Each Instruction</b><br/>
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-56.png" width="600"></p>
+
+&ensp;이 표는 모든 명령어별 제어신호의 조합을 보여준다. 즉 Control Unit이 opcode를 해석해서 어떤 신호를 켜거나 끄는지 요약한 표이다.<br/>
+
+&ensp;명령어별 비교요약<br/>
+
+<p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-57.png" width="600"></p>
