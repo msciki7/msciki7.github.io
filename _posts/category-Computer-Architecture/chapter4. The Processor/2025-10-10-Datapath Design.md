@@ -570,3 +570,134 @@ Register File(rt=$t1) ← 결과 저장
 | **beq**    | 두 값 비교해 같으면 분기              | Branch=1, ALUOp=01                         | 결과를 레지스터나 메모리에 저장 안 함 → RegWrite, RegDst, MemWrite, MemtoReg 전부 X |
 | **addi**   | 즉시값 더해서 레지스터에 저장            | RegWrite=1, ALUSrc=1, ALUOp=00             | 메모리 안 씀 → MemWrite=0, MemtoReg=0                                  |
 | **j**      | 주소로 점프                      | Jump=1                                     | ALU, 레지스터, 메모리 다 안 씀 → 전부 X                                       |
+
+&ensp;명령어 별 동작 & X의 이유<br/>
+&ensp;(1) R-type (예: `add $t0, $t1, $t2`)<br/>
+```bash
+레지스터 $t1 + $t2 → $t0 에 저장
+```
+
+&ensp;데이터 흐름<br/>
+```css
+Reg[t1] ─► ALU ─► Reg[t0]
+```
+
+| 제어신호          | 값  | 이유              |
+| :------------ | :- | :-------------- |
+| RegDst        | 1  | 목적지는 rd         |
+| RegWrite      | 1  | 레지스터에 결과 저장     |
+| ALUSrc        | 0  | 두 번째 피연산자는 레지스터 |
+| MemWrite      | 0  | 메모리에 안 씀        |
+| MemtoReg      | 0  | 메모리 결과 안 씀      |
+| Branch / Jump | 0  | 분기나 점프 안 함      |
+
+
+&ensp;X 없음 - 거의 모든 제어 신호를 씀<br/>
+
+&ensp;(2) lw (예: `lw $t0, 4($t1)`)
+```bash
+메모리[$t1 + 4] → $t0
+```
+
+&ensp;데이터 흐름<br/>
+```css
+$t1 ─► ALU (주소 계산) ─► Mem Read ─► Reg[t0]
+```
+
+| 제어신호          | 값  | 이유            |
+| :------------ | :- | :------------ |
+| RegDst        | 0  | 목적지는 rt       |
+| RegWrite      | 1  | 레지스터에 결과 저장   |
+| ALUSrc        | 1  | 즉시값(4)을 더함    |
+| MemtoReg      | 1  | 메모리 결과를 레지스터로 |
+| MemWrite      | 0  | 메모리에 쓰지 않음    |
+| Branch / Jump | 0  | 분기/점프 안 함     |
+
+&ensp;X 없음 — 모두 실제 사용<br/>
+
+&ensp;sw (예: `sw $t0, 4($t1)`)<br/>
+```bash
+$t0 → 메모리[$t1 + 4]
+```
+
+&ensp;데이터 흐름<br/>
+```css
+$t1 ─► ALU (주소 계산) ─► Mem Write($t0)
+```
+
+| 제어신호          | 값  | 이유             |
+| :------------ | :- | :------------- |
+| RegWrite      | 0  | 레지스터에 쓰지 않음    |
+| RegDst        | X  | 목적지 레지스터 없음    |
+| MemtoReg      | X  | 메모리 값을 읽지 않음   |
+| ALUSrc        | 1  | 즉시값을 더해서 주소 계산 |
+| MemWrite      | 1  | 메모리에 쓰기 수행     |
+| Branch / Jump | 0  | 분기/점프 없음       |
+
+&ensp;X 이유: 레지스터 결과 저장 경로를 아예 안 씀. 즉 "레지스터 파일로 가는 선"이 열리지 않으므로 상관없음.<br/>
+
+&ensp;(4) beq (예: `beq $t1, $t2, label`)<br/>
+```bash
+$t1 == $t2 이면, PC ← label 주소
+```
+
+&ensp;데이터 흐름<br/>
+```css
+$t1 ─► ALU 비교(뺄셈) ─► Zero? → PC + offset
+```
+
+| 제어신호     | 값  | 이유          |
+| :------- | :- | :---------- |
+| RegWrite | 0  | 결과를 저장 안 함  |
+| RegDst   | X  | 목적지 없음      |
+| ALUSrc   | 0  | 레지스터끼리 비교   |
+| ALUOp    | 01 | 뺄셈 비교용      |
+| Branch   | 1  | 분기 수행       |
+| MemtoReg | X  | 메모리 안 씀     |
+| MemWrite | 0  | 메모리에 쓰기 안 함 |
+
+
+&ensp;X 이유: 분기 비교만 하니까 메모리/레지스터 쓰는 신호는 의미 없음<br/>
+
+&ensp;(5) addi (예: `addi $t0, $t1, 5`)<br/>
+```bash
+$t0 = $t1 + 5
+```
+
+&ensp;데이터 흐름<br/>
+```css
+$t1 ─► ALU (+5) ─► Reg[t0]
+```
+
+| 제어신호          | 값  | 이유            |
+| :------------ | :- | :------------ |
+| RegDst        | 0  | 목적지는 rt       |
+| RegWrite      | 1  | 결과를 레지스터에 저장  |
+| ALUSrc        | 1  | 즉시값 사용        |
+| MemWrite      | 0  | 메모리에 안 씀      |
+| MemtoReg      | 0  | ALU 결과 그대로 사용 |
+| Branch / Jump | 0  | 분기/점프 없음      |
+
+&ensp;X 없음<br/>
+
+&ensp;(6) j (예: `j target`)<br/>
+```bash
+PC ← target
+```
+
+&ensp;데이터 흐름<br/>
+```css
+PC → Jump Target (주소로 점프)
+```
+
+| 제어신호                               | 값  | 이유             |
+| :--------------------------------- | :- | :------------- |
+| Jump                               | 1  | 점프 수행          |
+| RegWrite                           | 0  | 레지스터에 아무것도 안 씀 |
+| RegDst, ALUSrc, MemWrite, MemtoReg | X  | 해당 블록 자체를 안 거침 |
+| ALUOp                              | XX | ALU는 사용 안 함    |
+| Branch                             | 0  | 분기 아님          |
+
+
+&ensp;X 이유: 점프 명령은 ALU, 레지스터, 메모리 경로 전부 건드리지 않음. 오직 PC만 갱신하므로 나머지는 의미 없음<br/>
+
