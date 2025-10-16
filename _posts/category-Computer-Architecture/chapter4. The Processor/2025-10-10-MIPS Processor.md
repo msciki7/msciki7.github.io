@@ -1,5 +1,5 @@
 ---
-title: "chapter 4. The Processor-MIPS Processor"
+title: "chapter 4-1. The Processor-MIPS Processor"
 excerpt: ""
 
 writer: sohee Kim

@@ -1,5 +1,5 @@
 ---
-title: "chapter 4. The Processor-Datapath Design"
+title: "chapter 4-2. The Processor-Datapath Design"
 excerpt: ""
 
 writer: sohee Kim
@@ -282,6 +282,7 @@ RegDst, ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, ALUOp(2비트)
 
 <p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-24.png" width="600"></p>
 
+&ensp;그림에서 중요한 것들<br/>
 * 파란색: ALU 제어 관련 경로(ALUOp, function, ALU control)
 * 파란 박스: Main Control
 * 작은 파란 원: ALU control
@@ -305,7 +306,7 @@ RegDst, ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, ALUOp(2비트)
 <p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-27.png" width="600"></p>
 
 * Main Control은 이 명령이 어떤 종류인지만 결정
-* ALU Control은 그 종류 안에서 정확히 어떤 연상르 할지 결정
+* ALU Control은 그 종류 안에서 정확히 어떤 연산을 할지 결정
 * 이 두 개가 함께 MIPS 데이터패스의 핵심 제어 구조를 완성한다.
 
 &ensp;<b>Designing the Main Control Unit</b><br/>
@@ -357,7 +358,7 @@ RegDst, ALUSrc, MemtoReg, RegWrite, MemRead, MemWrite, Branch, ALUOp(2비트)
 
 &ensp;한 줄 요약<br/>
 &ensp;Main Control Unit은 opcode를 해석해 데이터패스의 각 구성요소가 어떤 동작을 해야 하는가를 정해주는 두뇌 역할을 한다.<br/>
-* ALU가 무엇을 할지(ALLOp)
+* ALU가 무엇을 할지(ALUp)
 * 어느 레지스터에 쓸지(RegDst)
 * 메모리 접근을 할지(MemRead/MemWrite)
 * PC를 바꿀지(Branch/PCSrc)
