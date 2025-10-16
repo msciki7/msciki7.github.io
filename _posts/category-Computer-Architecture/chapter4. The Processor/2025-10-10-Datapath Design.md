@@ -561,3 +561,12 @@ Register File(rt=$t1) ← 결과 저장
 &ensp;명령어별 비교요약<br/>
 
 <p align="center"><img src="/assets/img/Computer Architecture/chapter4. The processor/4-2-57.png" width="600"></p>
+
+| 명령어        | 동작                          | 어떤 신호가 중요?                                 | 나머지(X가 되는 이유)                                                     |
+| :--------- | :-------------------------- | :----------------------------------------- | :---------------------------------------------------------------- |
+| **R-type** | 레지스터끼리 계산 후 결과를 다시 레지스터에 저장 | RegDst=1, RegWrite=1, ALUSrc=0, ALUOp=10   | 메모리를 안 쓰니까 MemWrite=0, MemtoReg=0, Branch=0                       |
+| **lw**     | 메모리에서 읽어와 레지스터에 저장          | RegWrite=1, ALUSrc=1, MemtoReg=1, ALUOp=00 | RegDst=0(무조건 rt), Branch=0, MemWrite=0                            |
+| **sw**     | 레지스터 값을 메모리에 저장             | ALUSrc=1, MemWrite=1                       | RegWrite, RegDst, MemtoReg은 전혀 안 씀 → X                            |
+| **beq**    | 두 값 비교해 같으면 분기              | Branch=1, ALUOp=01                         | 결과를 레지스터나 메모리에 저장 안 함 → RegWrite, RegDst, MemWrite, MemtoReg 전부 X |
+| **addi**   | 즉시값 더해서 레지스터에 저장            | RegWrite=1, ALUSrc=1, ALUOp=00             | 메모리 안 씀 → MemWrite=0, MemtoReg=0                                  |
+| **j**      | 주소로 점프                      | Jump=1                                     | ALU, 레지스터, 메모리 다 안 씀 → 전부 X                                       |
