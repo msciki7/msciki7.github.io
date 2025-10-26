@@ -1,5 +1,5 @@
 ---
-title: "chapter 4-3. Ptpelining"
+title: "chapter 4-3. Pipelining"
 excerpt: ""
 
 writer: sohee Kim
