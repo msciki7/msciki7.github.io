@@ -74,7 +74,7 @@ def get_pages():
 
 def export_page(page):
     page_id = page["id"]
-    title = page["properties"]["Title"]["title"][0]["text"]["content"]
+    title = page["properties"]["Name"]["title"][0]["text"]["content"]
 
     # 날짜
     date_prop = page["properties"].get("Date")
