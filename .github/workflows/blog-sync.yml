@@ -1,0 +1,39 @@
+name: Sync Notion to GitHub Blog
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"   # 매 시간마다 실행
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install notion-client markdownify
+
+      - name: Run export script
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+        run: python notion_export.py
+
+      - name: Commit and Push
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add .
+          git commit -m "Notion → GitHub Sync" || echo "No changes"
+          git push https://$GH_TOKEN@github.com/${{ github.repository }}.git
