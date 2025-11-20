@@ -3,7 +3,7 @@ name: Sync Notion to GitHub Blog
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 * * * *"   # 매 시간마다 실행
+    - cron: "0 * * * *"
 
 jobs:
   sync:
@@ -20,7 +20,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install notion-client markdownify
+          pip install notion-client==2.2.1
+          pip install markdownify
 
       - name: Run export script
         env:
