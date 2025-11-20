@@ -30,11 +30,10 @@ jobs:
         run: python notion_export.py
 
       - name: Commit and Push
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git add .
           git commit -m "Notion → GitHub Sync" || echo "No changes"
-          git push https://$GH_TOKEN@github.com/${{ github.repository }}.git
+          git push
+
