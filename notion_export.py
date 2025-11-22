@@ -83,6 +83,10 @@ def export_page(page):
     else:
         date_str = datetime.now().strftime("%Y-%m-%d")
 
+    # 카테고리 = Notion 속성 "Class"
+    category_raw = page["properties"].get("Class", {}).get("select", {}).get("name", "uncategorized")
+    category_slug = slugify(category_raw)
+
     # 태그
     tags = page["properties"].get("Tags", {}).get("multi_select", [])
     tag_list = [t["name"] for t in tags]
@@ -91,29 +95,29 @@ def export_page(page):
     fm = "---\n"
     fm += f"title: \"{title}\"\n"
     fm += f"date: {date_str}\n"
+    fm += f"category: {category_raw}\n"
     if tag_list:
         fm += "tags:\n"
         for t in tag_list:
             fm += f"  - {t}\n"
     fm += "---\n\n"
 
-    # 본문 블록
+    # 본문
     blocks = notion.blocks.children.list(page_id)
-    md_body = ""
+    md_body = "".join(convert_block(b) for b in blocks["results"])
 
-    for block in blocks["results"]:
-        md_body += convert_block(block)
-
-    # 파일명
+    # 파일명 + 폴더 경로
     slug = slugify(title)
-    filename = f"_posts/{date_str}-{slug}.md"
+    folder_path = f"_posts/category-{category_slug}"
+    os.makedirs(folder_path, exist_ok=True)
 
-    os.makedirs("_posts", exist_ok=True)
+    filename = f"{folder_path}/{date_str}-{slug}.md"
 
     with open(filename, "w", encoding="utf-8") as f:
         f.write(fm + md_body)
 
     print(f"Generated: {filename}")
+
 
 
 # --------------------------
