@@ -178,3 +178,4 @@ Memory Technologies
 | 용도      | Cache (L1/L2/L3) | Main Memory     |
 | 소비 전력   | 높음               | 낮음              |
 | 집적도     | 낮음               | 높음              |
+
