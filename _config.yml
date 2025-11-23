@@ -16,6 +16,11 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "ko-KR" # "en-US", 블로그의 주요 언어
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:title/
+
 title                    : "생명 공학과에서 컴공으로 탈출하기" # 사이드 탬에서 보이는 이름
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
@@ -162,6 +167,7 @@ footer:
 include:
   - .htaccess
   - _pages
+  - _posts
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"

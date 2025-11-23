@@ -91,8 +91,16 @@ def export_page(page):
 
 
     # Category (Class)
-    category_raw = props.get("Class", {}).get("select", {}).get("name", "uncategorized")
+    category_raw = page["properties"]["Class"]["select"]["name"]
+    chapter_raw = page["properties"]["Chapter"]["select"]["name"]
+
     category_slug = slugify(category_raw)
+    chapter_slug = slugify(chapter_raw)
+
+    folder_path = f"_posts/category-{category_slug}/{chapter_slug}"
+    os.makedirs(folder_path, exist_ok=True)
+
+    filename = f"{folder_path}/{date_str}-{slug}.md"
 
     # Chapter (optional)
     chapter_raw = props.get("Chapter", {}).get("rich_text", [])
