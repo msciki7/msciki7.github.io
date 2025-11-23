@@ -83,7 +83,12 @@ def export_page(page):
     slug = slugify(title)
 
     # Status
-    status = props.get("Status", {}).get("select", {}).get("name", "Draft")
+    status_prop = props.get("Status")
+    if status_prop and status_prop.get("select"):
+    status = status_prop["select"]["name"]
+    else:
+    status = "Draft"   # 기본값
+
 
     # Category (Class)
     category_raw = props.get("Class", {}).get("select", {}).get("name", "uncategorized")
