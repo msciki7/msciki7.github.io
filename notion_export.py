@@ -1,135 +1,158 @@
 import os
 import re
 from notion_client import Client
-from markdownify import markdownify
 from datetime import datetime
 
 # Load env vars
 notion = Client(auth=os.environ["NOTION_TOKEN"])
 DATABASE_ID = os.environ["NOTION_DATABASE_ID"]
 
-# --------------------------
-# Utility functions
-# --------------------------
+# ===================================================
+# Utility
+# ===================================================
 
-def slugify(title):
-    """Generate a clean filename slug."""
-    slug = title.lower()
-    slug = re.sub(r"[^\w\s-]", "", slug)
-    slug = re.sub(r"[\s]+", "-", slug)
-    return slug.strip("-")
+def slugify(text):
+    text = text.lower()
+    text = re.sub(r"[^\w\s-]", "", text)
+    text = re.sub(r"[\s]+", "-", text)
+    return text.strip("-")
 
 
 def convert_block(block):
-    """Convert Notion block to Markdown."""
-    block_type = block["type"]
+    """Convert Notion block → Markdown"""
+    t = block["type"]
     md = ""
 
-    if block_type == "paragraph":
-        texts = block["paragraph"]["rich_text"]
-        md += "".join(t["plain_text"] for t in texts) + "\n\n"
+    if t == "paragraph":
+        text = "".join(r["plain_text"] for r in block[t]["rich_text"])
+        md += text + "\n\n"
 
-    elif block_type == "heading_1":
-        text = "".join(t["plain_text"] for t in block["heading_1"]["rich_text"])
+    elif t == "heading_1":
+        text = "".join(r["plain_text"] for r in block[t]["rich_text"])
         md += f"# {text}\n\n"
 
-    elif block_type == "heading_2":
-        text = "".join(t["plain_text"] for t in block["heading_2"]["rich_text"])
+    elif t == "heading_2":
+        text = "".join(r["plain_text"] for r in block[t]["rich_text"])
         md += f"## {text}\n\n"
 
-    elif block_type == "heading_3":
-        text = "".join(t["plain_text"] for t in block["heading_3"]["rich_text"])
+    elif t == "heading_3":
+        text = "".join(r["plain_text"] for r in block[t]["rich_text"])
         md += f"### {text}\n\n"
 
-    elif block_type == "bulleted_list_item":
-        text = "".join(t["plain_text"] for t in block["bulleted_list_item"]["rich_text"])
+    elif t == "bulleted_list_item":
+        text = "".join(r["plain_text"] for r in block[t]["rich_text"])
         md += f"- {text}\n"
 
-    elif block_type == "numbered_list_item":
-        text = "".join(t["plain_text"] for t in block["numbered_list_item"]["rich_text"])
+    elif t == "numbered_list_item":
+        text = "".join(r["plain_text"] for r in block[t]["rich_text"])
         md += f"1. {text}\n"
 
     return md
 
 
-# --------------------------
-# Read pages from Notion DB
-# --------------------------
+# ===================================================
+# Read every page (any status)
+# ===================================================
 
-def get_pages():
-    """Query Notion database for Published items."""
-    response = notion.databases.query(
-        database_id=DATABASE_ID,
-        filter={
-            "property": "Status",
-            "select": {"equals": "Published"}
-        }
-    )
+def get_all_pages():
+    response = notion.databases.query(database_id=DATABASE_ID)
     return response["results"]
 
 
-# --------------------------
-# Export a single Notion page
-# --------------------------
+# ===================================================
+# Delete GitHub file
+# ===================================================
+
+def delete_file_if_exists(path):
+    if os.path.exists(path):
+        os.remove(path)
+        print(f"🔥 Deleted: {path}")
+        return True
+    return False
+
+
+# ===================================================
+# Export single Notion page
+# ===================================================
 
 def export_page(page):
-    page_id = page["id"]
-    title = page["properties"]["Name"]["title"][0]["text"]["content"]
+    props = page["properties"]
 
-    # 날짜
-    date_prop = page["properties"].get("Date")
-    if date_prop and date_prop["date"]:
-        date_str = date_prop["date"]["start"]
-    else:
-        date_str = datetime.now().strftime("%Y-%m-%d")
+    # Title
+    title = props["Name"]["title"][0]["text"]["content"]
+    slug = slugify(title)
 
-    # 카테고리 = Notion 속성 "Class"
-    category_raw = page["properties"].get("Class", {}).get("select", {}).get("name", "uncategorized")
+    # Status
+    status = props.get("Status", {}).get("select", {}).get("name", "Draft")
+
+    # Category (Class)
+    category_raw = props.get("Class", {}).get("select", {}).get("name", "uncategorized")
     category_slug = slugify(category_raw)
 
-    # 태그
-    tags = page["properties"].get("Tags", {}).get("multi_select", [])
+    # Chapter (optional)
+    chapter_raw = props.get("Chapter", {}).get("rich_text", [])
+    chapter_name = chapter_raw[0]["plain_text"] if chapter_raw else "general"
+    chapter_slug = slugify(chapter_name)
+
+    # Date
+    date_prop = props.get("Date")
+    date_str = date_prop["date"]["start"] if (date_prop and date_prop["date"]) \
+        else datetime.now().strftime("%Y-%m-%d")
+
+    # File path
+    folder_path = f"_posts/category-{category_slug}/{chapter_slug}"
+    filename = f"{folder_path}/{date_str}-{slug}.md"
+
+    # =============== Status: Deleted ===============
+    if status == "Deleted":
+        delete_file_if_exists(filename)
+        return
+
+    # =============== Status: Not Published ===============
+    if status != "Published":
+        return
+
+    # =============== Overwrite 방지 ===============
+    if os.path.exists(filename):
+        print(f"⛔ Skip (already exists): {filename}")
+        return
+
+    # Create folder
+    os.makedirs(folder_path, exist_ok=True)
+
+    # Tags
+    tags = props.get("Tags", {}).get("multi_select", [])
     tag_list = [t["name"] for t in tags]
 
-    # front matter
+    # Load blocks
+    blocks = notion.blocks.children.list(page["id"])
+    md_body = "".join(convert_block(b) for b in blocks["results"])
+
+    # Front matter
     fm = "---\n"
     fm += f"title: \"{title}\"\n"
     fm += f"date: {date_str}\n"
     fm += f"category: {category_raw}\n"
+    fm += f"chapter: {chapter_name}\n"
     if tag_list:
         fm += "tags:\n"
         for t in tag_list:
             fm += f"  - {t}\n"
     fm += "---\n\n"
 
-    # 본문
-    blocks = notion.blocks.children.list(page_id)
-    md_body = "".join(convert_block(b) for b in blocks["results"])
-
-    # 파일명 + 폴더 경로
-    slug = slugify(title)
-    folder_path = f"_posts/category-{category_slug}"
-    os.makedirs(folder_path, exist_ok=True)
-
-    filename = f"{folder_path}/{date_str}-{slug}.md"
-
+    # Write markdown
     with open(filename, "w", encoding="utf-8") as f:
         f.write(fm + md_body)
 
-    print(f"Generated: {filename}")
+    print(f"✅ Exported: {filename}")
 
 
-
-# --------------------------
+# ===================================================
 # Main
-# --------------------------
+# ===================================================
 
 def main():
-    pages = get_pages()
-    if not pages:
-        print("No Published pages found.")
-        return
-
+    pages = get_all_pages()
     for p in pages:
         export_page(p)
 
