@@ -119,7 +119,7 @@ Connection-oriented transport: TCP
 
 &ensp;SampleRTT<br/>
 * 실제 한 세그먼트 전송 → ACK 수신까지의 시간
-* 재전송된 세그먼트는 무시(왜냐면 어떤 세그먼트의 ACK인지 헥살릴 수 있으니까)
+* 재전송된 세그먼트는 무시(왜냐면 어떤 세그먼트의 ACK인지 판단하지 못 할 수 있기 때문)
 
 &ensp;Estimated RTT<br/>
 * RTT는 매번 다르기 때문에 최근 측정값 여러 개를 평균 내어 부드럽게 추정
@@ -360,7 +360,7 @@ TCP Header
 <p align="center"><img src="/assets/img/Computer Network/chapter3. Transport-layer services/3-51.png" width="500"></p>
 
 * 클라이언트: `req_conn(x)` 전송
-* 서버: `acc_conn(x)` 수학
+* 서버: `acc_conn(x)` 수락
 * 이후 데이터 주고받음 → 정상적인 연결 성립
 
 &ensp;문제 시나리오 2 — "Half-Open Connection"<br/>
@@ -581,8 +581,8 @@ Principles of congestion control
 &ensp;현실에는 라우터 버퍼가 꽉 차거나 패킷 손실이 발생하면 재전송이 필요하다. 하지만 송신자(sender)가 너무 일찍 timeout 되는 경우 아직 살아있는 패킷도 손실된 줄 알고 다시 보냄<br/>
 &ensp;그 결과 같은 패킷이 2번 도착하는 문제(Unneeded duplicates) 발생한다.<br/>
 
-* 빨간 선 `λ_in`: 원래 전송된 데이터 속도
-* 빨간 굵은 선 `λ'_in`: 재전송 포함된 실제 전송 속도 → `λ'_in ≥ λ_in`
+* `λ_in`: 원래 전송된 데이터 속도
+* `λ'_in`: 재전송 포함된 실제 전송 속도 → `λ'_in ≥ λ_in`
 * 라우터는 `finite buffer` 를 가짐 → 일부 패킷이 버려짐
 * 송신자는 `timeout` 발생 → 같은 패킷을 재전송 (둘 다 도착함)
 

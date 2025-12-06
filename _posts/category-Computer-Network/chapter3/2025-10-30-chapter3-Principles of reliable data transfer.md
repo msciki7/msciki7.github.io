@@ -22,7 +22,7 @@ Principles of reliable data transfer
 &ensp;신뢰적 전송은 엉망인 네트워크(손실/오류/재정렬)위에 문제없어 보이는 파이프9(추상화)를 프로토콜(구체 구현)로 흉내 내는 기술이다. 보내는 쪽(sender)과 받는 쪽(receiver)의 서로의 상태를 볼 수 없고 오직 메시지(ACK/NAK 등)로만 확인한다.<br/>
 
 
-&ensp;1. 신뢰적 채널은 추상화(absstraction)<br/>
+&ensp;1. 신뢰적 채널은 추상화(abstraction)<br/>
 * 애플리케이션(HTTP, gRPC 등)은 "데이터를 주면 그대로 잘 간다"라고 믿고 사용한다.
 * 이 믿음이 바로 reliable service abstraction 
 
@@ -152,6 +152,7 @@ Principles of reliable data transfer
 ```
 
 &ensp;핵심 요약<br/>
+
 | 항목             | 설명                                  |
 | -------------- | ----------------------------------- |
 | **rdt1.0의 전제** | 완벽한 채널 (no error, no loss)          |
@@ -643,7 +644,7 @@ rcv ack1
 * 수신자는 중복 데이터임을 인식(`detect duplicate`)
 * 하지만 여전히 ACK을 다시 보냄
 
-&ensp;중복 ACK이 손상된 ACK 복구 역할을 수행한다. 데이터 중복은 seq 번호 덕부넹 안전하게 처리된다.<br/>
+&ensp;중복 ACK이 손상된 ACK 복구 역할을 수행한다. 데이터 중복은 seq 번호 덕분에안전하게 처리된다.<br/>
 
 &ensp;Premauture Timeout / Delay ACK - ACK 지연<br/>
 <p align="center"><img src="/assets/img/Computer Network/chapter3. Transport-layer services/3-27.png" width="500"></p>
