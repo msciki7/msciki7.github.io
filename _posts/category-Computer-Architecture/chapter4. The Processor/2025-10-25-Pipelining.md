@@ -124,10 +124,10 @@ Pipeline Performance (파이프라인 성능)
 
 &ensp;속도 향상(Speedup)<br/>
 &ensp;이제 수식으로 비교<br/>
-&ensp;🧩 비파이프라인 (non-pipelined)<br/>
+&ensp;비파이프라인 (non-pipelined)<br/>
 * 명령어 n개 실행 시간 = n × (k × t)
 
-&ensp;🧩 파이프라인 (pipelined)<br/>
+&ensp;파이프라인 (pipelined)<br/>
 * 첫 번째 명령어가 끝나기까지: k사이클
 * 나머지 n−1개의 명령어는 매 사이클마다 하나씩 끝남<br/>
 &ensp;→ 총 사이클 수 = (k − 1) + n<br/>
@@ -695,6 +695,7 @@ Pipelined Control
 * beq가 도착하면 EX에서 비교 → PCSrc로 상단 PC MUX가 분기목적지를 고르고, IF/ID에 들어와 있던 오염된 명령은 flush(NOP)될 수 있다.(교재 정책에 따라 1~2 사이클 낭비)
 
 &ensp;사이클별 파이프라인 표<br/>
+
 | Clock | IF     | ID     | EX     | MEM    | WB     |
 | ----: | ------ | ------ | ------ | ------ | ------ |
 |     1 | **I1** |        |        |        |        |
@@ -713,6 +714,7 @@ Pipelined Control
     - not-taken이면 위 표 그대로 진행
 
 &ensp;명령어별 제어신호(정석 값)<br/>
+
 &ensp;ID 단계에서 생성되어, 필요한 단계까지 파이프라인 레지스터(ID/EX, EX/MEM, MEM/WB) 를 통해 전달된다.<br/>
 | Instr      | RegDst | ALUOp1 | ALUOp0 | ALUSrc | Branch | MemRead | MemWrite | RegWrite | MemtoReg |
 | ---------- | :----: | :----: | :----: | :----: | :----: | :-----: | :------: | :------: | :------: |
