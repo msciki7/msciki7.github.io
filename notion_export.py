@@ -3,7 +3,9 @@ import re
 from notion_client import Client
 from datetime import datetime
 
+# --------------------------
 # Load env vars
+# --------------------------
 notion = Client(auth=os.environ["NOTION_TOKEN"])
 DATABASE_ID = os.environ["NOTION_DATABASE_ID"]
 
@@ -67,7 +69,7 @@ def convert_block(block):
 # --------------------------
 
 def get_pages():
-    """모든 Published / Deleted 페이지 가져오기."""
+    """Published / Deleted 페이지 가져오기."""
     response = notion.databases.query(
         database_id=DATABASE_ID,
         filter={
@@ -87,7 +89,7 @@ def get_pages():
 def export_page(page):
     props = page["properties"]
 
-    # ------------ 상태 확인 ------------------
+    # ------------ Status ------------------
     status_prop = props.get("Status")
     if status_prop and status_prop.get("select"):
         status = status_prop["select"]["name"]
@@ -96,35 +98,33 @@ def export_page(page):
 
     if status == "Draft":
         print("🔸 Draft → SKIP")
-        return None
+        return
 
-    # ------------ 제목 -----------------------
+    # ------------ Title -------------------
     title = props["Name"]["title"][0]["text"]["content"]
 
-    # ------------ 날짜 -----------------------
+    # ------------ Date --------------------
     date_prop = props.get("Date")
     if date_prop and date_prop["date"]:
         date_str = date_prop["date"]["start"]
     else:
         date_str = datetime.now().strftime("%Y-%m-%d")
 
-    # ------------ category -------------------
+    # ------------ Category ----------------
     category_raw = props.get("Class", {}).get("select", {}).get("name", "uncategorized")
     category_slug = slugify(category_raw)
 
-    # ------------ chapter folder -------------
+    # ------------ Chapter folder ----------
     chapter_folder = extract_chapter_folder(title)
 
-    # ------------ tags -----------------------
+    # ------------ Tags --------------------
     tags = props.get("Tags", {}).get("multi_select", [])
     tag_list = [t["name"] for t in tags]
 
-    # ------------ front matter ---------------
+    # ------------ Front matter ------------
     fm = "---\n"
     fm += f"title: \"{title}\"\n"
     fm += f"date: {date_str}\n"
-
-    # ★★ Minimal Mistakes는 categories: 배열 형태여야 함
     fm += "categories:\n"
     fm += f"  - {category_raw}\n"
 
@@ -132,20 +132,21 @@ def export_page(page):
         fm += "tags:\n"
         for t in tag_list:
             fm += f"  - {t}\n"
+
     fm += "---\n\n"
 
-    # ------------ 본문 -----------------------
+    # ------------ Body --------------------
     blocks = notion.blocks.children.list(page["id"])
     md_body = "".join(convert_block(b) for b in blocks["results"])
 
-    # ------------ 파일 경로 -------------------
+    # ------------ File path ---------------
     slug = slugify(title)
     folder = f"_posts/category-{category_slug}/{chapter_folder}"
     os.makedirs(folder, exist_ok=True)
 
     filename = f"{folder}/{date_str}-{slug}.md"
 
-    # ------------ Status가 Deleted인 경우 삭제 ------------
+    # ------------ Deleted → file delete ---
     if status == "Deleted":
         if os.path.exists(filename):
             os.remove(filename)
@@ -154,16 +155,11 @@ def export_page(page):
             print("🗑️ Deleted but file not found:", filename)
         return
 
-    # ------------ 기존 파일 있으면 덮어쓰기 금지 ------------
-    if os.path.exists(filename):
-        print(f"⏭ Already exists, skip: {filename}")
-        return
-
-    # ------------ 파일 생성 -------------------
+    # ------------ ⭐ Always write (overwrite allowed) ---
     with open(filename, "w", encoding="utf-8") as f:
         f.write(fm + md_body)
 
-    print(f"✅ Generated: {filename}")
+    print(f"✅ Generated/Updated: {filename}")
 
 
 # --------------------------
