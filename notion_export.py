@@ -5,7 +5,7 @@ from datetime import datetime
 
 # Load env vars
 notion = Client(auth=os.environ["NOTION_TOKEN"])
-DATABASE_ID = os.environ["NOTION_DATABASE_ID"]ㅇ
+DATABASE_ID = os.environ["NOTION_DATABASE_ID"]
 
 # --------------------------
 # Utility functions
