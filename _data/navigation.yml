@@ -47,4 +47,5 @@ docs:
     children:
      - title: "김영한의 자바"
        url: "/categories/김영한의 자바"
-     
+     - title: "SISC-Web"
+       url: "/categories/SISC-Web"
