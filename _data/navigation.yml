@@ -39,7 +39,9 @@ docs:
        url: "/categories/Computer Architecture"
      - title: "문제해결 및 실습-Java"
        url: "/categories/문제해결 및 실습-Java"
- 
+     - title: "data structure"
+       url: "/categories/data structure"
+  
 
 
   - title: Backend
