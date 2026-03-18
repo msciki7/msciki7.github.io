@@ -592,4 +592,26 @@ $$w = A(z - a)$$
 # Probabilistic methods
 
 &ensp;영상의 intensity 값을 확률 변수처럼 본다.<br/>
-&ensp;가능한 
+&ensp;가능한 intensity 값들을<br/>
+
+$$z_i, i = 0, 1, ..., L-1$$
+
+&ensp;라고 두고 각 값이 등장하는 확률 $p(z_k)$를 정의한다.<br/>
+
+&ensp;이걸로 구하는 것<br/>
+&ensp;1) 평균 밝기<br/>
+
+$$m = \sum z_kp(z_k)$$
+
+&ensp;2) 분산<br/>
+
+$$\sigma ^2 = \sum (z_k - m)^2p(z_k)$$
+
+&ensp;3) n차 모멘트<br/>
+
+$$\mu _n = \sum (z_k - m)^np(z_k)$$
+
+&ensp;의미<br/>
+&ensp;이건 히스토그램 기반 영상 통계의 출발점<br/>
+&ensp;즉 영상 전체의 밝기 분포를 수학적으로 분석할 수 있게 된다.<br/>
+
