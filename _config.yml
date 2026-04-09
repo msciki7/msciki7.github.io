@@ -21,7 +21,7 @@ collections:
     output: true
     permalink: /:categories/:title/
 
-title                    : "생명 공학과에서 컴공으로 탈출하기" # 사이드 탬에서 보이는 이름
+title                    : "생명 공학과에서 컴공으로 컴공에서 기계과로 탈출하기" # 사이드 탬에서 보이는 이름
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Sohee" # 화면 하단 영역의 이름
