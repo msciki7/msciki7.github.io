@@ -352,6 +352,305 @@ $$H_1(w_1) = 3 - 2cos(w_1), H_2(w_2) = 3 - 2cos(w_2)$$
 
 $$H(w_1, w_2) = H_1(w_1)H_2(w_2)$$
 
-<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-23\4.png" width="600"></p>
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-24.png" width="600"></p>
 
 &ensp;이 응답은 고주파 쪽이 강하므로 HPF이다. 즉 샤프닝이나 에지 강조에 쓰이는 형태다.<br/>
+
+## DTFT vs DSFT vs DFT
+
+&ensp;DTFT, DSFT, DFT가 서로 완전히 다른 개념이 아니라 **모든 푸리에 변환은 신호를 주파수 성분으로 분해하는 것**이다.<br/>
+&ensp;차이<br/>
+* 입력이 연속인가, 이산인가
+* 출력 주파수가 연속인가, 샘플링된 값인가
+* 실제 구현 가능한가
+
+&ensp;연속 신호<br/>
+
+$$f(x) \to F(u) or F(jw)$$
+
+&ensp;즉 입력 f(x)는 연속 함수이고 푸리에 변환 결과도 연속적인 주파수 변수 u 또는 w의 함수이다.<br/>
+
+&ensp;샘플링된 이산 신호<br/>
+
+$$f(n) \to \tilde{F}(e^{j\hat{w}})$$
+
+&ensp;즉 입력이 이산 신호가 되면 출력은 **연속적이지만 주기적인 주파수 함수**가 된다.<br/>
+
+&ensp;실제 컴퓨터에서의 DFT<br/>
+&ensp;DTFT는 주파수축이 연속이라서 컴퓨터가 그대로 다룰 수 없다.<br/>
+1. 주기적인 스펙트럼에서 한 주기만 뽑고
+2. 그 한 주기를 일정 간격으로 샘플링한 것
+
+&ensp;DFT는 DTFT를 실제 계산 가능하도록 만든 버전이라고 이해하면 된다.<br/>
+
+&ensp;연속 Fourier Transform → DTFT → DFT 관계<br/>
+&ensp;(1) 연속시간/연속공간 FT<br/>
+&ensp;입력도 연속, 출력 주파수도 연속<br/>
+&ensp;예<br/>
+$$F(u) = \int_{-\infty }^{\infty }f(x)e^{-j2\pi ux}dx$$
+
+&ensp;(2) DTFT / DSFT<br/>
+&ensp;입력은 이산이지만 출력 주파수는 여전히 연속<br/>
+&ensp;예<br/>
+
+$$X(e^{j\hat{w}}) = \sum_{n=-\infty }^{\infty }x[n]e^{-j\hat{w}n}$$
+
+&ensp;여기서 중요한 건 주기성이다. 이산 신호의 변환 결과는 2π-periodic 하다.<br/>
+
+&ensp;(3) DFT<br/>
+&ensp;출력 주파수축도 샘플링해서 유한 개 값만 남긴 것<br/>
+&ensp;컴퓨터는 연속 주파수 전체를 다루지 못하니까 주기적 스펙트럼의 한 주기에서 몇 개 점만 뽑아서 계산한다. 그래서 DFT는 결국 **주파수축을 샘플링한 값들의 집합**이다.<br/>
+
+&ensp;sampling for digital computer: 2π/N<br/>
+&ensp;DFT에서 주파수 샘플링 간격이 일정하다는 뜻<br/>
+
+&ensp;주파수축 한 주기는 길이가 2π이다. 그걸 N개 점으로 나누면 한 칸 간격은<br/>
+
+$$\Delta \hat{w} = \frac{2\pi }{N}$$
+
+&ensp;이 된다.<br/>
+&ensp;그래서 DFT에서 주파수 샘플 위치는<br/>
+
+$$\hat{w}_k = \frac{2\pi k}{N} , k=0,1,...,N-1$$
+
+&ensp;가 된다.<br/>
+
+&ensp;중요한 이유<br/>
+&ensp;DFT는 사실 DTFT를 아래 점들에서만 계산한 값이다.<br/>
+
+$$X[k] = X(e^{j\hat{w}})|_{\hat{w} = w2\pi k/N}$$
+
+&ensp;DFT = DTFT를 한 주기에서 N개 점만 찍어서 본 것<br/>
+
+# DFT(Discrete Fourier Transform)
+
+&ensp;DFT는 유한 실이 이산 신호를 다룬다.<br/>
+&ensp;즉 신호가 무한히 이어지는 것이 아니라 딱 N개 샘플만 있다고 생각한다.<br/>
+
+$$f(0), f(1), f(2), ..., f(N-1)$$
+
+&ensp;이렇게 N개만 본다.<br/>
+
+&ensp;주파수축도 연속으로 보지 않는다. 한 주기 $2\pi$ 를 N개 점으로 나누어서 본다.<br/>
+&ensp;즉 주파수 샘플 위치를<br/>
+
+$$\hat{w}_k = \frac{2\pi k}{N}, k =0, 1,..., N-1$$
+
+&ensp;이렇게 잡는다.<br/>
+&ensp;이 말은 곧 원래 연속적인 DTFT $X(e^{j\hat{w}})$ 를 아무 $\hat{w}$ 에서나 보는 것이 아니라 딱 N개의 정해진 위치에서만 보겠다는 뜻이다.<br/>
+&ensp;그래서 DFT는 주파수축을 샘플링한 결과라고 이해하면 된다.<br/>
+
+&ensp;그래서 DFT 식이 나온다.<br/>
+&ensp;원래 DTFT식은<br/>
+
+$$X(e^{j\hat{w}}) = \sum_{n=-\infty }^{\infty }x[n]e^{-j\hat{w}n}$$
+
+&ensp;형태였다.<br/>
+&ensp;그런데 DFT에서는<br/>
+* 신호를 n = 0 부터 N-1까지만 보고
+* 주파수도 $\hat{w} = \frac{2\pi k}{N}$ 에서만 본다.
+
+&ensp;이 두 가지를 넣으면 식이 이렇게 바뀐다.<br/>
+
+$$F(k) = \sum_{n=0}^{N-1}f(n)e^{(-j2\pi k/N)n}$$
+
+&ensp;DTFT를 유한 길이 신호와 유한 개 주파수 샘플에 맞게 바꾼 것<br/>
+
+&ensp;$W_N$ 표기를 쓰는 이유<br/>
+
+$$F(k) = \sum_{n=0}^{N-1}f(n)W_N^{kn}$$
+
+&ensp;라고도 쓴다.<br/>
+
+$$W_N = e^{-j2\pi /N}$$
+
+&ensp;매번 $e^{-j2\pi /N}$ 를 길게 쓰지 않고 간단히 쓰기 위해서다.<br/>
+
+$$W_N^{kn} = (e^{-j2\pi /N})^{kn} = e^{-j2\pi kn/N}$$
+
+&ensp;$W_N$ 는 DFT의 기본 회전 단위라고 생각하면 된다.<br/>
+
+&ensp;k는 무엇을 뜻할까?<br/>
+&ensp;k는 단순 인덱스가 아니라 몇 번째 주파수 성분을 보는가를 뜻한다.<br/>
+* k=0: 가장 낮은 주파수, DC 성분
+* k=1: 그 다음 주파수
+* k=2: 더 높은 주파수
+* k = N − 1: 마지막 샘플 주파수
+
+&ensp;DFT는 신호를 보고 “이 신호 안에 각 주파수 성분이 얼마나 들어 있는가?”를 N개 숫자로 정리한 것이다.<br/>
+
+&ensp;inverse DFT<br/>
+&ensp;주파수 성분만 구하면 끝이 아니다. 원래 신호로 다시 돌아올 수도 있어야 한다.<br/>
+
+$$f(n) = \frac{1}{N}\sum_{k=0}^{N-1}F(k)W_{N}^{-kn} = \frac{1}{N}\sum_{k=0}^{N-1}F(k)e^{j2\pi kn/N}$$
+
+&ensp;정방향 DFT는 신호를 주파수 성분으로 분해하고, 역 DFT는 그 주파수 성분들을 다시 합쳐서 원래 신호를 복원한다.<br/>
+
+&ensp;F(k) = F(k + N)인 이유<br/>
+$$F(k) = F(k + N)$$
+
+&ensp;DFT 결과가 주기 N 를 가진다는 뜻<br/>
+
+$$F(k+N) = \sum_{n=0}^{N-1}f(n)e^{-j2\pi (k+N)n/N}$$
+
+&ensp;n은 정수니까 $e^{-j2\pi n} = 1$ 이다.<br/>
+&ensp;따라서<br/>
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-25.png" width="600"></p>
+
+&ensp;f(n) = f(n + N)이라고도 쓰는 이유<br/>
+&ensp;이건 DFT가 신호를 볼 때 길이 N짜리 데이터를 주기 N 으로 반복되는 신호처럼 본다는 뜻이다.<br/>
+&ensp;이 성질은 뒤에서 굉장히 중요해진다. 왜냐하면 DFT 기반 convolution을 그대로 하면 선형 convolution이 아니라 circular convolution이 되기 때문이다.<br/>
+
+&ensp;시험에 나올 수 있는 부분 체크<br/>
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-26.png" width="600"></p>
+
+&ensp;DFT는 신호를 어떤 특별한 벡터들 위에 분해하는 과정이다.<br/>
+&ensp;길이 N인 신호 f(0), f(1),...,f(N-1)를 어떤 특별한 basis들의 조합으로 보는 것이다.<br/>
+&ensp;그 특별한 basis가 바로 **사인/코사인 형태의 진동 벡터들**이다.<br/>
+* 원래 신호를
+* 여러 주파수의 진동 성분들에 얼마나 닮았는지 계산해서
+* 그 계수들을 F(k)로 나타낸다
+
+&ensp;DFT 식에서<br/>
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-27.png" width="600"></p>
+
+&ensp;이므로<br/>
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-28.png" width="600"></p>
+
+&ensp;DFT가 결국 cosine 성분과의 유사도, sine 성분과의 유사도 를 구하는 것<br/>
+
+## DFT(basis): orthogonal bases 
+
+&ensp;그 basis들이 정말 분해에 적합한가? 서로 섞여 있으면 깔끔하게 분해할 수 없지 않을까?
+-> 이 질문은 DFT의 basis vector들은 서로 orthogonal하다는 것으로 해결<br/>
+
+&ensp;예<br/>
+&ensp;N=4일 때 DFT 식<br/>
+&ensp;일반적인 DFT는<br/>
+
+$$F(k) = \frac{1}{N}\sum_{n=0}^{N-1}f(n)W_N^{kn}$$
+
+&ensp;형태로 쓸 수 있다.<br/>
+
+&ensp;여기서 N = 4이므로<br/>
+
+$$W_4 = e^{-j2\pi /4} = e^{=j\pi /2}$$
+
+&ensp;이다.<br/>
+&ensp;이 값을 하나씩 써보면<br/>
+<p align="center"><img sr렬="/assets/img/Digital Image Processing/chap4/4-29.png" width="600"></p>
+
+&ensp;행렬은 다음처럼 생긴다.<br/>
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-30.png" width="600"></p>
+
+&ensp;여기서 행렬 A의 각 행(row)이 바로 하나의 basis vector라고 볼 수 있다.<br/>
+* 첫 번째 행: k=0 주파수 basis
+* 두 번째 행: k=1 주파수 basis
+* 세 번째 행: k=2 주파수 basis
+* 네 번째 행: k=3 주파수 basis
+
+&ensp;첫 번재 basis $v_0$ 는 왜 [1, 1, 1, 1]일까?<br/>
+&ensp;k =0 이면 $W_4^{0n} = 1$ 이므로 첫 번째 행은 [1, 1, 1, 1] 이 된다.<br/>
+&ensp;이건 진동이 전혀 없는 상수 성분이다. 즉, DC basis이다. 그래서 F(0)는 입력 신호 전체 평균 또는 합과 연결된다.<br/>
+
+&ensp;나머지 basis들은 왜 복소수 진동 모양인 이유<br/>
+&ensp;예를 들어 k = 1이면 $[1, W_4, W_4^2, W_4^3]$ 가 된다.<br/>
+&ensp;아까 계산한 값을 넣으면 [1, -j, -1, j] 이다.<br/>
+&ensp;이 벡터는 샘플이 진행될수록 복소평면에서 회전하는 패턴을 나타낸다. 즉 **한 주기 회전 성분**이다. 마찬가지로 k = 2, k = 3도 각각 다른 진동구를 가진 basis가 된다.<br/>
+&ensp;즉, DFT의 각 행은 “서로 다른 주파수로 회전하는 복소 지수 벡터”이다.<br/>
+
+&ensp;여기서 왜 orthogonal이 나올까?<br/>
+&ensp;벡터를 basis로 쓰려면 서로 겹치지 않아야 한다. 즉, 어떤 basis 하나가 다른 basis의 성분을 포함하면 신호를 깔끔하게 분해할 수 없다. 그래서 이 $v_0, v_1, v_2,, v_3$ 가 서로 **orthogonal 하다**는 것을 보여준다.<br/>
+
+&ensp;벡터가 orthogonal하다는 것은 내적(inner product)이 0이라는 뜻이다.<br/>
+&ensp;즉<br/>
+
+$$v_i^Tv_j^* = 0$$
+
+&ensp;이면 서로 직교한다. (*: 복소켤레)<br/>
+
+&ensp;$v_i^Tv_j^* = 0$ 계산이 되는 이유<br/>
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-31.png" width="600"></p>
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-32.png" width="600"></p>
+
+&ensp;orthogonal과 orthonormal의 차이<br/>
+&ensp;orthogonal: 서로 직교만 하면 된다. 즉, 다른 벡터끼리 내적이 0이면 된다.<br/>
+&ensp;orthonormal: 직교하면서, 각 벡터의 norm까지 1이어야 한다.<br/>
+
+&ensp;핵심: DFT는 아무 벡터들이 아니라 **서로 직교하는 주파수 basis들**을 사용해서 신호를 깔끔하게 분해하는 변환이다.<br/>
+
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-33.png" width="600"></p>
+
+## Orthogonality of DFT
+
+&ensp;DFT의 basis 함수들은 임의의 N에 대해서도 서로 직교한다<br/>
+
+&ensp;1. 어떤 함수들이 basis인가<br/>
+
+$$\phi _k[n] = e^{jk\Omega _0n}$$
+
+&ensp;로 둔다.<br/>
+&ensp;여기서 $\Omega _0 = \frac{2\pi }{N}$ 이다.<br/>
+* n: 샘플 인덱스
+* k: 몇 번째 주파수 basis인지 나타내는 번호
+* $\Omega _0$ : 한 샘플당 기본 각주파수 간격
+
+&ensp;이 basis 함수들이 서로 직교함을 확인해보자<br/>
+&ensp;직교성은 내적으로 판단하면 된다.<br/>
+
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-34.png" width="600"></p>
+
+&ensp;왜 orthogonal이지 orthonormal은 아닌가<br/>
+* 서로 다른 basis끼리는 내적이 0
+* 자기 자신과는 내적이 N
+
+&ensp;직교(orthogonal)는 맞지만 자기 자신과의 내적이 1이 아니므로 아직 정규화(normalized)되지는 않았다.<br/>
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-35.png" width="600"></p>
+
+## 1. 1-Dimensional DFT
+
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-36.png" width="600"></p>
+
+* x: 공간축 샘플 인덱스
+* u: 주파수축 인덱스
+* M: 전체 샘플 개수
+
+1. DFT는 이산 함수 f(x)를 주파수 영역 F(u)로 바꾸는 식이다.
+2. inverse DFT를 통해 다시 원래 신호 f(x)를 복원할 수 있다.
+3. 복소 지수는 오일러 공식으로 사인/코사인 형태로 볼 수 있다.
+
+&ensp;시험에 볼 부분<br/>
+&ensp;정방향 DFT와 역 DFT 식의 쌍을 정확히 구분해야 한다.<br/>
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-37.png" width="600"></p>
+
+* 정방향에는 마이너스 지수
+* 역방향에는 플러스 지수
+* 역방향에만 1/M
+
+### DFT Example
+
+&ensp;Parseval theorem의 DFT 버전<br/>
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-38.png" width="600"></p>
+
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-39.png" width="600"></p>
+
+&ensp;왼쪽은 원래 신호 f(x)의 총 에너지이다.<br/>
+&ensp;오른쪽은 주파수 성분 F(u)들의 총 에너지에 1/N을 곱한 값이다.<br/>
+&ensp;DFT는 신호의 에너지를 없애거나 새로 만들지 않고 그저 다른 좌표계에서 다시 표현하는 것이라는 뜻이다.<br/>
+
+&ensp;$\frac{1}{N}$ 이 붙는 이유<br/>
+&ensp;이건 DFT 정의에서 inverse DFT에 $\frac{1}{N}$ 이 들어가기 때문이다. 즉 어떤 정규화 convention을 쓰느냐에 따라 앞이나 뒤에 계수가 붙을 수 있는데 정방향에 정규화가 없고 역변환에 $\frac{1}{N}$ 이 들어가는 형태를 쓰기 때문에 에너지 식에도 $\frac{1}{N}$ 이 등장한다.<br/>
+
+### Parseval theorem
+
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-40.png" width="600"></p>
+
+&ensp;에서 시작해서 inverse DFT를 이용해 정리를 진행한다.<br/>
+
+&ensp;Parseval theorem은 원래 신호를 공간축에서 보든, DFT를 취해서 주파수축에서 보든, 전체 에너지는 동일한 정보를 담고 있다.<br/>
+&ensp;정규화 방식에서는<br/>
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-41.png" width="600"></p>
+
+&ensp;주파수 영역에서 특정 성분이 커졌다면 그건 원래 신호 안에 해당 에너지가 많이 들어 있다는 뜻이다. 그래서 DFT 스펙트럼을 보고 어떤 주파수 성분이 강한지, 신호가 저주파 위주인지 고주파 위주인지 등을 해석할 수 있다.<br/>
+
+<p align="center"><img src="/assets/img/Digital Image Processing/chap4/4-42.png" width="600"></p>
