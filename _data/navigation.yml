@@ -54,3 +54,10 @@ docs:
        url: "/categories/김영한의 자바"
      - title: "SISC-Web"
        url: "/categories/SISC-Web"
+
+  - title: Mechanical Engineering
+    use: true
+    children:
+     - title: "위성항법시스템 개론"
+       url: "/categories/위성항법시스템 개론"
+     
