@@ -44,7 +44,9 @@ docs:
      - title: "Digital Image Processing"
        url: "categories/Digital Image Processing"
      - title: "database"
-       url: "categories/database" 
+       url: "categories/database"
+     - title: "알고리즘 및 실습"
+       url: "categories/알고리즘 및 실습"  
 
 
   - title: Backend
@@ -59,5 +61,5 @@ docs:
     use: true
     children:
      - title: "위성항법시스템 개론"
-       url: "/categories/위성항법시스템 개론"
+       url: "/categories/위성항법시스템 개론" 
      
