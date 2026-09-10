@@ -46,7 +46,9 @@ docs:
      - title: "database"
        url: "categories/database"
      - title: "알고리즘 및 실습"
-       url: "categories/알고리즘 및 실습"  
+       url: "categories/알고리즘 및 실습" 
+     - title: "사물기계학습"
+       url: "categories/사물기계학습"   
 
 
   - title: Backend
