@@ -48,7 +48,9 @@ docs:
      - title: "알고리즘 및 실습"
        url: "categories/알고리즘 및 실습" 
      - title: "사물기계학습"
-       url: "categories/사물기계학습"   
+       url: "categories/사물기계학습"
+     - title: "인공지능수학"
+       url: "categories/인공지능수학"    
 
 
   - title: Backend
